@@ -1,0 +1,52 @@
+create database Estoque;
+
+	create table Fornecedor (
+	    codigoFornecedor int,
+	    endereco         varchar(100),
+	    telefone         varchar(15),
+	    nome             varchar(100),
+	    PRIMARY KEY (codigoFornecedor),
+	    UNIQUE  KEY (nome)
+	);
+
+	create table Unidade(
+	    codigoUnidade int,
+	    sigla         varchar(10),
+	    descricao     varchar(100),
+	    PRIMARY KEY (codigoUnidade),
+	    UNIQUE  KEY (sigla)
+	);
+
+	create table Produto(
+	    codigoProduto int,
+	    nomeProduto   varchar(15),
+	    codigoBarras  varchar(20),
+	    estoque       float,
+	    descricao     varchar(100),
+	    valorProduto  float,
+	    codigoUnidade int,
+	    PRIMARY KEY (codigoProduto),
+	    FOREIGN KEY (codigoUnidade) REFERENCES Unidade (codigoUnidade),
+	    UNIQUE  KEY (nomeProduto),
+	    UNIQUE  KEY (descricao)
+	);
+
+	create table Pedido(
+	    codigoPedido int,
+	    dataPedido date,
+	    valorPedido float,
+	    codigoFornecedor int,
+	    PRIMARY KEY (codigoPedido),
+	    FOREIGN KEY (codigoFornecedor) REFERENCES Fornecedor (codigoFornecedor)
+	);
+
+	create table ItemPedido(
+	    codigoItem int,
+	    codigoPedido int,
+	    codigoProduto int,
+	    quantidade float,
+	    valorItem float,
+	    PRIMARY KEY (codigoItem),
+	    FOREIGN KEY (codigoPedido)  REFERENCES Pedido  (codigoPedido),
+	    FOREIGN KEY (codigoProduto) REFERENCES Produto (codigoProduto)
+	);
