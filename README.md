@@ -5,7 +5,7 @@ Com o objetivo de otimizar investimentos, aumentar efiência de ferramentas inte
 ## Alunos integrantes da equipe
 
 * João Paolinelli
-* Diego Araujo Miranda
+* Diogo Araujo Miranda
 * Gustavo Martins Lopes da Costa
 * Danniel Henrique Correa Vieira
 
