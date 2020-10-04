@@ -115,7 +115,7 @@ projeto segue a seguinte convenção para o nome de branchs:
 
 Mais informações podem ser encontradas nesse [repositório](https://github.com/Warlord006/Estoque/blob/master/docs/4-Gest%C3%A3o-Configura%C3%A7%C3%A3o.md#controle-de-vers%C3%A3o) e nesse [link](https://guides.github.com/introduction/flow/).
 
-![GitHub Flow](images/github_flow.gif)
+![GitHub Flow](imagens/github_flow.gif)
 
 Seguindo o modelo apresentado acima, a branch master deve estar
 sempre pronta para deploy. Portanto, no momento que os pull-requests para a master são
