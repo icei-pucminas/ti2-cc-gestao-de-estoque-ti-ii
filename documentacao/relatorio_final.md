@@ -83,9 +83,12 @@ retornar uma resposta ao usuário.
 
     2.3. Serviços inteligentes
 
-Descreva o mecanismo de inteligência que será utilizado no seu sistema. Utilize a modelagem baseada em agente
-para definir as entradas e saídas do seu módulo de serviço inteligente. Apresente quem irá fornecer o serviço
-e em que módulo será utilizado.
+O sistema possui mecanismos de inteligência que melhoram o resultado final na utilização da aplicação. Basicamente
+o mecanismo busca realizar análises estatísticas com os dados gerados pela própria aplicação e dados extraídos da 
+internet, gerando relatórios essências para a tomada de decisões. O diagrama a seguir demonstra o fluxo de execução
+desse sistema inteligente
+
+![Fluxo do serviço inteligênte](imagens/servicoInteligente.png "Diagrama de tencologias")
 
 **3. Metodologia**
 
