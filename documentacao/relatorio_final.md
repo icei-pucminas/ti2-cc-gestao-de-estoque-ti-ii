@@ -1,11 +1,14 @@
-# TITULO DO PROJETO
+# Gestão de Estoque Inteligente
 
 
-**Nome completo do Aluno 1, email do aluno 1**
+**Diogo Araújo Miranda, diogoaraujomiranda@hotmail.com**
 
-**Nome completo do Aluno 2, email do aluno 2**
+**Danniel Henrique Correa Vieira, danniel.hcvieira@gmail.com**
 
-**Nome completo do Aluno 3, email do aluno 3**
+**Gustavo Martins Lopes da Costa, gusluud@gmail.com**
+
+**João Paolinelli,  **
+
 
 ---
 
@@ -88,23 +91,59 @@ Descreva o mecanismo de inteligência que será utilizado no seu sistema. Utiliz
 para definir as entradas e saídas do seu módulo de serviço inteligente. Apresente quem irá fornecer o serviço
 e em que módulo será utilizado.
 
-	
-**3. Modelagem de dados**
+**3. Metodologia**
+
+A metodologia contempla as definições de ferramentas utilizadas pela equipe tanto
+para a manutenção dos códigos e demais artefatos quanto para a organização do time na
+execução das tarefas do projeto.
+
+    3.1. Ambientes de Trabalho
+
+Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a
+relação dos ambientes com seu respectivo propósito é apresentada na tabela que se segue:
+
+| Ambiente           | Plataforma                       | Link de Acesso |
+| ------------------ |:--------------------------------:| --------------:|
+| Repósitorio        | GitHub                           | https://github.com/icei-pucminas/ti2-cc-gestao-de-estoque-ti-ii |
+| Documentação       | Github                           | https://github.com/icei-pucminas/ti2-cc-gestao-de-estoque-ti-ii/tree/master/documentacao |
+| Wireframes         | MarvelApp                        | https://marvelapp.com/23j0g346/ |
+| Gerenciamento do Projeto| Trello/GitHub Projects      | https://trello.com/b/joigfD6h/ti-2 / https://github.com/icei-pucminas/ti2-cc-gestao-de-estoque-ti-ii/projects |
+
+    3.2. Fluxo de Publicação
+
+Com relação à gestão do código fonte, o grupo utiliza um processo baseado no
+GitHub Flow criado pelo próprio GitHub (2011), mostrado na Figura a seguir. Portanto, o
+projeto segue a seguinte convenção para o nome de branchs:
+- master: versão pronta para implementação (deploy).
+- nome-explicativo: versão herdada da master.
+
+Mais informações podem ser encontradas nesse [repositório](https://github.com/Warlord006/Estoque/blob/master/docs/4-Gest%C3%A3o-Configura%C3%A7%C3%A3o.md#controle-de-vers%C3%A3o) e nesse [link](https://guides.github.com/introduction/flow/).
+
+![GitHub Flow](images/github_flow.gif)
+
+Seguindo o modelo apresentado acima, a branch master deve estar
+sempre pronta para deploy. Portanto, no momento que os pull-requests para a master são
+confirmados e assinados, o projeto deve ir ao ar na plataforma escolhida para hospedagem.
+
+    3.3. Gerenciamento do Projeto
+
+
+**4. Modelagem de dados**
 
 Apresente o modelo de dados. Defina o dicionário de dados com os respectivos formatos e significados.
 
-    3.1. Diagrama de Entidade-Relacionamento
+    4.1. Diagrama de Entidade-Relacionamento
 
 Apresente a estrutura das tabelas de banco de dados no modelo Diagrama de Entidade-Relacionamento. 
 A Seguir, segue um exemplo de imagem adicionada ao documento.
 
 ![Diagrama de Entidade Relacionamento de Exemplo](imagens/er_diagram.png "Diagrama de Entidade Relacionamento de Exemplo")
 
-**4. Sistema desenvolvido**
+**5. Sistema desenvolvido**
 
 Faça aqui uma breve descrição do software e coloque as principais telas com uma explicação de como usar cada uma.
 
-**5. Avaliação**
+**6. Avaliação**
 
 Faça aqui sobre a avaliação do software. Indique se ele atendeu as expectativas e ele é viável. 
 Para não ficar subjetivo, o ideal é fazer um questionário e pedir ao usuário do processo que faça a avaliação.
