@@ -136,14 +136,13 @@ Utilizando o metódo Scrum combinado com o Kanban, o grupo foi organizado da seg
 
 **4. Modelagem de dados**
 
-Apresente o modelo de dados. Defina o dicionário de dados com os respectivos formatos e significados.
+A estrutura do banco de dados basea-se basicamente em dados relacionais, em que sua abstração leva 
+em conta os requisitos e as histórias de usuário apresentadas nesse artigo. Abaixo é representado
+o diagrama de entidade-relacionamento do sistema, que explica a relação entre os dados e suas abstrações.
 
     4.1. Diagrama de Entidade-Relacionamento
 
-Apresente a estrutura das tabelas de banco de dados no modelo Diagrama de Entidade-Relacionamento. 
-A Seguir, segue um exemplo de imagem adicionada ao documento.
-
-![Diagrama de Entidade Relacionamento de Exemplo](imagens/er_diagram.png "Diagrama de Entidade Relacionamento de Exemplo")
+![Diagrama de Entidade Relacionamento](imagens/diagrama_entidade_relacionamento.png "Diagrama de Entidade Relacionamento")
 
 **5. Sistema desenvolvido**
 
