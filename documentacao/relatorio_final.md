@@ -18,42 +18,28 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 ---
 
-_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final, 
-mostrar algum resultado relevante do trabalho (até 10 linhas)._
-
----
+_**Resumo**.  - Objetivando otimizar investimentos, aumentar efiência de ferramentas internas dentro de empresas e minimizar as necessidades de capital investido em estoque, o grupo propõe, por meio de tecnologias inteligentes e do gerenciamento por meio de banco de dados, a criação de um sistema acessível e inovador à população brasileira. Devido ao fato de que  muitos indivíduos têm o potêncial de seu negócio prejudicado pela ausência de um ERP ou má administração de seus dados o que acarreta em erros na emissão de relatórios e gastos desnecessários, o uso de uma software que auxilie com tecnologia moderna e inteligente revela-se agregar eficiência e melhoria nos sistema de gestão de Estoque.
 
 
+## 1.Introdução
+**1.1 Contextualização**
+ - O trabalho proposto pelo grupo a ser desenvolvido toma parte em um contexto na qual diversas epresas e microempresas necessitam de aprimorar o seu sistema de gerenciamento    de estoques, visto que seu potêncial total não é alcançado devido a uma  má administração de seus dados. Com isso, o processo de fazer relatórios e consultar disponibilidade é feito de forma não clara e muitas vezes que não condiz com a realidade, o que acaba por gerar erros graves que afetam a venda e compra de produtos, tanto no atacado quanto no varejo.
+    
+ Além disso, a proposta do grupo se baseia no fato de que tanto no atacado quanto no varejo o bom gerenciamento de estoque é essencial para que negócio se desenvolva e se mantenha seja desde o âmbito de estoque de matéria prima, até brinquedos, alimentos, produtos de beleza, entre outros. Assim automatizar a contabilidade de recursos de forma inteligente se torna uma oportunidade de trabalho interessante.  
+   
+**1.2 Problema**
+ - Segundo a "guiaempreendedor" um gerenciamento de estoque ineficaz pode causar diversos prejuízos para uma empres, tal como perda da produtividade, perda de dinheiro, representado pelo investimento na compra dos produtos, erros de expedição, retrabalho. Ao ponderar sobre o assunto o grupo encontrou como problema principal para buscar solucionar a falta de produtividade e organização que diversas empresas e microempresas possuem no processo de gerenciamento de seus estoques. Visto que, essa adversidade afeta não só a velocidade com que a pesquisa e atualização é executada, como também a relação com o cliente em casos de discrepância na real disponibilidade de determinado produto.     
+**1.3 Objetivo geral**
+ - Nosso objetivo como grupo desenvolvedor do projeto é proporcionar um produto, simples, intuitivo e inteligente para que o processo de gerenciamento de estoques seja muito mais produtivo evitando erros de discrepância e facilitando o trabalho do usuário final.
 
-**1. Introdução**
+   - **1.3.1 Aprimorar o potencial de vendas de empresas e microempresas**.
+   
+   - **1.3.2 Integrar sistemas inteligentes para aprimorar a experiência do usuário**.
+   
+   - **1.3.3 Mitigar discrepâncias no gerenciamento de estoques**.
 
-A introdução deve apresentar de dois ou quatro parágrafos de contextualização do trabalho. 
-
-Na **contextualização**, o aluno deve dizer do que se trata o trabalho, em que área ou contexto se insere. 
-A **contextualização** deve ser desenvolvida de algo mais genérico para algo mais específico. 
-A citação de pesquisas quantitativas é bem aceita aqui (corretamente referenciadas).
-
-Em seguida o aluno deve caminhar a contextualização para descrever o **problema** que o artigo trata. 
-O **problema** pode ser algo vivido em uma empresa específica.
-
-
-    1.1 Contextualização
-    1.2 Problema
-    1.3 Objetivo geral
-
-O aluno deve escrever um pequeno parágrafo ou frase com o **objetivo geral** do trabalho. 
-O objetivo deve ser bem direto, específico e definido com verbos de ação (elaborar, propor, ava-liar, comparar etc.).
-
-        1.3.1 Objetivos específicos
-
-Apresente também alguns (pelo menos 2) **objetivos específicos** depende
-ndo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
-
-    1.4 Justificativas
-
-Mostre também as **justificativas** para o 
-desenvolvimento do seu trabalho e caso deseje, desta-que alguma contribuição do trabalho.
-
+**1.4 Justificativas**
+ - Realizar esse projeto se tornou extremamente justificável para o grupo, ao passo que o tema de gerenciamento de estoque abre portas para fortemente exercitar o que foi aprendido na disciplina de banco de dados e de Introdução aos Sistemas Inteligentes. Proporcionando assim como diferencial do trabalho desenvolvido a aplicação dos sistemas inteligentes para aprimorar ainda mais a experiência do usuário e entregar uma melhor interação com a aplicação. 
 
 **2. Projeto da Solução**
 
