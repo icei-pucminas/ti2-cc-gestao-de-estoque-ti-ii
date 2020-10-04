@@ -7,7 +7,7 @@
 
 **Gustavo Martins Lopes da Costa, gusluud@gmail.com**
 
-**João Paolinelli,  **
+**João Paolinelli**
 
 
 ---
@@ -73,9 +73,12 @@ de trabalho foi utilizado a IDE Eclipse.
 
     2.3. Serviços inteligentes
 
-Descreva o mecanismo de inteligência que será utilizado no seu sistema. Utilize a modelagem baseada em agente
-para definir as entradas e saídas do seu módulo de serviço inteligente. Apresente quem irá fornecer o serviço
-e em que módulo será utilizado.
+O sistema possui mecanismos de inteligência que melhoram o resultado final na utilização da aplicação. Basicamente
+o mecanismo busca realizar análises estatísticas com os dados gerados pela própria aplicação e dados extraídos da 
+internet, gerando relatórios essências para a tomada de decisões. O diagrama a seguir demonstra o fluxo de execução
+desse sistema inteligente
+
+![Fluxo do serviço inteligênte](imagens/servicoInteligente.png "Diagrama de tencologias")
 
 **3. Metodologia**
 
@@ -105,7 +108,7 @@ projeto segue a seguinte convenção para o nome de branchs:
 
 Mais informações podem ser encontradas nesse [repositório](https://github.com/Warlord006/Estoque/blob/master/docs/4-Gest%C3%A3o-Configura%C3%A7%C3%A3o.md#controle-de-vers%C3%A3o) e nesse [link](https://guides.github.com/introduction/flow/).
 
-![GitHub Flow](images/github_flow.gif)
+![GitHub Flow](imagens/github_flow.gif)
 
 Seguindo o modelo apresentado acima, a branch master deve estar
 sempre pronta para deploy. Portanto, no momento que os pull-requests para a master são
@@ -113,17 +116,23 @@ confirmados e assinados, o projeto deve ir ao ar na plataforma escolhida para ho
 
     3.3. Gerenciamento do Projeto
 
+A equipe se organiza por meio do manuseamento virtual da ferramenta Kanban
+disponibilizada na plataforma Trello e no GitHub Projects. 
+
+Utilizando o metódo Scrum combinado com o Kanban, o grupo foi organizado da seguinte forma:
+- Product Owner: Diogo Araujo Miranda
+- Scrum Master: João Paolinelli
+- Development Team: Danniel Henrique Correa Vieira, Gustavo Martins Lopes da Costa
 
 **4. Modelagem de dados**
 
-Apresente o modelo de dados. Defina o dicionário de dados com os respectivos formatos e significados.
+A estrutura do banco de dados basea-se basicamente em dados relacionais, em que sua abstração leva 
+em conta os requisitos e as histórias de usuário apresentadas nesse artigo. Abaixo é representado
+o diagrama de entidade-relacionamento do sistema, que explica a relação entre os dados e suas abstrações.
 
     4.1. Diagrama de Entidade-Relacionamento
 
-Apresente a estrutura das tabelas de banco de dados no modelo Diagrama de Entidade-Relacionamento. 
-A Seguir, segue um exemplo de imagem adicionada ao documento.
-
-![Diagrama de Entidade Relacionamento de Exemplo](imagens/er_diagram.png "Diagrama de Entidade Relacionamento de Exemplo")
+![Diagrama de Entidade Relacionamento](imagens/diagrama_entidade_relacionamento.png "Diagrama de Entidade Relacionamento")
 
 **5. Sistema desenvolvido**
 
@@ -134,7 +143,7 @@ Faça aqui uma breve descrição do software e coloque as principais telas com u
 Faça aqui sobre a avaliação do software. Indique se ele atendeu as expectativas e ele é viável. 
 Para não ficar subjetivo, o ideal é fazer um questionário e pedir ao usuário do processo que faça a avaliação.
 
-**6. Conclusão**
+**7. Conclusão**
 
 Apresente aqui a conclusão do seu trabalho. Discussão dos resultados obtidos no trabalho, onde se verifica as 
 observações pessoais de cada aluno. Poderá também apresentar sugestões de novas linhas de estudo.  
