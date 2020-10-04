@@ -72,11 +72,15 @@ A tabela a seguir representa os requisitos funcionais do projeto, em grupos de i
 
     2.2. Tecnologias 
 
-Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou seja implementar a sua solução. 
-Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, 
-IDEs de desenvolvimento, e ferramentas.  Apresente também uma figura explicando como as tecnologias estão 
-relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até 
-retornar uma resposta ao usuário. 
+O desenvolvimento da aplicação é baseado no modelo MVC (Model-View-Controller) em que seus servições serão disponilizados
+via aplicação web (website), e seu diagrama de tecnologias é representado a seguir: 
+
+![Diagrama de tecnologias](imagens/tecnologias.png "Diagrama de tencologias")
+
+- (VIEW) As tecnologias básicas de desenvolvimento web - HTML, CSS, JS - serão utilizadas para tornar os dados visíveis aos usuários finais.
+- (CONTROLLE) A parte de controle da aplicação é feita em Java, com auxilio das tecnologias Spark Framework e Maven integrada, e como ambiente
+de trabalho foi utilizado a IDE Eclipse.
+- (MODEL) O modelo da aplicação é feita no banco de dados relacional PostgreSQL
 
     2.3. Serviços inteligentes
 
