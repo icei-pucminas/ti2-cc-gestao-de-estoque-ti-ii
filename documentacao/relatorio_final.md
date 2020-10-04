@@ -7,7 +7,7 @@
 
 **Gustavo Martins Lopes da Costa, gusluud@gmail.com**
 
-**João Paolinelli,  **
+**João Paolinelli**
 
 
 ---
@@ -123,6 +123,13 @@ confirmados e assinados, o projeto deve ir ao ar na plataforma escolhida para ho
 
     3.3. Gerenciamento do Projeto
 
+A equipe se organiza por meio do manuseamento virtual da ferramenta Kanban
+disponibilizada na plataforma Trello e no GitHub Projects. 
+
+Utilizando o metódo Scrum combinado com o Kanban, o grupo foi organizado da seguinte forma:
+- Product Owner: Diogo Araujo Miranda
+- Scrum Master: João Paolinelli
+- Development Team: Danniel Henrique Correa Vieira, Gustavo Martins Lopes da Costa
 
 **4. Modelagem de dados**
 
@@ -144,7 +151,7 @@ Faça aqui uma breve descrição do software e coloque as principais telas com u
 Faça aqui sobre a avaliação do software. Indique se ele atendeu as expectativas e ele é viável. 
 Para não ficar subjetivo, o ideal é fazer um questionário e pedir ao usuário do processo que faça a avaliação.
 
-**6. Conclusão**
+**7. Conclusão**
 
 Apresente aqui a conclusão do seu trabalho. Discussão dos resultados obtidos no trabalho, onde se verifica as 
 observações pessoais de cada aluno. Poderá também apresentar sugestões de novas linhas de estudo.  
