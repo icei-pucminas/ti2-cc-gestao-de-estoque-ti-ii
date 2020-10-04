@@ -1,11 +1,12 @@
-# TITULO DO PROJETO
+# Gestão de Estoque Inteligente
 
 
-**Nome completo do Aluno 1, email do aluno 1**
+**Diogo Araújo Miranda, diogoaraujomiranda@hotmail.com**
 
-**Nome completo do Aluno 2, email do aluno 2**
+**Danniel Henrique Correa Vieira, danniel.hcvieira@gmail.com**
 
-**Nome completo do Aluno 3, email do aluno 3**
+**Gustavo Martins Lopes da Costa, gusluud@gmail.com**
+
 
 ---
 
