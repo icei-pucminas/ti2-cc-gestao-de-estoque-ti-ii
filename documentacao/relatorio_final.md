@@ -56,17 +56,21 @@ desenvolvimento do seu trabalho e caso deseje, desta-que alguma contribuição d
 
     2.1. Requisitos funcionais
 	
-Enumere os requisitos funcionais previstos para a sua aplicação. 
-Use a tabela abaixo para enumerá-lo.  Esses requisitos devem estar 
-de acordo com as definições do modelo de negócio.
+A tabela a seguir representa os requisitos funcionais do projeto, em grupos de identificador, descrição e sua prioridade.
 
-| No.           | Descrição                       | Prioridade |
-| ------------- |:-------------------------------:| ----------:|
-| {número       | Descrição resumida do requisito | {Alta      |
-| sequencial    |                                 |  média     |
-| identificador |                                 |  ou baixa  | 
+| No.           | Descrição                                 | Prioridade |
+|:------------- | :---------------------------------------: | ----------:|
+| RF-01         | Menu com opções de ações do usuário       | Alta       |
+| RF-02         | Consultar quantidade de produto no estoque| Alta       | 
+| RF-03         | Registrar produtos do estoque             | Alta       |
+| RF-04         | Alertar sobre baixa quantidade de produto | Média      |
+| RF-05         | Gerar gráficos dinâmicos sobre vendas     | Média      |
+| RF-06         | Login para acesso ás funcionalidades      | Alta       |
+| RF-07         | Cadastro de usuários                      | Alta       |
+| RF-08         | Autopreenchimento nos filtros de busca    | Baixa      |
+| RF-09         | Geração de relatório refêrente ao estoque | Baixa      |
 
-    2.2. Tecnologias
+    2.2. Tecnologias 
 
 Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou seja implementar a sua solução. 
 Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, 
