@@ -90,7 +90,8 @@ A metodologia contempla as definições de ferramentas utilizadas pela equipe ta
 para a manutenção dos códigos e demais artefatos quanto para a organização do time na
 execução das tarefas do projeto.
 
-    3.1 Ambientes de Trabalho
+    3.1. Ambientes de Trabalho
+
 Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a
 relação dos ambientes com seu respectivo propósito é apresentada na tabela que se segue:
 
@@ -101,9 +102,23 @@ relação dos ambientes com seu respectivo propósito é apresentada na tabela q
 | Wireframes         | MarvelApp                        | https://marvelapp.com/23j0g346/ |
 | Gerenciamento do Projeto| Trello/GitHub Projects      | https://trello.com/b/joigfD6h/ti-2 / https://github.com/icei-pucminas/ti2-cc-gestao-de-estoque-ti-ii/projects |
 
-    3.2 Fluxo de Publicação
+    3.2. Fluxo de Publicação
 
-    3.2 Gerenciamento do Projeto
+Com relação à gestão do código fonte, o grupo utiliza um processo baseado no
+GitHub Flow criado pelo próprio GitHub (2011), mostrado na Figura a seguir. Portanto, o
+projeto segue a seguinte convenção para o nome de branchs:
+- master: versão pronta para implementação (deploy).
+- nome-explicativo: versão herdada da master.
+
+Mais informações podem ser encontradas nesse [repositório](https://github.com/Warlord006/Estoque/blob/master/docs/4-Gest%C3%A3o-Configura%C3%A7%C3%A3o.md#controle-de-vers%C3%A3o) e nesse [link](https://guides.github.com/introduction/flow/).
+
+![GitHub Flow](images/github_flow.gif)
+
+Seguindo o modelo apresentado acima, a branch master deve estar
+sempre pronta para deploy. Portanto, no momento que os pull-requests para a master são
+confirmados e assinados, o projeto deve ir ao ar na plataforma escolhida para hospedagem.
+
+    3.3. Gerenciamento do Projeto
 
 
 **4. Modelagem de dados**
