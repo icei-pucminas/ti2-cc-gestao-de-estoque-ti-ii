@@ -7,8 +7,6 @@
 
 **Nome completo do Aluno 3, email do aluno 3**
 
-Danniel Henrique Correa Vieira, danniel.hcvieira@gmail.com
-
 ---
 
 _Curso de Ciência da Computação, Unidade {Coração Eucarístico | Praça da Liberdade}_
@@ -89,7 +87,16 @@ para a manutenção dos códigos e demais artefatos quanto para a organização 
 execução das tarefas do projeto.
 
     3.1 Ambientes de Trabalho
-    
+Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a
+relação dos ambientes com seu respectivo propósito é apresentada na tabela que se segue:
+
+| Ambiente           | Plataforma                       | Link de Acesso |
+| ------------------ |:--------------------------------:| --------------:|
+| Repósitorio        | GitHub                           | https://github.com/icei-pucminas/ti2-cc-gestao-de-estoque-ti-ii |
+| Documentação       | Github                           | https://github.com/icei-pucminas/ti2-cc-gestao-de-estoque-ti-ii/tree/master/documentacao |
+| Wireframes         | MarvelApp                        | https://marvelapp.com/23j0g346/ |
+| Gerenciamento do Projeto| Trello/GitHub Projects      | https://trello.com/b/joigfD6h/ti-2 / https://github.com/icei-pucminas/ti2-cc-gestao-de-estoque-ti-ii/projects |
+
     3.2 Fluxo de Publicação
 
     3.2 Gerenciamento do Projeto
