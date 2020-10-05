@@ -49,17 +49,15 @@ A tabela a seguir representa os requisitos funcionais do projeto, em grupos de i
 
 | No.           | Descrição                                 | Prioridade |
 |:------------- | :---------------------------------------: | ----------:|
-| RF-01         | Menu com opções de ações do usuário       | Alta       |
-| RF-02         | Consultar quantidade de produto no estoque| Alta       | 
-| RF-03         | Registrar produtos do estoque             | Alta       |
-| RF-04         | Alertar sobre baixa quantidade de produto | Média      |
-| RF-05         | Gerar gráficos dinâmicos sobre vendas     | Média      |
-| RF-06         | Login para acesso ás funcionalidades      | Alta       |
-| RF-07         | Cadastro de usuários                      | Alta       |
-| RF-08         | Autopreenchimento nos filtros de busca    | Baixa      |
-| RF-09         | Geração de relatório refêrente ao estoque | Baixa      |
+| RF-01         | Consultar os bebidas disponíveis          | Alta       |
+| RF-02         | Listar os bebidas e forncedores           | Alta       | 
+| RF-03         | Criar licitações de bebidas               | Alta       |
+| RF-04         | Login e cadastro compradores              | Média      |
+| RF-05         | Chat bot para consultas e pedidos         | Média      |
+| RF-06         | Login e cadastro de fornecedores          | Baixa      |
+| RF-07         | Cadastro de bebidas por fornecedores      | Baixa      |
 
-    2.2. Tecnologias 
+    2.2. Tecnologias Chat bot para consultas e pedidos 
 
 O desenvolvimento da aplicação é baseado no modelo MVC (Model-View-Controller) em que seus servições serão disponilizados
 via aplicação web (website), e seu diagrama de tecnologias é representado a seguir: 
