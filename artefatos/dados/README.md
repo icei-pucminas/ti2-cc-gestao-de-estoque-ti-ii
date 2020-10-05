@@ -8,7 +8,22 @@ Os principais documentos a serem produzidos são:
 * `script_de_banco.sql`
 	* Script de criação do banco de dados.
 
-* `diagrama entidade relacionamento`
-	* Apresentar o DER em imagem vetorial para eviar perda de qualidade com renderização em resolução específica.
+	<h3><b>As seguintes tabelas foram criadas e sao acessiveis via ssh:</b></h3>
 
-Demais artefatos que julgar pertinentes.
+	CREATE TABLE Cidade;
+	CREATE TABLE Categoria;
+	CREATE TABLE Transportadora;
+	CREATE TABLE Loja;
+	CREATE TABLE Entrada;
+	CREATE TABLE Fornecedor;
+	CREATE TABLE Saida;
+	CREATE TABLE Produto;
+	CREATE TABLE ItemEntrada;
+	CREATE TABLE ItemSaida;
+	<hr>
+
+
+* `diagrama entidade relacionamento`
+	* O modelo DER, esta localizado na pasta divulgacao/apresentacao/imagens.
+
+

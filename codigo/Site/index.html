@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="new.css">
+    <title>Page</title>
+</head>
+<body>
+    <header>
+        <div class="flex-container">
+            <div style="flex-basis: 5%; justify-content: left;" >~System~</div>
+            <div>Bem vindo</div>
+            <div>Gerenciador</div>
+            <div>Projeto</div>
+            <!-- <div>Serviçõs</div> -->
+            <!-- <div>Orçamento</div> -->
+            <!-- <div>Contato</div> -->
+            <!-- <div>Registrar</div> -->
+            <!-- <div>Entrar</div> -->
+        </div>
+    </header>
+    
+    <div class="row">
+        <div class="side-funcao">
+            <h3>Produto</h3>
+            <h5 onclick="myFunction()">Registrar</h5>
+            <h5 onclick="myExcluir()">Excluir</h5>
+            <h5 onclick="entradaProduto()">Entrada</h5>
+            <h5 onclick="saidaProduto()">Saida</h5>
+            <hr>
+            <h3>Fornecedor</h3>
+            <h5 onclick="fornecedorNew()">Registrar</h5>
+            <h5 onclick="transporteNew()">Transportadora</h5>
+            <h5 onclick="consultaNew()">Consultar</h5>
+            <h5>Sistema</h5>
+            <hr>
+            <h3>Relatorio</h3>
+            <h5>Lucro</h5>
+            <h5>Saldo</h5>
+            <h5>Vendas</h5>
+            <h5>Curva ABC</h5>
+        </div>
+    
+        <div class="main">
+            
+            <div id="demo"><h2>MPSYS TEAM</h2></div>
+            <div id="demo1"><h5>Porfavor, selecione uma opção do menu ao lado.</h5></div>
+            <div id="demo2"class="fakeimg" style="height:40%;">Imagem</div>
+            <div>
+            <button><a href="#">Contato</a></button>
+            <button><a href="#">Github</a></button>
+            <button><a href="#">Linkedin</a></button>
+            </div>
+        </div>
+    </div>
+    <form action="">
+        <!-- <label for="unidade">Unidade</label>
+        <input type="radio" name="quantidade" id="unid" value="1">
+        <label for="pacote">Pacote</label>
+        <input type="radio" name="qtd-pacote" id="pacote" value="2"><br>
+        <label for='identifica'>ID</label>
+        <input type='text' name='id_produto' id='id_produto' value='3'>
+        <label for='nome'>Nome</label>
+        <input type='text' name='nome_produto' id='nome_produto' value='4'>
+        <label for='preco'>Preço</label>
+        <input type='text' name='preco_produto' id='preco_produto' value='5'>
+        <label for='quantidade'>Quantidade</label>
+        <input type='text' name='qtd_produto' id='preco_produto' value='6'>
+        <label for='categoria'></label>
+        <input type='text' name='qtd_produto' id='qtd_produto' value='7'>
+         -->
+        <!-- <label for='excluir'>ID</label>
+        <input type='text'name='id_produto' id='id_produto' value='8'>
+        <label for="excluir_qtd"><h5>Excluir:</h5></label>
+        <label for="excluir_qtd"><h5>Tudo</h5></label>
+        <input type='radio' name='quantidade' id='unid' value='9'>
+        <label for='excluir_unid'>Unidade</label>
+        <input type='radio' name='quantidade' id='unid' value='10'> -->
+    </form>
+    <div class="formulario">
+        <div class="row">
+            <label for='identifica'>Categoria</label>
+            <input type='text' name='id_produto' id='id_produto' value='3'>
+        
+            <div class="row"></div>
+            
+            <label for='nome'>Cod_Categoria</label>
+            <input type='text' name='nome_produto' id='nome_produto' value='4'>
+        
+            </div>
+        </div>
+        <div class="row">
+            <label for='identifica'>Cidade</label>
+            <input type='text' name='id_produto' id='id_produto' value='3'>
+        
+            <div class="row">
+                
+                <label for='nome'>Cod_Cidade</label>
+                <input type='text' name='nome_produto' id='nome_produto' value='4'>
+                
+                <label for="UF">UF</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+            </div>
+        </div>
+        <div class="row">
+            <label for='identifica'>Cod-Entrada</label>
+            <input type='text' name='id_produto' id='id_produto' value='3'>
+        
+            <div class="row">
+            
+                <label for='nome'>Cod_Transportadora</label>
+                <input type='text' name='nome_produto' id='nome_produto' value='4'>
+                
+                <label for="UF">Data-Pedido</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                </div>
+                <label for="UF">Data-Entrada</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                </div>
+                <label for="UF">Total</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                </div>
+                <label for="UF">Frete</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                </div>
+                <label for="UF">Cod-Frete</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                </div>
+                <label for="UF">Imposto</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+            </div>
+        </div>
+        
+        <div class="row">
+            <label for='identifica'>Cod-Fornecedor</label>
+            <input type='text' name='id_produto' id='id_produto' value='3'>
+        
+            <div class="row johnLabel">
+                
+                <label for='nome'>Cod_Cidade</label>
+                <input type='text' name='nome_produto' id='nome_produto' value='4'>
+                
+                <label for="UF">Fornecedor</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                <label for="UF">Endereco</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                <label for="UF">Complemento</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                <label for="UF">Bairro</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                <label for="UF">CEP</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                <label for="UF">Contato-Nome</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                <label for="UF">CNPJ</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+                <label for="UF">Telefone</label>
+                <input type="text" name='uf' id='fornecedor_uf'>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="tabela.js"></script>
+</html>

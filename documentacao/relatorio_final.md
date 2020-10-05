@@ -7,7 +7,7 @@
 
 **Gustavo Martins Lopes da Costa, gusluud@gmail.com**
 
-**João Paolinelli**
+**João Paolinelli e Silva, joaopaolinelli@gmail.com**
 
 
 ---
@@ -136,17 +136,16 @@ o diagrama de entidade-relacionamento do sistema, que explica a relação entre 
 
 **5. Sistema desenvolvido**
 
-Faça aqui uma breve descrição do software e coloque as principais telas com uma explicação de como usar cada uma.
+O sistema se encontra em estado de teste. Com objetivo de obter 100% do funcionamento das ferramentas utilizadas, foi adotado pela equipe uma interface estatica para facilitar as interacoes e consultas efetivadas. Na pagina, 162.214.151.86/~ti2/ , o sistema se divide, no momento em 3 fases, contendo um header, um painel lateral esquerdo e uma tela de reproducao dos elementos, centralizada no meio/canto direito.
+As seguintes opcoes estao disponiveis, "Registrar" & "Fornecedor", porem ainda nao estao sincronizadas com o atual banco de dados.
 
 **6. Avaliação**
 
-Faça aqui sobre a avaliação do software. Indique se ele atendeu as expectativas e ele é viável. 
-Para não ficar subjetivo, o ideal é fazer um questionário e pedir ao usuário do processo que faça a avaliação.
+O software é intuitivo. A interação com o menu lateral torna possível visualizar o objetivo do empreendimento e obter resultados imediatos, sendo a expectiva da proposta e conclusão do trabalho uma ferramenta de alto nível que promete atender nosso público-alvo. A interação entre a pagina web e nosso banco de dados ainda está sendo trabalhada, ademais, servidor, estrutura e preparação para integração com o sistema inteligente já está sendo trabalhada.
 
 **7. Conclusão**
 
-Apresente aqui a conclusão do seu trabalho. Discussão dos resultados obtidos no trabalho, onde se verifica as 
-observações pessoais de cada aluno. Poderá também apresentar sugestões de novas linhas de estudo.  
+Nesse momento, as expectivas são altas. Com o novo método adotado pelo time de, não se preocupar, nesse momento, com a interface externa, o projeto promete uma estrutura robusta de back-end. - João Paolinelli e Silva. 
 
 
 **REFERÊNCIAS**
