@@ -67,7 +67,7 @@ via aplicação web (website), e seu diagrama de tecnologias é representado a s
 ![Diagrama de tecnologias](imagens/tecnologias.png "Diagrama de tencologias")
 
 - (VIEW) As tecnologias básicas de desenvolvimento web - HTML, CSS, JS - serão utilizadas para tornar os dados visíveis aos usuários finais.
-- (CONTROLLE) A parte de controle da aplicação é feita em Java, com auxilio das tecnologias Spark Framework e Maven integrada, e como ambiente
+- (CONTROLLER) A parte de controle da aplicação é feita em Java, com auxilio das tecnologias Spark Framework e Maven integrada, e como ambiente
 de trabalho foi utilizado a IDE Eclipse.
 - (MODEL) O modelo da aplicação é feita no banco de dados relacional PostgreSQL
 
@@ -145,7 +145,7 @@ O software é intuitivo. A interação com o menu lateral torna possível visual
 
 **7. Conclusão**
 
-Nesse momento, as expectivas são altas. Com o novo método adotado pelo time de, não se preocupar, nesse momento, com a interface externa, o projeto promete uma estrutura robusta de back-end. - João Paolinelli e Silva. 
+Nesse momento, as expectivas são altas. Com o novo método adotado pelo time de, não se preocupar, nesse momento, com a interface externa, o projeto promete uma estrutura robusta de back-end. 
 
 
 **REFERÊNCIAS**
