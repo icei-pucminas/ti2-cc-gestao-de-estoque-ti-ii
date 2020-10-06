@@ -9,6 +9,6 @@ Os principais documentos da descrição de dados são:
 descrito no drigrama: 
 
 * `diagrama entidade relacionamento`
-	![Diagrama de Entidade Relacionamento](/documentacao/imagens/der_sistema.png "Diagrama de Entidade Relacionamento")
+	![Diagrama de Entidade Relacionamento](/documentacao/imagens/der_sistema_v2.png "Diagrama de Entidade Relacionamento")
 
 
