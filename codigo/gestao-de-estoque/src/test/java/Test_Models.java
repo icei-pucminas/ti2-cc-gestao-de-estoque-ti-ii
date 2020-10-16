@@ -28,7 +28,7 @@ public class Test_Models {
 			System.out.println("0 - Sair  ");
 			opt = sc.nextInt();
 			
-			List<Cidade> cidades;
+			Cidade[] cidades;
 			CidadeDAO cidadeDAO = new CidadeDAO();
 			
 			Cidade cidade = null;
@@ -109,7 +109,7 @@ public class Test_Models {
 					uf = sc.nextLine();
 			
 					// id provisório
-					cidade = new Cidade(-1, cod, nome, uf);
+					cidade = new Cidade(id, cod, nome, uf);
 					cidadeDAO.update(cidade);
 					
 					cidadeDAO.close();

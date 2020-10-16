@@ -74,7 +74,7 @@ public class CidadeDAO implements DAO<Cidade> {
 			ResultSet rs = st.executeQuery(sql);
 				
 			cidade = new Cidade(rs.getInt("id"), 
-					 		    rs.getInt("codigo"), rs.getString("cidade"), rs.getString("cidade"));
+					 		    rs.getInt("codigo"), rs.getString("cidade"), rs.getString("uf"));
 			st.close();
 			System.out.println("Success! --- " + cidade.toString());
 		} catch (Exception e) {
@@ -90,7 +90,7 @@ public class CidadeDAO implements DAO<Cidade> {
 			Statement st = connection.createStatement();
 			
 			// Pesquisar id válido
-			List<Cidade> cidades = getAll();
+			Cidade[] cidades = getAll();
 			
 			// Evitar id Duplicado
 			int maiorId = 0;
@@ -115,7 +115,7 @@ public class CidadeDAO implements DAO<Cidade> {
 			Statement st = connection.createStatement();
 			String sql = ("UPDATE cidade SET codigo = " + cidade.getCodigo() + " , "
 					     + "cidade = '"+ cidade.getCidade() +"', uf = '"+ cidade.getUF() +"'"
-					     + "WHERE id = "+ cidade.getId());
+					     + "WHERE cidade.id = "+ cidade.getId());
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + cidade.toString());
 		} catch (SQLException u) {
@@ -127,7 +127,7 @@ public class CidadeDAO implements DAO<Cidade> {
 	public void delete(Cidade cidade) {
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("DELETE FROM cidade WHERE cidade = " + cidade.getCodigo());
+			String sql = ("DELETE FROM cidade WHERE cidade.id = " + cidade.getId());
 			st.executeUpdate(sql);
 			st.close();
 			System.out.println("Sucess! --- " + cidade.toString());
@@ -137,20 +137,22 @@ public class CidadeDAO implements DAO<Cidade> {
 	}
 
 	@Override
-	public List<Cidade> getAll() {
-		List<Cidade> cidades = new ArrayList<Cidade>();
-		
+	public Cidade[] getAll() {
+		Cidade[] cidades = null;
+				
 		try {
 			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			String sql = ("SELECT * FROM cidade");
 			ResultSet rs = st.executeQuery(sql);
 			if(rs.next()) {
 				rs.last();
-				Cidade cidade = new Cidade(rs.getInt("id"), 
-			 		    rs.getInt("codigo"), rs.getString("cidade"), rs.getString("cidade"));
+				cidades = new Cidade[rs.getRow()];
 				rs.beforeFirst();
 				
-				cidades.add(cidade);
+				for(int i = 0; rs.next(); i++) {
+					cidades[i] = new Cidade(rs.getInt("id"), 
+							rs.getInt("codigo"), rs.getString("cidade"), rs.getString("uf"));
+				}
 			}
 			st.close();
 		} catch (Exception e) {
