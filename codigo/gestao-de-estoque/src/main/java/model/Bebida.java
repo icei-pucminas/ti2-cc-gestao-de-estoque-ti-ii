@@ -1,12 +1,14 @@
 package model;
 
+import org.json.JSONObject;
+
 /**
  * Descrever a estrutura de uma Bebida 
  * @author diogo
  *
  * Última alteração 6/10/2020
  */
-public class Bebida {
+public class Bebida implements JsonFormatter {
 	private int id;
 	private static int maxId = 0;
 	private int codigo;
@@ -29,6 +31,7 @@ public class Bebida {
 		this.isAlcoolico = isAlcoolico;
 		this.categoria = categoria;
 		this.idFornecedor = idFornecedor;
+		maxId++;
 	}
 
 	@Override
@@ -110,5 +113,21 @@ public class Bebida {
 		this.idFornecedor = idFornecedor;
 	} 
 	
+	/**
+	 * Converte uma bebida para formato JSON
+	 */
+	@Override
+	public JSONObject toJson() {
+		JSONObject obj = new JSONObject();
+		obj.put("id", this.getId());
+		obj.put("codigo", this.getCodigo());
+		obj.put("nome", this.getNome());
+		obj.put("descricao", this.getDescricao());
+		obj.put("volume", this.getVolume());
+		obj.put("isAlcoolico", this.isAlcoolico());
+		obj.put("categoria", this.getCategoria());
+		obj.put("idFornecedor", this.getIdFornecedor());
+		return obj;
+	}
 	
 }
