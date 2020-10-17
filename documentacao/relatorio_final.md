@@ -1,4 +1,4 @@
-# Gestão de Estoque Inteligente
+# Gestão de Fornecedores Inteligente
 
 
 **Diogo Araújo Miranda, diogoaraujomiranda@hotmail.com**
@@ -12,34 +12,34 @@
 
 ---
 
-_Curso de Ciência da Computação, Unidade {Coração Eucarístico | Praça da Liberdade}_
+_Curso de Ciência da Computação, Unidade {Coração Eucarístico}_
 
 _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Minas Gerais (PUC MINAS), Belo Horizonte – MG – Brasil_
 
 ---
 
-_**Resumo**.  - Objetivando otimizar investimentos, aumentar efiência de ferramentas internas dentro de empresas e minimizar as necessidades de capital investido em estoque, o grupo propõe, por meio de tecnologias inteligentes e do gerenciamento por meio de banco de dados, a criação de um sistema acessível e inovador à população brasileira. Devido ao fato de que  muitos indivíduos têm o potêncial de seu negócio prejudicado pela ausência de um ERP ou má administração de seus dados o que acarreta em erros na emissão de relatórios e gastos desnecessários, o uso de uma software que auxilie com tecnologia moderna e inteligente revela-se agregar eficiência e melhoria nos sistema de gestão de Estoque.
-
+_**Resumo**.  - Encontrar distribuidores profissionais com bons preços e que atendam os requisitos da empresa demanda tempo e, em diversos casos, pode retardar o progresso de muitos negócios. A quantidade de informação, hoje, disponibilizada online sobre fornecedores e fabricantes não é suficient para fazer o melhor pedido ou comparação de preços. Em vista disso, o produto em desenvolvimento pela start-up CONEXUS SYSTEM terá um grande impacto, proporcionando a milhões de empreendores um produto de fácil acesso, interpretação, comparação e compra efetiva.
 
 ## 1.Introdução
 **1.1 Contextualização**
- - O trabalho proposto pelo grupo a ser desenvolvido toma parte em um contexto na qual diversas epresas e microempresas necessitam de aprimorar o seu sistema de gerenciamento    de estoques, visto que seu potêncial total não é alcançado devido a uma  má administração de seus dados. Com isso, o processo de fazer relatórios e consultar disponibilidade é feito de forma não clara e muitas vezes que não condiz com a realidade, o que acaba por gerar erros graves que afetam a venda e compra de produtos, tanto no atacado quanto no varejo.
-    
- Além disso, a proposta do grupo se baseia no fato de que tanto no atacado quanto no varejo o bom gerenciamento de estoque é essencial para que negócio se desenvolva e se mantenha seja desde o âmbito de estoque de matéria prima, até brinquedos, alimentos, produtos de beleza, entre outros. Assim automatizar a contabilidade de recursos de forma inteligente se torna uma oportunidade de trabalho interessante.  
+ - É importante selecionar fornecedores ? Sem dúvidas! O papel do fornecedor dentro de uma empresa é fundamental para efetivar o abastecimento de seus produtos e fazer com o estabelecimento funcione de maneira continua em um ponto de venda determinado. Entretanto, confiar em uma empresa de distribuição as cegas não é recomendado e por isso é importante definir os critérios de negócio previamente antes de fazer um pedido. A falta desse conhecimento, é, em muitos casos, a váriavel que determina o sucesso de seu negócio, pois, a reposição de estoque é diretamente relacionado ao número de vendas.
+  Ademais, se é necessário ter precisão ao fechar um contrato com distribuidor de um produto, em casos de varejo, o cenário pode ficar ainda mais comprometido caso a rede de fornecimento não seja sólida. Com isso, o software proposto é o intermediário entre esse contato, garantindo eficiência ao solicitar o reabastecimento do estoque e inovador por proporcionar um ambiente único de pesquisa de diversos produtos que estão relacionados a varias empresas, cabendo ao usuário análiser e efetivar o pedido apartir das melhores condições em seu cenário.
+  
    
 **1.2 Problema**
- - Segundo a "guiaempreendedor" um gerenciamento de estoque ineficaz pode causar diversos prejuízos para uma empres, tal como perda da produtividade, perda de dinheiro, representado pelo investimento na compra dos produtos, erros de expedição, retrabalho. Ao ponderar sobre o assunto o grupo encontrou como problema principal para buscar solucionar a falta de produtividade e organização que diversas empresas e microempresas possuem no processo de gerenciamento de seus estoques. Visto que, essa adversidade afeta não só a velocidade com que a pesquisa e atualização é executada, como também a relação com o cliente em casos de discrepância na real disponibilidade de determinado produto.     
+ - O sucesso financeiro de uma empresa ou empreendedor possui uma forte relação com a entidade que fornece os suprimentos necessários para atender a demanda dos consumidores da empresa. Isso significa, em alguns casos, a existência de negócios que dependam 100% de somente um fornecedor ou um grupo deles, havendo a necessidade de aceitar imposições de mercado por insegurança financeira ou falta do conhecimento necessário para selecionar outras companias para manufaturar seus produtos, seja por falta de uma lista atualizada de fornecedores ou falta de experiência em negociações de alta escala.
+ 
 **1.3 Objetivo geral**
- - Nosso objetivo como grupo desenvolvedor do projeto é proporcionar um produto, simples, intuitivo e inteligente para que o processo de gerenciamento de estoques seja muito mais produtivo evitando erros de discrepância e facilitando o trabalho do usuário final.
+ - A start-up tem como finalidade ser o divisor de águas para muitos cidadãos quando a necessidade é procurar por fornecedores, altas quantidades de produtos e principalmente, um bom preço! Por meio de uma plataforma web e futuramente um aplicativo movel, é possível comparar o valor do mesmo tipo de mercadoria oferecido por diversas empresas ou comércios, diminuindo o tempo de navegação e esforço do usuário ao visitar sites ou contatar comerciantes desconhecidos e estar sujeito a sua exigência. Na plataforma CONEXUS SYSTEM, o usuário só realiza um pedido caso ele seja correspondente a sua premissa. 
 
-   - **1.3.1 Aprimorar o potencial de vendas de empresas e microempresas**.
+   - **1.3.1 Facilitar a visualização, disposição dos produtos e,respectivamente, os preços fornecidos pelas empresas **.
    
-   - **1.3.2 Integrar sistemas inteligentes para aprimorar a experiência do usuário**.
+   - **1.3.2 Permitir, apartir dos dados disponibilizados, a melhor opção de compra para os cidadãos**.
    
-   - **1.3.3 Mitigar discrepâncias no gerenciamento de estoques**.
+   - **1.3.3 Mitigar discrepâncias do valor final de um produto **.
 
 **1.4 Justificativas**
- - Realizar esse projeto se tornou extremamente justificável para o grupo, ao passo que o tema de gerenciamento de estoque abre portas para fortemente exercitar o que foi aprendido na disciplina de banco de dados e de Introdução aos Sistemas Inteligentes. Proporcionando assim como diferencial do trabalho desenvolvido a aplicação dos sistemas inteligentes para aprimorar ainda mais a experiência do usuário e entregar uma melhor interação com a aplicação. 
+ - Após o desenvolvimento no 1 semestre de 2020 de um sistema de estoque, a start-up conseguiu visualizar uma oportunidade mais intuitiva e de maior impacto na vida dos empreendedores por meio do software que realiza a gestão de fornecedores & de produtos. Com isso, o desperdicio notado no cotidiano dos comerciantes continua um grande problema que atinge diversas empresas e, consequentemente, possuindo uma relação direta com prejuizo financeiro, fechamento de portas ou ausência de lucro. Entretanto, ao analisar a situação, é possível compreender que o lucro e prejuizo estão, também, relacionados a quantia financeira paga pela manufatura do produto, em muitos casos, sendo ela o diferencial na vida de muitos cidadãos ao se adequar a competitividade e gerar um diferêncial no mercado. Assim, fazendo com que problemas relacionados a poucos clientes e quantias um pouco acima do essencial para a venda em um determinado tempo, torne-se uma maneira de lucrar e fornecer, em diversos casos, lojas "vizinhas" que não demandam de um alto estoque e possuem ocasionalmente necessedidade de produtos, consequentemente, resolvendo o problema inicial e proporcionando um método de empreendimento intuitivo de alta escalabilidade, além da opção facilitada de seleção de fornecedores.
 
 **2. Projeto da Solução**
 
@@ -70,11 +70,7 @@ de trabalho foi utilizado a IDE Eclipse.
 - (MODEL) O modelo da aplicação é feita no banco de dados relacional PostgreSQL
 
     2.3. Serviços inteligentes
-
-O sistema possui mecanismos de inteligência que melhoram o resultado final na utilização da aplicação. Basicamente
-o mecanismo busca realizar análises estatísticas com os dados gerados pela própria aplicação e dados extraídos da 
-internet, gerando relatórios essências para a tomada de decisões. O diagrama a seguir demonstra o fluxo de execução
-desse sistema inteligente
+A proposta da integração de um sistema inteligente no software é inovadora e de alto potêncial. De maneira simples, as tecnologias que futuramente serão implementadas no projeto CONEXUS SYSTEM, tem como objetivo realizar pesquisas dentro do proprio banco de dados de fornecedores & produtos para transformar a demanda do usuário em uma simples tarefa. Dessa maneira, apartir da utilização da tecnologia de inteligência artificial programada para atuar a partir da interação e conhecimento do desejo do usuário, será possível gerar resultados imediatos apartir de necessidades evidênciadas durante uma simples conversa ou exigência direta. Por fim, a equipe também se interessa por captar e filtrar informações de outras plataformas de venda para inclusão no banco de dados por meio de serviços inteligentes.
 
 ![Fluxo do serviço inteligênte](imagens/servicoInteligente.png "Diagrama de tencologias")
 
@@ -134,7 +130,7 @@ o diagrama de entidade-relacionamento do sistema, que explica a relação entre 
 
 **5. Sistema desenvolvido**
 
-O sistema se encontra em estado de teste. Com objetivo de obter 100% do funcionamento das ferramentas utilizadas, foi adotado pela equipe uma interface estatica para facilitar as interacoes e consultas efetivadas. Na pagina, 162.214.151.86/~ti2/ , o sistema se divide, no momento em 3 fases, contendo um header, um painel lateral esquerdo e uma tela de reproducao dos elementos, centralizada no meio/canto direito.
+O sistema se encontra em estado de teste, sendo trabalhado no momento, o aperfeiçoamento de interações CRUD. Com objetivo de obter 100% do funcionamento das ferramentas utilizadas, foi adotado pela equipe uma interface estatica para facilitar as interacoes e consultas efetivadas. Na pagina, 162.214.151.86/~ti2/ , o sistema se divide, no momento em 3 fases, contendo um header, um painel lateral esquerdo e uma tela de reproducao dos elementos, centralizada no meio/canto direito.
 As seguintes opcoes estao disponiveis, "Registrar" & "Fornecedor", porem ainda nao estao sincronizadas com o atual banco de dados.
 
 **6. Avaliação**
