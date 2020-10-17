@@ -28,7 +28,7 @@ CREATE TABLE Bebida (
   descricao TEXT,
   volume REAL CHECK(VOLUME > 0), 
   isAlcoolico BOOLEAN,
-  idCategoria INT REFERENCES Categoria(id) NOT NULL,
+  categoria TEXT,
   idFornecedor INT REFERENCES Fornecedor(id) NOT NULL
 );
 
