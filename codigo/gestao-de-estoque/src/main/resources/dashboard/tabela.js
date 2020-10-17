@@ -1,70 +1,52 @@
 function myFunction(){
     document.getElementById("demo").innerHTML="<h2>Registrar Bebida</h2>";
     document.getElementById("demo1").innerHTML="<h5>Preencha os campos abaixo:</h5>";
-    document.getElementById("demo2").innerHTML=`
+	document.getElementById("demo2").style.setProperty('height','auto');
+    document.getElementById("demo2").innerHTML=` 
         <form class="needs-validation" novalidate>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
-                    <label for="validationTooltip01">Código</label>
-                    <input type="text" class="form-control" id="validationTooltip02" value="006" required>
+                    <label for="bebidaCodigo">C�digo</label>
+                    <input type="text" class="form-control" id="bebidaCodigo" name="bebidaCodigo" placeholder="Ex.: 1" required>
                     <div class="valid-tooltip">
-                        Fez a fila ali o/ !
+                        
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Nome</label>
-                    <input type="text" class="form-control" id="validationTooltip02" value="Ciroc" required>
+                    <label for="bebidaNome">Nome</label>
+                    <input type="text" class="form-control" id="bebidaNome" name="bebidaNome" placeholder="Ex.: Ciroc" required>
                     <div class="valid-tooltip">
-                        DJ Lindao
+
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Volume</label>
-                    <input type="text" class="form-control" id="validationTooltip02" value="L" required>
+                    <label for="bebidaVolume">Volume</label>
+                    <input type="text" class="form-control" id="bebidaVolume" name="bebidaVolume" placeholder="Ex.: 2" required>
                     <div class="valid-tooltip">
-                        Ta suave, pode vim
+                        
                     </div>
                 </div>
+                
                 <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Alcoolico</label>
-                    <input type="text" class="form-control" id="validationTooltip02" value="Sim" required>
+                    <label for="bebidaCategoria">Categoria</label>
+                    <input type="text" class="form-control" id="bebidaCategoria" name="bebidaCategoria" placeholder="Ex.: Vodka" required>
                     <div class="valid-tooltip">
-                        Safadeza e sacanagem, muita sucessagem
+                    
                     </div>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Fabricante</label>
-                    <input type="text" class="form-control" id="validationTooltip02" value="Diageo" required>
+
+				<div class="col-md-6 mb-3">
+                    <label for="bebidaAlcoolico">Alcoolico</label>
+                    <input type="checkbox" class="form-control" id="bebidaAlcoolico" name="bebidaAlcoolico" checked required>
                     <div class="valid-tooltip">
-                    Méchanceté salope
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Categoria</label>
-                    <input type="text" class="form-control" id="validationTooltip02" value="Vodka" required>
-                    <div class="valid-tooltip">
-                    Rôti
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Preço</label>
-                    <input type="text" class="form-control" id="validationTooltip02" value="R$170,00" required>
-                    <div class="valid-tooltip">                      
-                    Billig
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Cod_Fornecedor</label>
-                    <input type="text" class="form-control" id="validationTooltip02" value="2945" required>
-                    <div class="valid-tooltip">
-                        formørkelse
+                        
                     </div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12 mb-3">
-                    <label for="exampleFormControlTextarea1">Descrição</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Et eksklusivt produkt til mestre</textarea>
+                    <label for="bebidaDescricao">Descri��o</label>
+                    <textarea class="form-control" id="bebidaDescricao" name="bebidaDescricao" placeholder="Ex.: Vodka de alta qualidade." rows="3"></textarea>
                 </div>
             </div>
             <button class="btn btn-primary" type="submit">Confirmar</button>
