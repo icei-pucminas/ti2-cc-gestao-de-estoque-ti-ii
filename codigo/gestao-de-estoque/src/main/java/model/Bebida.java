@@ -14,14 +14,12 @@ public class Bebida {
 	private String descricao;
 	private float volume;
 	private boolean isAlcoolico;
-	private String fabricante;
 	private String categoria;
-	private double preco;
 	private int idFornecedor;
 	
 	
 	public Bebida(int id, int codigo, String nome, String descricao, float volume, boolean isAlcoolico,
-			String fabricante, String categoria, double preco, int idFornecedor) {
+                  String categoria, int idFornecedor) {
 		super();
 		this.id = id;
 		this.codigo = codigo;
@@ -29,17 +27,15 @@ public class Bebida {
 		this.descricao = descricao;
 		this.volume = volume;
 		this.isAlcoolico = isAlcoolico;
-		this.fabricante = fabricante;
 		this.categoria = categoria;
-		this.preco = preco;
 		this.idFornecedor = idFornecedor;
 	}
 
 	@Override
 	public String toString() {
 		return "Bebida [id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", descricao=" + descricao + ", volume="
-				+ volume + ", isAlcoolico=" + isAlcoolico + ", fabricante=" + fabricante + ", categoria=" + categoria
-				+ ", preco=" + preco + ", idFornecedor=" + idFornecedor + "]";
+				+ volume + ", isAlcoolico=" + isAlcoolico + ", fabricante=" + ", categoria=" + categoria
+				+ ", preco=" + ", idFornecedor=" + idFornecedor + "]";
 	}
 
 	public int getId() {
@@ -98,28 +94,12 @@ public class Bebida {
 		this.isAlcoolico = isAlcoolico;
 	}
 	
-	public String getFabricante() {
-		return fabricante;
-	}
-	
-	public void setFabricante(String fabricante) {
-		this.fabricante = fabricante;
-	}
-	
 	public String getCategoria() {
 		return categoria;
 	}
 	
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
-	}
-	
-	public double getPreco() {
-		return preco;
-	}
-	
-	public void setPreco(double preco) {
-		this.preco = preco;
 	}
 	
 	public int getIdFornecedor() {

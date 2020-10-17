@@ -7,12 +7,6 @@ CREATE TABLE Cidade (
   uf CHAR(2)
 );
 
-CREATE TABLE Categoria (
-  id INT PRIMARY KEY NOT NULL,
-  codigo INT UNIQUE, 
-  nome TEXT
-);
-
 CREATE TABLE Fornecedor (
   id INT PRIMARY KEY NOT NULL,
   codigo INT  NOT NULL UNIQUE ,
@@ -28,7 +22,7 @@ CREATE TABLE Bebida (
   descricao TEXT,
   volume REAL CHECK(VOLUME > 0), 
   isAlcoolico BOOLEAN,
-  idCategoria INT REFERENCES Categoria(id) NOT NULL,
+  categoria TEXT,
   idFornecedor INT REFERENCES Fornecedor(id) NOT NULL
 );
 
