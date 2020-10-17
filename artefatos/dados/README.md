@@ -2,28 +2,19 @@
 
 Este diretório mantém os artefatos relatório à modelagem de dados do projeto. 
 
-Os principais documentos a serem produzidos são:
+Os principais documentos da descrição de dados são:
 
+* `script_banco.sql`
 
-* `script_de_banco.sql`
-	* Script de criação do banco de dados.
+Script geral com a sintaxe do MySQL, que pode ser usado para implementar o esquema nesse SGBD. Além disso o DER é baseado na sintaxe desse script.
 
-	<h3><b>As seguintes tabelas foram criadas e sao acessiveis via ssh:</b></h3>
+* `script_banco_postgres.sql`
 
-	CREATE TABLE Cidade;
-	CREATE TABLE Categoria;
-	CREATE TABLE Transportadora;
-	CREATE TABLE Loja;
-	CREATE TABLE Entrada;
-	CREATE TABLE Fornecedor;
-	CREATE TABLE Saida;
-	CREATE TABLE Produto;
-	CREATE TABLE ItemEntrada;
-	CREATE TABLE ItemSaida;
-	<hr>
+Script para ser rodado no postgres, com a sintaxe e ajustes necessários.
 
+descrito no drigrama: 
 
 * `diagrama entidade relacionamento`
-	* O modelo DER, esta localizado na pasta divulgacao/apresentacao/imagens.
+	![Diagrama de Entidade Relacionamento](/documentacao/imagens/der_sistema_v2.png "Diagrama de Entidade Relacionamento")
 
 

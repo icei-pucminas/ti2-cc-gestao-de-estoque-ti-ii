@@ -130,7 +130,7 @@ o diagrama de entidade-relacionamento do sistema, que explica a relação entre 
 
     4.1. Diagrama de Entidade-Relacionamento
 
-![Diagrama de Entidade Relacionamento](imagens/diagrama_entidade_relacionamento.png "Diagrama de Entidade Relacionamento")
+![Diagrama de Entidade Relacionamento](imagens/der_sistema_v2.png "Diagrama de Entidade Relacionamento")
 
 **5. Sistema desenvolvido**
 
