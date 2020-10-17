@@ -91,21 +91,8 @@ private Connection connection;
 		try {
 			Statement st = connection.createStatement();
 			
-			// Pesquisar id válido
-			Bebida[] bebidas = getAll();
-			
-			// Evitar id Duplicado
-			int maiorId = 0;
-			if(bebidas != null) {
-				for(Bebida c : bebidas) {
-					if(c.getId() > maiorId) maiorId = c.getId();
-				}
-			}
-			
-			maiorId++;
-			
 			String sql = ("INSERT INTO bebida (id, codigo, nome, descricao, volume, isAlcoolico, idFornecedor, categoria)"
-					    + "VALUES (" + maiorId + ", " + bebida.getCodigo() + ", '"+ bebida.getNome() +"', '"+  bebida.getDescricao() + "', " + bebida.getVolume() + ", "+ bebida.isAlcoolico()
+					    + "VALUES (" + bebida.getId() + ", " + bebida.getCodigo() + ", '"+ bebida.getNome() +"', '"+  bebida.getDescricao() + "', " + bebida.getVolume() + ", "+ bebida.isAlcoolico()
 					    +  ", '" + bebida.getIdFornecedor()+ "', " + bebida.getCategoria()) +")";
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + bebida.toString());
