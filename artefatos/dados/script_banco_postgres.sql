@@ -7,12 +7,6 @@ CREATE TABLE Cidade (
   uf CHAR(2)
 );
 
-CREATE TABLE Categoria (
-  id INT PRIMARY KEY NOT NULL,
-  codigo INT UNIQUE, 
-  nome TEXT
-);
-
 CREATE TABLE Fornecedor (
   id INT PRIMARY KEY NOT NULL,
   codigo INT  NOT NULL UNIQUE ,
