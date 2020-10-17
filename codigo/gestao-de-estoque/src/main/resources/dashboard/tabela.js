@@ -74,12 +74,12 @@ function myFunction(){
 
 function myExcluir() {
     document.getElementById("demo").innerHTML="<h2>Lista</h2>";
-    document.getElementById("demo1").innerHTML="<h5>Selecione typen af liste</h5>";
+    document.getElementById("demo1").innerHTML="<h5>Selecione o tipo de lista</h5>";
     document.getElementById("demo2").innerHTML=`
     <form class="needs-validation" novalidate>
         <div class="form-row">
             <div class="col-md-12 mb-12" style="padding-top: 5px">
-                <label for="validationTooltip02"><b>Vis alt</b></label>
+                <label for="validationTooltip02"><b>Mostrar tudo</b></label>
                 <input type="checkbox" class="form-control" id="validationTooltip03" value="Whisky" required>
                 <div class="valid-tooltip">
                     
@@ -89,9 +89,9 @@ function myExcluir() {
         <div class="form-row">
             <div class="form-group col-md-12 mb-12">
                 <label for="exampleFormControlTextarea1">Pesquisar produto</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">hacked</textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" value="1"></textarea>
             </div>
-            <button class="btn btn-primary col-12" type="submit">Søg</button>
+            <button class="btn btn-primary col-12" type="submit">Pesquisa</button>
         </div>
         
     </div>    

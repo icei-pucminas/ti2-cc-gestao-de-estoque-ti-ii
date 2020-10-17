@@ -16,15 +16,15 @@ public class Fornecedor {
 	private int codigo;
 	private String nome;
 	private int idCidade;
-	private List<Bebida> bebidas = new ArrayList<Bebida>();
+	//private List<Bebida> bebidas = new ArrayList<Bebida>();
 	
-	public Fornecedor(int id, int codigo, String nome, int idCidade, List<Bebida> bebidas) {
+	public Fornecedor(int id, int codigo, String nome, int idCidade) { //, List<Bebida> bebidas) {
 		super();
 		this.id = id;
 		this.codigo = codigo;
 		this.nome = nome;
 		this.idCidade = idCidade;
-		this.bebidas = bebidas;
+		//this.bebidas = bebidas;
 	}
 	
 	public static int getMaxId() {
@@ -37,17 +37,17 @@ public class Fornecedor {
 
 	@Override
 	public String toString() {
-		return "Fornecedor [id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", idCidade=" + idCidade
-				+ ", bebidas=" + bebidas + "]";
+		return "Fornecedor [id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", idCidade=" + idCidade + "]";
+				//+ ", bebidas=" + bebidas + "]";
 	}
 
-	public List<Bebida> getBebidas() {
-		return bebidas;
-	}
-
-	public void setBebidas(List<Bebida> bebidas) {
-		this.bebidas = bebidas;
-	}
+//	public List<Bebida> getBebidas() {
+//		return bebidas;
+//	}
+//
+//	public void setBebidas(List<Bebida> bebidas) {
+//		this.bebidas = bebidas;
+//	}
 
 	public int getId() {
 		return id;
