@@ -6,220 +6,248 @@ function myFunction(){
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label for="validationTooltip01">Código</label>
-                    <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+                    <input type="text" class="form-control" id="validationTooltip02" value="006" required>
                     <div class="valid-tooltip">
-                        Looks good!
+                        Fez a fila ali o/ !
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="validationTooltip02">Nome</label>
-                    <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
+                    <input type="text" class="form-control" id="validationTooltip02" value="Ciroc" required>
                     <div class="valid-tooltip">
-                        Looks good!
+                        DJ Lindao
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Volume</label>
+                    <input type="text" class="form-control" id="validationTooltip02" value="L" required>
+                    <div class="valid-tooltip">
+                        Ta suave, pode vim
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Alcoolico</label>
+                    <input type="text" class="form-control" id="validationTooltip02" value="Sim" required>
+                    <div class="valid-tooltip">
+                        Safadeza e sacanagem, muita sucessagem
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Fabricante</label>
+                    <input type="text" class="form-control" id="validationTooltip02" value="Diageo" required>
+                    <div class="valid-tooltip">
+                    Méchanceté salope
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Categoria</label>
+                    <input type="text" class="form-control" id="validationTooltip02" value="Vodka" required>
+                    <div class="valid-tooltip">
+                    Rôti
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Preço</label>
+                    <input type="text" class="form-control" id="validationTooltip02" value="R$170,00" required>
+                    <div class="valid-tooltip">                      
+                    Billig
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Cod_Fornecedor</label>
+                    <input type="text" class="form-control" id="validationTooltip02" value="2945" required>
+                    <div class="valid-tooltip">
+                        formørkelse
                     </div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12 mb-3">
                     <label for="exampleFormControlTextarea1">Descrição</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Et eksklusivt produkt til mestre</textarea>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            <button class="btn btn-primary" type="submit">Confirmar</button>
         </form> 
     `
 }
 
 function myExcluir() {
-    document.getElementById("demo").innerHTML="<h2>Excluir Produto</h2>";
-    document.getElementById("demo1").innerHTML="<h5>Selecione o produto para exclusão:</h5>";
+    document.getElementById("demo").innerHTML="<h2>Lista</h2>";
+    document.getElementById("demo1").innerHTML="<h5>Selecione o tipo de lista</h5>";
     document.getElementById("demo2").innerHTML=`
-    <form>
-        <label for='excluir'>ID</label>
-        <input type='text'name='id_produto' id='id_produto' value='X'>
-        <br>
-        <label for='excluir_qtd'>Excluir</label>
-        <label for='excluir_qtd'>Tudo</label>
-        <input type='radio' name='quantidade' id='unid' value='X'>
-        <label for='excluir_unid'>Unidade</label>
-        <input type='radio' name='quantidade' id='unid' value='X'>
-        <br>
-        <button type='submit'>Excluir</button>
-    </form>
+    <form class="needs-validation" novalidate>
+        <div class="form-row">
+            <div class="col-md-12 mb-12" style="padding-top: 5px">
+                <label for="validationTooltip02"><b>Mostrar tudo</b></label>
+                <input type="checkbox" class="form-control" id="validationTooltip03" value="Whisky" required>
+                <div class="valid-tooltip">
+                    
+                </div>
+            </div>    
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-12 mb-12">
+                <label for="exampleFormControlTextarea1">Pesquisar produto</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" value="1"></textarea>
+            </div>
+            <button class="btn btn-primary col-12" type="submit">Pesquisa</button>
+        </div>
+        
+    </div>    
+    
+    
     `
 }
 
 function entradaProduto() {
-    document.getElementById("demo").innerHTML="<h2>Entrada de nova carga/produto</h2>";
-    document.getElementById("demo1").innerHTML="<h5>Preencha os campos e de a entrada no sistema:</h5>";
+    document.getElementById("demo").innerHTML="<h2>Atualizar registro</h2>";
+    document.getElementById("demo1").innerHTML="<h5>Digite o cod abaixo.</h5>";
     document.getElementById("demo2").innerHTML=`
-    <form>
-        <label for='excluir'>Cod-Entrada</label>
-        <input type='text'name='id_produto' id='id_produto' value='X'>
-        <br>
-        <label for='excluir_qtd'>Transporte-Cod</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-        <label for='excluir_qtd'>Data-Pedido</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-        <label for='excluir_unid'>Data-Saida</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-        <label for='excluir_unid'>Preco total</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-        <label for='excluir_unid'>Entrada-Frete</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-        <label for='excluir_unid'>Fornecedor-Cod</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-        <label for='excluir_unid'>Imposto</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-
-        <button type='submit'>Registra entrada</button>
-    </form>
+    <form class="needs-validation" novalidate>
+    <div class="form-row">
+        <div class="col-md-12 mb-12">
+            <label for="validationTooltip01">Código do produto</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="Digite aqui" required>
+            <div class="valid-tooltip">
+                Fez a fila ali o/ !
+            </div>
+        </div>
+        <button class="btn btn-primary col-12" type="submit">Pronto</button>
+    </div>
+    </form>    
     `
 }
 
 function saidaProduto() {
-    document.getElementById("demo").innerHTML="<h2>Saida de mercadoria</h2>";
-    document.getElementById("demo1").innerHTML="<h5>Registre as informacoes para onde o produto foi enviado:</h5>";
+    document.getElementById("demo").innerHTML="<h2>Excluir</h2>";
+    document.getElementById("demo1").innerHTML="<h5>Digite o codigo abaixo</h5>";
     document.getElementById("demo2").innerHTML=`
-    <form>
-        <label for='excluir'>Cod-Saida</label>
-        <input type='text'name='id_produto' id='id_produto' value='X'>
-        <br>
-        <label for='excluir_qtd'>Loja-Cod</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-        <label for='excluir_qtd'>Transporte-Cod</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-        <label for='excluir_unid'>Preco Total</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-        <label for='excluir_unid'>Frete</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-        <label for='excluir_unid'>Imposto</label>
-        <input type='type' name='quantidade' id='unid' value='X'>
-        <br>
-        <button type='submit'>Confirmar saida</button>
-    </form>
+    <form class="needs-validation" novalidate>
+    <div class="form-row">
+        <div class="col-md-12 mb-12 padding-top:20px">
+            <label for="validationTooltip01">Código do produto</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="Digite aqui" required>
+            <div class="valid-tooltip">
+                Fez a fila ali o/ !
+            </div>
+        </div>
+        <button class="btn btn-primary col-12" type="submit">Pronto</button>
     `
 }
 
 function fornecedorNew(){
-    document.getElementById('demo2').innerHTML = 
-    ` <div class='row lol'>
-        <label for='identifica'>Cod-Fornecedor</label>
-        <input type='text' name='id_produto' id='fornecedor_uf' value='3'>
+    document.getElementById("demo").innerHTML="<h2>Pedido Novo</h2>";
+    document.getElementById("demo1").innerHTML="<h5>Preencha os campos</h5>";
+    document.getElementById('demo2').innerHTML = ` 
+    <form class="needs-validation" novalidate>
+        <div class="form-row">
+        <div class="col-md-6 mb-3">
+            <label for="validationTooltip01">Código</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="006" required>
+            <div class="valid-tooltip">
+                Fez a fila ali o/ !
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationTooltip02">Nome</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="Ciroc" required>
+            <div class="valid-tooltip">
+                DJ Lindao
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationTooltip02">Volume</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="L" required>
+            <div class="valid-tooltip">
+                Ta suave, pode vim
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationTooltip02">Alcoolico</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="Sim" required>
+            <div class="valid-tooltip">
+                Safadeza e sacanagem, muita sucessagem
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationTooltip02">Fabricante</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="Diageo" required>
+            <div class="valid-tooltip">
+            Méchanceté salope
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationTooltip02">Categoria</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="Vodka" required>
+            <div class="valid-tooltip">
+            Rôti
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationTooltip02">Preço</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="R$170,00" required>
+            <div class="valid-tooltip">                      
+            Billig
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="validationTooltip02">Cod_Fornecedor</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="2945" required>
+            <div class="valid-tooltip">
+                formørkelse
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12 mb-3">
+            <label for="exampleFormControlTextarea1">Descrição</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Et eksklusivt produkt til mestre</textarea>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Confirmar</button>
+    </form> 
+    `
     
-        
-            
-            <label for='nome'>Cod_Cidade</label>
-            <input type='text' name='nome_produto' id='fornecedor_uf' value='4'>
-            
-            <label for='UF'>Fornecedor</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Contato-Nome</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <br>
-            <label for='UF'>Endereco</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Complemento</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Bairro</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>CEP</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            
-            <label for='UF'>CNPJ</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Telefone</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-        
-    </div>`
-    var mudanca = document.getElementById('demo2');
-    mudanca.style.padding = '2px';
-    mudanca.style.justifyContent ='center';
 }
 
 function transporteNew(){
-    document.getElementById('demo2').innerHTML = 
-    ` <div class='row lol'>
-        <label for='identifica'>Cod-Fornecedor</label>
-        <input type='text' name='id_produto' id='fornecedor_uf' value='3'>    
-            <label for='nome'>Cod_Transportadora</label>
-            <input type='text' name='nome_produto' id='fornecedor_uf' value=''>
-            <label for='UF'>Cidade_codCidade</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Contato-Nome</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <br>
-            <label for='UF'>Transportadora</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Endereco</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Complemento</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Bairro</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            
-            <label for='UF'>CEP</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>CNPJ</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Inscricao</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Contato-Nome</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Telefone</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-    </div>`
-    var mudanca = document.getElementById('demo2');
-    mudanca.style.padding = '2px';
-    mudanca.style.justifyContent ='center';
+    document.getElementById("demo").innerHTML="<h2>Acompanhe seu pedido</h2>";
+    document.getElementById("demo1").innerHTML="<h5>Informe o cod e confire o status.</h5>";
+    document.getElementById('demo2').innerHTML = ` 
+    <form class="needs-validation" novalidate>
+    <div class="form-row">
+        <div class="col-md-12 mb-12">
+            <label for="validationTooltip01">Código do produto</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="Digite aqui" required>
+            <div class="valid-tooltip">
+                Fez a fila ali o/ !
+            </div>
+        </div>
+        <button class="btn btn-primary col-12" type="submit">Pronto</button>
+    </div>
+    </form>    
+    `   
+    
+    
 }
+
 function consultaNew(){
     document.getElementById("demo").innerHTML="<h2>Fornecedores registrados</h2>";
     document.getElementById("demo1").innerHTML="<h5>Banco de dados de fornecedores</h5>";
-    document.getElementById('demo2').innerHTML = 
-    ` <div class='row lol'>
-        <label for='identifica'>Cod-Fornecedor</label>
-        <input type='text' name='id_produto' id='fornecedor_uf' value='3'>    
-            <label for='nome'>Cod_Transportadora</label>
-            <input type='text' name='nome_produto' id='fornecedor_uf' value=''>
-            <label for='UF'>Cidade_codCidade</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Contato-Nome</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <br>
-            <label for='UF'>Transportadora</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Endereco</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Complemento</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Bairro</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            
-            <label for='UF'>CEP</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>CNPJ</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Inscricao</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Contato-Nome</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-            <label for='UF'>Telefone</label>
-            <input type='text' name='uf' id='fornecedor_uf'>
-    </div>`
-    var mudanca = document.getElementById('demo2');
-    mudanca.style.padding = '2px';
-    mudanca.style.justifyContent ='center';
+    document.getElementById('demo2').innerHTML = ` 
+    <form class="needs-validation" novalidate>
+    <div class="form-row">
+        <div class="col-md-12 mb-12">
+            <label for="validationTooltip01"><#.#></label>
+            <input type="text" class="form-control" id="validationTooltip02" value="CONEXUX" required>
+            <div class="valid-tooltip">
+                Fez a fila ali o/ !
+            </div>
+        </div>
+        <button class="btn btn-primary col-12" type="submit">SYSTEM</button>
+    </div>
+    </form>    
+    `   
+    
 }
-

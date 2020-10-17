@@ -35,7 +35,7 @@
     flex: 70%;
     background-color: rgb(154, 231, 225);
     padding: 20px;
-    
+
 }
 .main > div{
     display: flex;
@@ -43,7 +43,7 @@
 }
 main > button{
     display: flex;
-    
+
 }
 main > div,button,a{
     color: rgb(38, 0, 252);
@@ -54,9 +54,9 @@ main > div,button,a{
     display: flex;
     background-color: #aaa;
     text-align: center;
-    
+
     padding: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 15rem;
 }
 #fornecedor_uf{
     display: flex;
@@ -69,11 +69,16 @@ main > div,button,a{
     padding-left: 2px;
     margin-left: 10px;
     background-color: rgb(97, 144, 199);
-   
+
 }
 #fornecedor_uf {
     width: 50px;
     height: 20px;
+}
+input#validationTooltip02.form-control{
+    display: flex;
+    flex-flow: wrap;
+    text-align: center;
 }
 @media screen and (max-width: 100px) {
     .row {
