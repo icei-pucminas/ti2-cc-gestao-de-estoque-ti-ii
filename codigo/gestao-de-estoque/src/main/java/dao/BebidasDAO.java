@@ -75,7 +75,7 @@ private Connection connection;
 				
 			bebida = new Bebida(rs.getInt("id"), 
 					 		    rs.getInt("codigo"), rs.getString("nome"), rs.getString("descricao"),
-					 		    rs.getString("descricao"), rs.getFloat("volume"), rs.getBoolean("isAlcoolico"),
+					 		    rs.getFloat("volume"), rs.getBoolean("isAlcoolico"),
 					 		    rs.getString("fabricante"), rs.getString("categoria"), rs.getDouble("preco"), rs.getInt("idFornecedor"));
 			st.close();
 			System.out.println("Success! --- " + bebida.toString());
@@ -92,18 +92,18 @@ private Connection connection;
 			Statement st = connection.createStatement();
 			
 			// Pesquisar id vÃ¡lido
-			Bebida[] bebida = getAll();
+			Bebida[] bebidas = getAll();
 			
 			// Evitar id Duplicado
 			int maiorId = 0;
-			for(Bebida c : bebida) {
+			for(Bebida c : bebidas) {
 				if(c.getId() > maiorId) maiorId = c.getId();
 			}
 			
 			maiorId++;
 			
 			String sql = ("INSERT INTO bebida (id, codigo, nome, descricao, volume, isAlcoolico, fabricante, categoria, preco, idFornecedor)"
-					    + "VALUES (" + maiorId + bebida.getCodigo() + bebida.getNome() +  bebida.getDescricao()+ bebida.getVolume() + bebida.isAlcoolico()"
+					    + "VALUES (" + maiorId + bebida.getCodigo() + bebida.getNome() +  bebida.getDescricao()+ bebida.getVolume() + bebida.isAlcoolico() + ""
 					    +  bebida.getFabricante() +  bebida.getCategoria()+ bebida.getPreco() + bebida.getIdFornecedor()) +"')";
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + bebida.toString());
@@ -156,9 +156,9 @@ private Connection connection;
 				
 				for(int i = 0; rs.next(); i++) {
 					bebida[i] = new Bebida(rs.getInt("id"),
-				 		    + rs.getInt("codigo"), rs.getString("nome"), rs.getString("descricao"),"
-				 		    + rs.getString("descricao"), rs.getFloat("volume"), rs.getBoolean("isAlcoolico"),"
-				 		    + rs.getString("fabricante"), rs.getString("categoria"), rs.getDouble("preco"), rs.getInt("idFornecedor"));
+				 		    rs.getInt("codigo"), rs.getString("nome"), rs.getString("descricao"),
+				 		    rs.getFloat("volume"), rs.getBoolean("isAlcoolico"),
+				 		    rs.getString("fabricante"), rs.getString("categoria"), rs.getDouble("preco"), rs.getInt("idFornecedor"));
 				}
 			}
 			st.close();
