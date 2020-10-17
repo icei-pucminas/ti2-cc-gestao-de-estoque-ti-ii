@@ -15,7 +15,7 @@ public class Test_Models {
 	public static void main (String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		
+	
 		int opt = 0;
 		do {
 			System.out.println("Input option : ");
@@ -25,17 +25,27 @@ public class Test_Models {
 			System.out.println("3 - Deletar cidade ");
 			System.out.println("4 - Atualizar cidade ");
 			System.out.println("5 - Mostrar cidades");
+			System.out.println("6 - Inserir bebeida ");
 			System.out.println("0 - Sair  ");
+			
 			opt = sc.nextInt();
 			
 			Cidade[] cidades;
 			CidadeDAO cidadeDAO = new CidadeDAO();
-			
+			BebidaDAO bebidaDAO = new BebidaDAO();
 			Cidade cidade = null;
+			Bebida bebida = null;
 			int id; 
 			String nome;
 			String uf;
+			float vol;
+			String fabricante;
+			String categoria;
 			int cod;
+			int idForn;
+			boolean isAlcoolico;
+			String descricao;
+			float preco;
 			switch (opt) {
 				case 1 :
 					sc.nextLine();
@@ -125,6 +135,47 @@ public class Test_Models {
 					}
 					
 					cidadeDAO.close();
+					break;
+				case 6 :
+					sc.nextLine();
+					
+					bebidaDAO.connect();
+					
+					System.out.println("Informe o volume : ");
+					vol = sc.nextFloat();
+					sc.nextLine();
+					
+					System.out.println("Is alcoolico? :");
+					isAlcoolico = sc.nextBoolean();
+					sc.nextLine();
+					
+					System.out.println("Informe a categoria:");
+					categoria = sc.nextLine();
+					sc.nextLine();
+					
+					System.out.println("Informe o codigo da bebida :");
+					cod = sc.nextInt();
+					sc.nextLine();
+					
+					System.out.println("Informe o preco : ");
+					preco = sc.nextFloat();
+					sc.nextLine();
+					
+					System.out.println("Informe o nome : ");
+					nome = sc.nextLine();
+					
+					System.out.println("Informe o id do forn : ");
+					idForn = sc.nextInt();
+					sc.nextLine();
+					
+					System.out.println("Informe o uf : ");
+					descricao = sc.nextLine();
+					
+					bebida = new Bebida(-1, cod, nome, descricao, vol, isAlcoolico, categoria, idForn);
+					
+					bebidaDAO.add(bebida);
+					
+					bebidaDAO.close();
 					break;
 				case 0 :
 				default :
