@@ -41,7 +41,6 @@ public class BebidaService {
 				if(c.getId() > maiorId) maiorId = c.getId();
 			}
 		}
-		
 		maiorId++;
 		
 		Bebida bebida = new Bebida(maiorId, codigo, nome, descricao, volume, isAlcoolico, categoria, idFornecedor);

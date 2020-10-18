@@ -38,7 +38,7 @@ public class Bebida implements JsonFormatter {
 	public String toString() {
 		return "Bebida [id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", descricao=" + descricao + ", volume="
 				+ volume + ", isAlcoolico=" + isAlcoolico + ", fabricante=" + ", categoria=" + categoria
-				+ ", preco=" + ", idFornecedor=" + idFornecedor + "]";
+				+ ", idFornecedor=" + idFornecedor + "]";
 	}
 
 	public int getId() {

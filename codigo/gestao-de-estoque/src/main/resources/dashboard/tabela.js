@@ -3,25 +3,25 @@ function myFunction(){
     document.getElementById("demo1").innerHTML="<h5>Preencha os campos abaixo:</h5>";
 	document.getElementById("demo2").style.setProperty('height','auto');
     document.getElementById("demo2").innerHTML=` 
-        <form class="needs-validation" novalidate>
+        <form class="needs-validation" method="post" action="http://localhost:3214/bebida">
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label for="bebidaCodigo">Código</label>
-                    <input type="text" class="form-control" id="bebidaCodigo" name="bebidaCodigo" placeholder="Ex.: 1" required>
+                    <input type="text" class="form-control" id="bebidaCodigo" name="bebidaCodigo" placeholder="Ex.: 1" value="1" required>
                     <div class="valid-tooltip">
                         
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="bebidaNome">Nome</label>
-                    <input type="text" class="form-control" id="bebidaNome" name="bebidaNome" placeholder="Ex.: Ciroc" required>
+                    <input type="text" class="form-control" id="bebidaNome" name="bebidaNome" placeholder="Ex.: Ciroc" value="Agua" required>
                     <div class="valid-tooltip">
 
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="bebidaVolume">Volume</label>
-                    <input type="text" class="form-control" id="bebidaVolume" name="bebidaVolume" placeholder="Ex.: 2" required>
+                    <input type="text" class="form-control" id="bebidaVolume" name="bebidaVolume" placeholder="Ex.: 2" value="2" required>
                     <div class="valid-tooltip">
                         
                     </div>
@@ -29,15 +29,15 @@ function myFunction(){
                 
                 <div class="col-md-6 mb-3">
                     <label for="bebidaCategoria">Categoria</label>
-                    <input type="text" class="form-control" id="bebidaCategoria" name="bebidaCategoria" placeholder="Ex.: Vodka" required>
+                    <input type="text" class="form-control" id="bebidaCategoria" name="bebidaCategoria" placeholder="Ex.: Vodka" value="Essencial" required>
                     <div class="valid-tooltip">
                     
                     </div>
                 </div>
-
+				
 				<div class="col-md-6 mb-3">
                     <label for="bebidaAlcoolico">Alcoolico</label>
-                    <input type="checkbox" class="form-control" id="bebidaAlcoolico" name="bebidaAlcoolico" checked required>
+                    <input type="checkbox" class="form-control" id="bebidaAlcoolico" name="bebidaAlcoolico" checked>
                     <div class="valid-tooltip">
                         
                     </div>
@@ -46,7 +46,7 @@ function myFunction(){
             <div class="form-row">
                 <div class="form-group col-md-12 mb-3">
                     <label for="bebidaDescricao">Descrição</label>
-                    <textarea class="form-control" id="bebidaDescricao" name="bebidaDescricao" placeholder="Ex.: Vodka de alta qualidade." rows="3"></textarea>
+                    <textarea class="form-control" id="bebidaDescricao" name="bebidaDescricao" placeholder="Ex.: Vodka de alta qualidade." value="Agua mineral" rows="3"></textarea>
                 </div>
             </div>
             <button class="btn btn-primary" type="submit">Confirmar</button>

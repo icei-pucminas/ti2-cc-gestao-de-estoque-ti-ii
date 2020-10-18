@@ -19,17 +19,17 @@ public class Pedido {
 	private LocalDateTime data;
 	private Double preco;
 	private int quantidade;
-	private int idLoja; // Loja que realizou esse pedido
+	//private int idLoja; // Loja que realizou esse pedido
 	List<Bebida> bebidas = new ArrayList<Bebida>();
 	
-	public Pedido(int id, int codigo, LocalDateTime data, Double preco, int quantidade, int idLoja) {
+	public Pedido(int id, int codigo, LocalDateTime data, Double preco, int quantidade) { //, int idLoja) {
 		super();
 		this.id = id;
 		this.codigo = codigo;
 		this.data = data;
 		this.preco = preco;
 		this.quantidade = quantidade;
-		this.idLoja = idLoja;
+		//this.idLoja = idLoja;
 	}
 	
 	public List<Bebida> getBebidas() {
@@ -40,13 +40,13 @@ public class Pedido {
 		this.bebidas = bebidas;
 	}
 
-	public int getIdLoja() {
-		return idLoja;
-	}
-
-	public void setIdLoja(int idLoja) {
-		this.idLoja = idLoja;
-	}
+//	public int getIdLoja() {
+//		return idLoja;
+//	}
+//
+//	public void setIdLoja(int idLoja) {
+//		this.idLoja = idLoja;
+//	}
 
 	/**
 	 * Retorna a quantidade de Pedidos registrados

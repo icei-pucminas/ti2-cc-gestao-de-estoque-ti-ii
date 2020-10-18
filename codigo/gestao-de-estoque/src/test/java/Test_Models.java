@@ -39,13 +39,13 @@ public class Test_Models {
 			String nome;
 			String uf;
 			float vol;
-			String fabricante;
+			//String fabricante;
 			String categoria;
 			int cod;
 			int idForn;
 			boolean isAlcoolico;
 			String descricao;
-			float preco;
+			//float preco;
 			switch (opt) {
 				case 1 :
 					sc.nextLine();
@@ -157,9 +157,9 @@ public class Test_Models {
 					cod = sc.nextInt();
 					sc.nextLine();
 					
-					System.out.println("Informe o preco : ");
-					preco = sc.nextFloat();
-					sc.nextLine();
+					//System.out.println("Informe o preco : ");
+					//preco = sc.nextFloat();
+					//sc.nextLine();
 					
 					System.out.println("Informe o nome : ");
 					nome = sc.nextLine();

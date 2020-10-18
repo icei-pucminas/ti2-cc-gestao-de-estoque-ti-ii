@@ -27,7 +27,7 @@ public class FornecedorDAO implements DAO<Fornecedor>{
 		String driverName = "org.postgresql.Driver";
 		String serverName = "localhost";
 		String myDB = "estoqueti2";
-		int porta = 5432;
+		int porta = 4568;
 		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + myDB;
 		String username = "ti2cc";
 		String password = "ti@cc";

@@ -27,12 +27,12 @@ private Connection connection;
 		String driverName = "org.postgresql.Driver";
 		String serverName = "localhost";
 		String myDB = "estoqueti2";
-		int porta = 5432;
+		int porta = 3214;
 		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + myDB;
-		String username = "estoqueti2";
-		String password = "123";
+		String username = "ti2cc";
+		String password = "ti@cc";
 		boolean status = false;
-		
+
 		try {
 			Class.forName(driverName);
 			connection = DriverManager.getConnection(url, username, password);
@@ -91,9 +91,9 @@ private Connection connection;
 		try {
 			Statement st = connection.createStatement();
 			
-			String sql = ("INSERT INTO bebida (id, codigo, nome, descricao, volume, isAlcoolico, idFornecedor, categoria)"
+			String sql = ("INSERT INTO bebida (id, codigo, nome, descricao, volume, isAlcoolico,  categoria, idFornecedor)"
 					    + "VALUES (" + bebida.getId() + ", " + bebida.getCodigo() + ", '"+ bebida.getNome() +"', '"+  bebida.getDescricao() + "', " + bebida.getVolume() + ", "+ bebida.isAlcoolico()
-					    +  ", '" + bebida.getIdFornecedor()+ "', " + bebida.getCategoria()) +")";
+					    +  ", '" + bebida.getCategoria() + "', " + bebida.getIdFornecedor() +")");
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + bebida.toString());
 		} catch (SQLException u) {
