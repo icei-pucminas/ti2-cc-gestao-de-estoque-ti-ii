@@ -15,57 +15,7 @@ import model.*;
  * @author < \ - Joao - / > Atualizacao: 17-10-2020
  */
 
-public class PedidoDAO implements DAO<Pedido> {
-	private Connection connection;
-
-	public PedidoDAO() {
-		connection = null;
-	}
-
-	/**
-	 * Realiza a conexao com o postgresql
-	 * 
-	 */
-	public boolean connect() {
-		String driverName = "org.postgresql.Driver";
-		String serverName = "localhost";
-		String myDB = "estoqueti2";
-		int porta = 4568;
-		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + myDB;
-		String username = "estoqueti2";
-		String password = "123";
-		boolean status = false;
-
-		try {
-			Class.forName(driverName);
-			connection = DriverManager.getConnection(url, username, password);
-			System.out.println("ConexÃ£o efetuada com o postgres!");
-		} catch (ClassNotFoundException e) {
-			System.err.println(
-					"ConexÃ£o NÃƒO efetuada com o banco --- Driver nÃ£o encontrado -- " + e.getMessage());
-		} catch (SQLException e) {
-			System.err.println("ConexÃ£o NÃƒO efetuada com o postgres -- " + e.getMessage());
-		}
-
-		return status;
-	}
-
-	/**
-	 * Fecha conexao com banco de dados
-	 * 
-	 */
-	public boolean close() {
-		boolean status = false;
-
-		try {
-			connection.close();
-			status = true;
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-		}
-
-		return status;
-	}
+public class PedidoDAO extends Banco implements DAO<Pedido> {
 
 	@Override
 	public Pedido get(int id) {
