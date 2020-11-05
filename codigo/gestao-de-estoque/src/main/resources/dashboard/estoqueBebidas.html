@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Template Master</title>
-    <link rel="stylesheet" href="bibliotecas/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bibliotecas/font-awesome/css/">
-    <link rel="stylesheet" href="bibliotecas/datatables/dataTables.bootstrap4.css">
-
-    <link rel="stylesheet" href="css/sb-admin.min.css">
+    <title>Estoque de Bebidas</title>
+    <link rel="stylesheet" href="../depend/bibliotecas/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../depend/bibliotecas/font-awesome/css/">
+    <link rel="stylesheet" href="../depend/bibliotecas/datatables/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="../depend/css/sb-admin.min.css">
 </head>
-<body class="bg-dark fixed-nav sticky-footer" id="page-top">
+<body class="bg-dark fixed-nav stick-footer" id="page-top">
 
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -26,35 +25,22 @@
         <div id="navbarEstoque" class="collapse navbar-collapse">
             <ul class="navbar-nav navbar-sidenav" id="linksaccordion">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="index.html" class="nav-link">
                         <!-- Ícone aqui -->
-                        <i class="fas fa-boxes"></i>
-                        <span class="nav-link-text">Estoque</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <!-- Ícone aqui -->
-                        <i class="fas fa-table"></i>
-                        <span class="nav-link-text">Tabelas</span>
+                        <i class="fas fa-home"></i>
+                        <span class="nav-link-text">Inicio</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltipe" data-placement="right"> 
                     <a href="#linkComponente" class="nav-link nav-link-collapse collapse"
                     data-toggle="collapse" data-parent="#linksaccordion">
                         <!-- Ícone aqui -->
-                        <i class="fas fa-wrench"></i>
-                        <span class="nav-link-text">Componentes</span>
+                        <i class="fas fa-boxes"></i>
+                        <span class="nav-link-text">Estoque</span>
                     </a>
                     <ul class="sidenav-second-level collapse" id="linkComponente">
                         <li>
-                            <a href="login.html">Página Login</a>
-                        </li>
-                        <li>
-                            <a href="recuperar.html">Página Recuperar</a>
-                        </li>
-                        <li>
-                            <a href="registro.html">Página Registro</a>
+                            <a href="estoqueBebidas.html">Bebidas</a>
                         </li>
                     </ul>
                 </li>
@@ -63,17 +49,14 @@
                     data-toggle="collapse" data-parent="#linksaccordion">
                         <!-- Ícone aqui -->
                         <i class="fas fa-file"></i>
-                        <span class="nav-link-text">Páginas</span>
+                        <span class="nav-link-text">Pedidos</span>
                     </a>
                     <ul class="sidenav-second-level collapse" id="linkPagina">
                         <li>
-                            <a href="login.html">Página Login</a>
+                            <a href="pedidos.html">Em aberto</a>
                         </li>
                         <li>
-                            <a href="recuperar.html">Página Recuperar</a>
-                        </li>
-                        <li>
-                            <a href="registro.html">Página Registro</a>
+                            <a href="pedidosFinalizados.html">Finalizados</a>
                         </li>
                     </ul>
                 </li>
@@ -125,7 +108,7 @@
                             </div>
                         </a>
                         <div class="dropdown-divider"></div>
-                        Copyright Conexus System     <a href="#" class="dropdown-item small">Ver todas mensagens</a>
+                        <a href="#" class="dropdown-item small">Ver todas mensagens</a>
                     </div>
                 </li>
 
@@ -217,65 +200,110 @@
                     <a href="index.html">Home</a>
                 </li>
                 <li class="breadcrumb-item">
-                    Página em branco
+                    Estoque de Bebidas
                 </li>
             </ol>
             <div class="row">
                 <div class="col-12">
-                    <h1>Título da página</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorum, modi possimus quae repellat facere a fuga quos ipsa magni adipisci numquam nobis doloribus similique?</p>
+                    <h1>Estoque de Bebidas</h1>
+                    <p>Confira os produtos com os melhores preços e melhores fornecedores! 
+                        Recomponha seu estoque escolhendo a bebida que melhor te atenda.
+                    </p>
                 </div>
             </div>
 
-            <!-- Tables -->
-            <div class="row">
-                <div class="col-12">
-                    <h1>Tabelas</h1>
-                </div>
+         <!-- Tables -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i>
+                <span>Bebidas</span>
             </div>
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class="fa fa-table"></i>Tabela
-                </div>
-                <div class="card-body">
-                    <!-- id do tema tem que ser #dataTable-->
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <!-- Encima -->
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Cargo</th>
-                                <th>Local</th>
-                                <th>Salário</th>
-                                <th>Cidade</th>
-                                <th>Oito</th>
-                            </tr>
-                        </thead>
-                        <!-- Embaixo -->
-                        <tfoot>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Cargo</th>
-                                <th>Local</th>
-                                <th>Salário</th>
-                                <th>Cidade</th>
-                                <th>Oito</th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            <tr>
-                                <td>Teste</td>
-                                <td>Programador</td>
-                                <td>Brasil</td>
-                                <td>5000</td>
-                                <td>Biden</td>
-                                <td>Que</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="card-body">
+                <!-- id do tema tem que ser #dataTable-->
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <!-- Encima -->
+                    <thead>
+                        <tr>
+                            <th>Ações</th>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>Volume</th>
+                            <th>Fornecedor</th>         
+                            <th>Disponibilidade</th>
+                            <th>Quantidade</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <!-- Embaixo -->
+                    <tfoot>
+                        <tr>
+                            <th>Ações</th>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>Volume</th>
+                            <th>Fornecedor</th>         
+                            <th>Disponibilidade</th>
+                            <th>Quantidade</th>
+                            <th>Preço</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td>null</td>
+                            <td>2546</td>
+                            <td>Coca-Cola</td>
+                            <td>2 Litros</td>
+                            <td>Coca-Cola Brasil</td>
+                            <td class="text-success">Disponível</td>
+                            <td>2500un.</td>
+                            <td class="text-success">R$5.00un.</td>
+                        </tr>
+                        <tr>
+                            <td>null</td>
+                            <td>2546</td>
+                            <td>Coca-Cola</td>
+                            <td>2 Litros</td>
+                            <td>Coca-Cola Brasil</td>
+                            <td class="text-success">Disponível</td>
+                            <td>2500un.</td>
+                            <td class="text-success">R$5.00un.</td>
+                        </tr>
+                        <tr>
+                            <td>null</td>
+                            <td>2546</td>
+                            <td>Coca-Cola</td>
+                            <td>2 Litros</td>
+                            <td>Coca-Cola Brasil</td>
+                            <td class="text-success">Disponível</td>
+                            <td>2500un.</td>
+                            <td class="text-success">R$5.00un.</td>
+                        </tr>
+                        <tr>
+                            <td>null</td>
+                            <td>2546</td>
+                            <td>Coca-Cola</td>
+                            <td>2 Litros</td>
+                            <td>Coca-Cola Brasil</td>
+                            <td class="text-success">Disponível</td>
+                            <td>2500un.</td>
+                            <td class="text-success">R$5.00un.</td>
+                        </tr>
+                        <tr>
+                            <td>null</td>
+                            <td>2546</td>
+                            <td>Coca-Cola</td>
+                            <td>2 Litros</td>
+                            <td>Coca-Cola Brasil</td>
+                            <td class="text-success">Disponível</td>
+                            <td>2500un.</td>
+                            <td class="text-success">R$5.00un.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
 
+    </div>
         </div>
 
         <!-- Footer -->
@@ -286,17 +314,16 @@
                 </div>
             </div>
         </footer>
-
     </div>
 
 
-    <script src="bibliotecas/jquery/jquery.min.js"></script>
-    <script src="bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="bibliotecas/jquery-easing/jquery.easing.min.js"></script>
-    <script src="bibliotecas/datatables/jquery.dataTables.js"></script>
-    <script src="bibliotecas/datatables/dataTables.bootstrap4.js"></script>
-    <script src="js/sb-admin.min.js" type="text/javascript"></script>
-    <script src="js/sb-admin-datatables.min.js" type="text/javascript"></script>
+    <script src="../depend/bibliotecas/jquery/jquery.min.js"></script>
+    <script src="../depend/bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../depend/bibliotecas/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../depend/bibliotecas/datatables/jquery.dataTables.js"></script>
+    <script src="../depend/bibliotecas/datatables/dataTables.bootstrap4.js"></script>
+    <script src="../depend/js/sb-admin.min.js" type="text/javascript"></script>
+    <script src="../depend/js/sb-admin-datatables.min.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/6b3ebeef12.js" crossorigin="anonymous"></script>
 
 </body>
