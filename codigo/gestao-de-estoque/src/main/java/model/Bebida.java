@@ -15,30 +15,27 @@ public class Bebida implements JsonFormatter {
 	private String nome;
 	private String descricao;
 	private float volume;
-	private boolean isAlcoolico;
-	private String categoria;
+	private int quantidade;
+	private float preco;
 	private int idFornecedor;
 	
-	
-	public Bebida(int id, int codigo, String nome, String descricao, float volume, boolean isAlcoolico,
-                  String categoria, int idFornecedor) {
+	public Bebida(int id, int codigo, String nome, String descricao, float volume, int quantidade, float preco, int idFornecedor) {
 		super();
 		this.id = id;
 		this.codigo = codigo;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.volume = volume;
-		this.isAlcoolico = isAlcoolico;
-		this.categoria = categoria;
 		this.idFornecedor = idFornecedor;
+		this.preco = preco;
+		this.quantidade = quantidade;
 		maxId++;
 	}
 
 	@Override
 	public String toString() {
 		return "Bebida [id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", descricao=" + descricao + ", volume="
-				+ volume + ", isAlcoolico=" + isAlcoolico + ", fabricante=" + ", categoria=" + categoria
-				+ ", idFornecedor=" + idFornecedor + "]";
+				+ volume + ", idFornecedor=" + idFornecedor + "]";
 	}
 
 	public int getId() {
@@ -89,22 +86,6 @@ public class Bebida implements JsonFormatter {
 		this.volume = volume;
 	}
 	
-	public boolean isAlcoolico() {
-		return isAlcoolico;
-	}
-	
-	public void setAlcoolico(boolean isAlcoolico) {
-		this.isAlcoolico = isAlcoolico;
-	}
-	
-	public String getCategoria() {
-		return categoria;
-	}
-	
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
-	
 	public int getIdFornecedor() {
 		return idFornecedor;
 	}
@@ -113,6 +94,22 @@ public class Bebida implements JsonFormatter {
 		this.idFornecedor = idFornecedor;
 	} 
 	
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public float getPreco() {
+		return preco;
+	}
+
+	public void setPreco(float preco) {
+		this.preco = preco;
+	}
+
 	/**
 	 * Converte uma bebida para formato JSON
 	 */
@@ -124,8 +121,6 @@ public class Bebida implements JsonFormatter {
 		obj.put("nome", this.getNome());
 		obj.put("descricao", this.getDescricao());
 		obj.put("volume", this.getVolume());
-		obj.put("isAlcoolico", this.isAlcoolico());
-		obj.put("categoria", this.getCategoria());
 		obj.put("idFornecedor", this.getIdFornecedor());
 		return obj;
 	}
