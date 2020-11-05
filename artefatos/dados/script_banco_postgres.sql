@@ -1,18 +1,11 @@
 CREATE DATABASE estoqueti2;
 
-CREATE TABLE Cidade (
-  id INT PRIMARY KEY NOT NULL,
-  codigo INT  UNIQUE, 
-  cidade VARCHAR,
-  uf CHAR(2)
-);
-
 CREATE TABLE Fornecedor (
   id INT PRIMARY KEY NOT NULL,
   codigo INT  NOT NULL UNIQUE ,
   nome TEXT,
-
-  idCidade INT REFERENCES Cidade(id) NOT NULL
+  cidade VARCHAR,
+  uf CHAR(2)
 );
 
 CREATE TABLE Bebida (
@@ -32,7 +25,8 @@ CREATE TABLE Loja (
   nome TEXT,
   cnpj CHAR(18),
   cep TEXT NOT NULL, 
-  idCidade INT REFERENCES Cidade(id)  NOT NULL
+  cidade VARCHAR,
+  uf CHAR(2)
 );
 
 CREATE TABLE Pedido (
