@@ -54,13 +54,17 @@ public class BebidaService {
 	}
 
 	public Object get(Request request, Response response) {
+		bebidaDAO.connect();
+		
 		int id = Integer.parseInt(request.params(":idBebida"));
 
 		Bebida bebida = (Bebida) bebidaDAO.get(id);
 
 		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
-
+		
+		bebidaDAO.close();
+		
 		if (bebida != null) {
 			return bebida.toJson();
 		} else {
@@ -68,6 +72,8 @@ public class BebidaService {
 			response.redirect("/notfound.html");
 			return null;
 		}
+		
+		
 
 	}
 
@@ -114,7 +120,18 @@ public class BebidaService {
 	}
 
 	public Object getAll(Request request, Response response) {
+		bebidaDAO.connect();
+		
+		System.out.println("\n"+bebidaDAO.getConnection());
+		
 		StringBuffer returnValue = new StringBuffer("bebidas: [ {");
+//		Bebida[] bs = bebidaDAO.getAll();	
+//		if(bs != null)
+//			System.out.println("Não nulo");
+//		else
+//			System.out.println("Nulo");
+
+		
 		for (Bebida b : bebidaDAO.getAll()) {
 			Bebida bebida = (Bebida) b;
 			returnValue.append(bebida.toJson()+"}, {");
@@ -122,6 +139,9 @@ public class BebidaService {
 		returnValue.append(" } ]");
 		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
+		
+		bebidaDAO.close();
+		
 		return returnValue.toString();
 
 	}
