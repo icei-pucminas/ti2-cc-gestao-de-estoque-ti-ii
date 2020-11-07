@@ -11,6 +11,8 @@ public class Aplicacoes {
 	public static void main(String[] args) {
 		port(6789);
 		
+		staticFiles.location("/public/dashboard");
+		
 		get("/teste", (request, response) -> "Hello World!");
 		
 		post("/bebida", (request,response) ->  bebidaService.add(request, response) );

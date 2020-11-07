@@ -36,8 +36,8 @@ public class BebidaDAO implements DAO<Bebida> {
 		String driverName = "org.postgresql.Driver";
 		String serverName = "localhost";
 		String myDB = "estoqueti2";
-		String porta = "6789";
-		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + myDB; // + "?gssEncMode=disable&ssl=false"
+		String porta = "5432";
+		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + myDB; // + "?ssl=false"
 		String username = "ti2cc";
 		String password = "ti@cc";
 		boolean status = false;
