@@ -15,19 +15,18 @@ import model.Bebida;
 public class BebidaDAO extends Banco implements DAO<Bebida> {
 	
     @Override
-	public Bebida get(int id) {
+	public Bebida get(int codigo) {
 		Bebida bebida = null;
 		try {
 			Statement st = connection.createStatement();
 			String sql = ("SELECT * "
 					    + "FROM bebida 	"
-					    + "WHERE bebida.id = " + id);
+					    + "WHERE bebida.codigo = " + codigo);
 			ResultSet rs = st.executeQuery(sql);
 				
-			bebida = new Bebida(rs.getInt("id"), 
-					 		    rs.getInt("codigo"), rs.getString("nome"), rs.getString("descricao"),
-					 		    rs.getFloat("volume"), rs.getBoolean("isAlcoolico"),
-					 		    rs.getString("categoria"), rs.getInt("idFornecedor"));
+			bebida = new Bebida(rs.getInt("codigo"), rs.getString("nome"), rs.getString("descricao"),
+					 		    rs.getFloat("volume"), rs.getInt("quantidade"), rs.getInt("idFornecedor"));
+			
 			st.close();
 			System.out.println("Success! --- " + bebida.toString());
 		} catch (Exception e) {
@@ -43,8 +42,13 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 			Statement st = connection.createStatement();
 			
 			String sql = ("INSERT INTO bebida (id, codigo, nome, descricao, volume, isAlcoolico,  categoria, idFornecedor)"
-					    + "VALUES (" + bebida.getId() + ", " + bebida.getCodigo() + ", '"+ bebida.getNome() +"', '"+  bebida.getDescricao() + "', " + bebida.getVolume() + ", "+ bebida.isAlcoolico()
-					    +  ", '" + bebida.getCategoria() + "', " + bebida.getIdFornecedor() +")");
+					    + "VALUES (" 
+					    + bebida.getCodigo() + ", " 
+					    + bebida.getNome() +"', '"
+					    + bebida.getDescricao() + "', " 
+					    + bebida.getVolume() + ", "
+					    + bebida.getQuantidade() + ", "
+					    + bebida.getIdFornecedor() +");");
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + bebida.toString());
 		} catch (SQLException u) {
@@ -56,11 +60,14 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 	public void update(Bebida bebida) {
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("UPDATE bebida SET codigo = " + bebida.getCodigo() + " , "
-					     + "nome = '"+ bebida.getNome() +"', descricao = '"+ bebida.getDescricao() +"'" + " volume = '" + bebida.getVolume() 
-					     + "' isAlcoolico = '" + bebida.isAlcoolico() + " categoria = '" + bebida.getCategoria() + "'"
+			String sql = ("UPDATE bebida SET "
+					     + "codigo = " + bebida.getCodigo() + ", "
+					     + "nome = '"+ bebida.getNome() + "', "
+					     + "descricao = '"+ bebida.getDescricao() +"', " 
+					     + "volume = " + bebida.getVolume() + ", "
+					     + "quatidade = " + bebida.getQuantidade() + ", "
 					     + " idFornecedor = " + bebida.getIdFornecedor()
-					     + "WHERE bebida.id = "+ bebida.getId());
+					     + "WHERE bebida.codigo = "+ bebida.getCodigo());
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + bebida.toString());
 		} catch (SQLException u) {
@@ -72,7 +79,7 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 	public void delete(Bebida bebida) {
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("DELETE FROM bebida WHERE bebida.id = " + bebida.getId());
+			String sql = ("DELETE FROM bebida WHERE bebida.codigo = " + bebida.getCodigo());
 			st.executeUpdate(sql);
 			st.close();
 			System.out.println("Sucess! --- " + bebida.toString());
@@ -95,10 +102,12 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 				rs.beforeFirst();
 				
 				for(int i = 0; rs.next(); i++) {
-					bebida[i] = new Bebida(rs.getInt("id"),
-				 		     rs.getInt("codigo"), rs.getString("nome"), rs.getString("descricao"),
-				 		     rs.getFloat("volume"), rs.getBoolean("isAlcoolico"),
-				 		     rs.getString("categoria"),  rs.getInt("idFornecedor"));
+					bebida[i] = new Bebida(rs.getInt("codigo"), 
+							 rs.getString("nome"), 
+							 rs.getString("descricao"),
+				 		     rs.getFloat("volume"),
+				 		     rs.getInt("quantidade"),  
+				 		     rs.getInt("idFornecedor"));
 				}
 			}
 			st.close();

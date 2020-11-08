@@ -21,36 +21,30 @@ public class BebidaService {
 
 	public Object add(Request request, Response response) {
 		bebidaDAO.connect();
-		int codigo = Integer.parseInt(request.queryParams("bebidaCodigo"));
 		String nome = request.queryParams("bebidaNome");
 		String descricao = request.queryParams("bebidaDescricao");
 		float volume = Float.parseFloat(request.queryParams("bebidaVolume"));
-		boolean isAlcoolico = Boolean.parseBoolean(request.queryParams("bebidaAlcoolico"));
-		String categoria = request.queryParams("bebidaCategoria");
+		int quantidade = Integer.parseInt(request.queryParams("bebidaQuantidade"));
+		//int idFornecedor = Integer.parseInt(request.queryParams("idFornecedor"));
 
 		// Provisório
 		int idFornecedor = 3;
 
-		// Pesquisar id válido
+		// Pesquisar código válido
 		Bebida[] bebidas = bebidaDAO.getAll();
-
-		// Evitar id Duplicado
-		int maiorId = 0;
-		if (bebidas != null) {
-			for (Bebida c : bebidas) {
-				if (c.getId() > maiorId)
-					maiorId = c.getId();
-			}
-		}
-		maiorId++;
-
-		Bebida bebida = new Bebida(maiorId, codigo, nome, descricao, volume, isAlcoolico, categoria, idFornecedor);
+		Bebida bebida = new Bebida();
+		
+		// Pegar maior código
+		int maxCod = bebidas[bebida.getQNT_BEBIDAS()-1].getCodigo() + 1;
+		
+		
+		bebida = new Bebida(maxCod, nome, descricao, volume, quantidade, idFornecedor);
 
 		bebidaDAO.add(bebida);
 
 		response.status(201); // created
 
-		return Integer.valueOf(maiorId);
+		return Integer.valueOf(maxCod);
 	}
 
 	public Object get(Request request, Response response) {
@@ -68,7 +62,6 @@ public class BebidaService {
 			response.redirect("/notfound.html");
 			return null;
 		}
-
 	}
 
 	public Object update(Request request, Response response) {
@@ -81,8 +74,8 @@ public class BebidaService {
 			bebida.setNome(request.queryParams("bebidaNome"));
 			bebida.setDescricao(request.queryParams("bebidaDescricao"));
 			bebida.setVolume(Float.parseFloat(request.queryParams("bebidaVolume")));
-			bebida.setAlcoolico(Boolean.parseBoolean(request.queryParams("bebidaAlcoolico")));
-			bebida.setCategoria(request.queryParams("bebidaCategoria"));
+			//bebida.setAlcoolico(Boolean.parseBoolean(request.queryParams("bebidaAlcoolico")));
+			//bebida.setCategoria(request.queryParams("bebidaCategoria"));
 
 			bebidaDAO.update(bebida);
 
