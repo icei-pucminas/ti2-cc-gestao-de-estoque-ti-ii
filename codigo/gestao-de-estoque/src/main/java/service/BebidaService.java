@@ -1,17 +1,11 @@
 package service;
 
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
-import org.json.JSONArray;
-
 import dao.BebidaDAO;
 import model.Bebida;
 import spark.Request;
 import spark.Response;
 
-public class BebidaService {
+public class BebidaService implements Service{
 	private BebidaDAO bebidaDAO;
 
 	public BebidaService() {
@@ -19,6 +13,7 @@ public class BebidaService {
 
 	}
 
+	@Override
 	public Object add(Request request, Response response) {
 		bebidaDAO.connect();
 		int codigo = Integer.parseInt(request.queryParams("bebidaCodigo"));
@@ -53,6 +48,7 @@ public class BebidaService {
 		return Integer.valueOf(maiorId);
 	}
 
+	@Override
 	public Object get(Request request, Response response) {
 		bebidaDAO.connect();
 		
@@ -77,6 +73,7 @@ public class BebidaService {
 
 	}
 
+	@Override
 	public Object update(Request request, Response response) {
 		int id = Integer.parseInt(request.params(":idBebida"));
 
@@ -101,6 +98,7 @@ public class BebidaService {
 
 	}
 
+	@Override
 	public Object remove(Request request, Response response) {
 		int id = Integer.parseInt(request.params(":idBebida"));
 
@@ -119,6 +117,7 @@ public class BebidaService {
 		}
 	}
 
+	@Override
 	public Object getAll(Request request, Response response) {
 		bebidaDAO.connect();
 		

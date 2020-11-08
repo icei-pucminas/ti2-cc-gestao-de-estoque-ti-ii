@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
+
 /**
  * Descreve a estrutura de um pedido seguindo
  * a documentação dos dados.
@@ -12,7 +14,7 @@ import java.util.List;
  *
  * última alteração: 6/10/2020
  */
-public class Pedido {
+public class Pedido implements JsonFormatter {
 	private int id;
 	private static int maxId = 0;
 	private int codigo;
@@ -111,8 +113,20 @@ public class Pedido {
 		if(quantidade > 0) {
 			this.quantidade = quantidade;
 		} else {
-			throw new Exception ("Quantidade inválida");
+			throw new Exception ("Quantidade inv�lida");
 		}
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject obj = new JSONObject();
+		obj.put("id", this.getId());
+		obj.put("codigo", this.getCodigo());
+		obj.put("data", this.getData());
+		obj.put("preco", this.getPreco());
+		obj.put("quantidade", this.getQuantidade());
+		obj.put("bebidas", this.getBebidas());
+		return obj;
 	}
 	
 }

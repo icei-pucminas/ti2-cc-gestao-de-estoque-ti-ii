@@ -1,7 +1,6 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
 
 /**
  * Descrever a estrutura de um fornecedor
@@ -10,7 +9,7 @@ import java.util.List;
  *
  * Última ateração 6/10/2020
  */
-public class Fornecedor {
+public class Fornecedor implements JsonFormatter {
 	private int id;
 	private static int maxId = 0;
 	private int codigo;
@@ -80,6 +79,17 @@ public class Fornecedor {
 	public void setIdCidade(int idCidade) {
 		this.idCidade = idCidade;
 	}
+
+	@Override
+	public JSONObject toJson() {
+		JSONObject obj = new JSONObject();
+		obj.put("id", this.getId());
+		obj.put("codigo", this.getCodigo());
+		obj.put("nome", this.getNome());
+		obj.put("idCidade", this.getIdCidade());
+		return obj;
+	}
+	
 	
 	
 }

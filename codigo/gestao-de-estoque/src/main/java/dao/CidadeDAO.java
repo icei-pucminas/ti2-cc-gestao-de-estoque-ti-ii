@@ -27,10 +27,10 @@ public class CidadeDAO implements DAO<Cidade> {
 		String driverName = "org.postgresql.Driver";
 		String serverName = "localhost";
 		String myDB = "estoqueti2";
-		int porta = 4568;
+		int porta = 5432;
 		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + myDB;
-		String username = "estoqueti2";
-		String password = "123";
+		String username = "ti2cc";
+		String password = "ti@cc";
 		boolean status = false;
 		
 		try {
