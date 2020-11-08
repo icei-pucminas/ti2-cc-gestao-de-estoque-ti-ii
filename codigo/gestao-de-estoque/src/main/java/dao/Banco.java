@@ -27,7 +27,7 @@ public class Banco {
 		String driverName = "org.postgresql.Driver";
 		String serverName = "localhost";
 		String myDB = "estoqueti2";
-		int porta = 3214;
+		String porta = "5432";
 		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + myDB;
 		String username = "ti2cc";
 		String password = "ti@cc";

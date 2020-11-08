@@ -41,14 +41,6 @@ public class Fornecedor {
 				//+ ", bebidas=" + bebidas + "]";
 	}
 
-//	public List<Bebida> getBebidas() {
-//		return bebidas;
-//	}
-//
-//	public void setBebidas(List<Bebida> bebidas) {
-//		this.bebidas = bebidas;
-//	}
-
 	public int getId() {
 		return id;
 	}
@@ -80,6 +72,4 @@ public class Fornecedor {
 	public void setIdCidade(int idCidade) {
 		this.idCidade = idCidade;
 	}
-	
-	
 }
