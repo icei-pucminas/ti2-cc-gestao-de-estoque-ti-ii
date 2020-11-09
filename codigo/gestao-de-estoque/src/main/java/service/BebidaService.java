@@ -22,10 +22,12 @@ public class BebidaService implements Service{
 		String descricao = request.queryParams("bebidaDescricao");
 		float volume = Float.parseFloat(request.queryParams("bebidaVolume"));
 		int quantidade = Integer.parseInt(request.queryParams("bebidaQuantidade"));
+		float preco = Float.parseFloat(request.queryParams("bebidaPreco"));
+
 		//int idFornecedor = Integer.parseInt(request.queryParams("idFornecedor"));
 
 		// Provisório
-		int idFornecedor = 3;
+		int idFornecedor = 1;
 
 		// Pesquisar código válido
 		Bebida[] bebidas = bebidaDAO.getAll();
@@ -34,7 +36,7 @@ public class BebidaService implements Service{
 		// Pegar maior código
 		int maxCod = bebidas[bebida.getQNT_BEBIDAS()-1].getCodigo() + 1;
 		
-		bebida = new Bebida(maxCod, nome, descricao, volume, quantidade, idFornecedor);
+		bebida = new Bebida(maxCod, nome, descricao, volume, quantidade, preco, idFornecedor);
 
 		bebidaDAO.add(bebida);
 
@@ -79,6 +81,9 @@ public class BebidaService implements Service{
 			bebida.setNome(request.queryParams("bebidaNome"));
 			bebida.setDescricao(request.queryParams("bebidaDescricao"));
 			bebida.setVolume(Float.parseFloat(request.queryParams("bebidaVolume")));
+			bebida.setQuantidade(Integer.parseInt(request.queryParams("bebidaQuantidade")));
+			bebida.setPreco(Float.parseFloat(request.queryParams("bebidaPreco")));
+
 			//bebida.setAlcoolico(Boolean.parseBoolean(request.queryParams("bebidaAlcoolico")));
 			//bebida.setCategoria(request.queryParams("bebidaCategoria"));
 
@@ -127,7 +132,7 @@ public class BebidaService implements Service{
 		}
 
 		bebidaDAO.close();
-		
+				
 		return allProds;
 
 	}

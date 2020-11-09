@@ -27,7 +27,7 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 			ResultSet rs = st.executeQuery(sql);
 			
 			bebida = new Bebida(rs.getInt("codigo"), rs.getString("nome"), rs.getString("descricao"),
-					 		    rs.getFloat("volume"), rs.getInt("quantidade"), rs.getInt("idFornecedor"));
+					 		    rs.getFloat("volume"), rs.getInt("quantidade"), rs.getFloat("preco"), rs.getInt("idFornecedor"));
 			
 			st.close();
 			System.out.println("Success! --- " + bebida.toString());
@@ -43,13 +43,14 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 		try {
 			Statement st = connection.createStatement();
 
-			String sql = ("INSERT INTO bebida (id, codigo, nome, descricao, volume, isAlcoolico,  categoria, idFornecedor)"
+			String sql = ("INSERT INTO bebida (codigo, nome, descricao, volume, quantidade, preco, idFornecedor)"
 					    + "VALUES (" 
 					    + bebida.getCodigo() + ", " 
 					    + bebida.getNome() +"', '"
 					    + bebida.getDescricao() + "', " 
 					    + bebida.getVolume() + ", "
 					    + bebida.getQuantidade() + ", "
+						+ bebida.getPreco() + ", "
 					    + bebida.getIdFornecedor() +");");
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + bebida.toString());
@@ -67,7 +68,8 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 					     + "nome = '"+ bebida.getNome() + "', "
 					     + "descricao = '"+ bebida.getDescricao() +"', " 
 					     + "volume = " + bebida.getVolume() + ", "
-					     + "quatidade = " + bebida.getQuantidade() + ", "
+					     + "quantidade = " + bebida.getQuantidade() + ", "
+						 + "preco = " + bebida.getPreco() + ", "
 					     + " idFornecedor = " + bebida.getIdFornecedor()
 					     + "WHERE bebida.codigo = "+ bebida.getCodigo());
 			st.executeUpdate(sql);
@@ -109,6 +111,7 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 							 rs.getString("descricao"),
 				 		     rs.getFloat("volume"),
 				 		     rs.getInt("quantidade"),  
+				 		     rs.getFloat("preco"),
 				 		     rs.getInt("idFornecedor"));
 				}
 			}
@@ -117,7 +120,7 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
-
+				
 		return bebida;
 	}
 

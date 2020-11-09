@@ -8,7 +8,7 @@ import service.CidadeService;
 import service.FornecedorService;
 import service.PedidoService;
 
-public class Aplicacoes {
+public class Aplicacao {
 	
 	private static BebidaService bebidaService = new BebidaService();
 	private static CidadeService cidadeService = new CidadeService();
@@ -18,14 +18,18 @@ public class Aplicacoes {
 	public static void main(String[] args) {
 		port(6789);
 		
-		staticFiles.location("/public");
+		staticFiles.externalLocation("C:\\DANNIEL\\1_Escola\\PUC_Coreu\\2020_2\\TI_2_CC\\ti2cc-estoque\\codigo\\gestao-de-estoque\\src\\main\\resources\\public");
+		//staticFiles.location("/public");
+
+		
+        //get("/", (request, response) -> "H");
 		
 		//HTTP Methods: Bebida
 		post("/bebida", (request,response) ->  bebidaService.add(request, response) );
+		get("/bebida", (request, response) -> bebidaService.getAll(request, response)); 
 		get("/bebida", (request, response) -> bebidaService.get(request, response)); 
 		put("/bebida/:id", (request, response) -> bebidaService.update(request, response));
 		delete("/bebida/:id", (request, response) -> bebidaService.remove(request,response));
-		get("/bebida", (request, response) -> bebidaService.getAll(request, response)); 
 		
 		//HTTP Methods: Cidade
 		post("/cidade", (request,response) ->  cidadeService.add(request, response) );

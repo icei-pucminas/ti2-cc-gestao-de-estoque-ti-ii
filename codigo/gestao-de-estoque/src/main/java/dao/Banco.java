@@ -30,7 +30,7 @@ public class Banco {
 		String porta = "5432";
 		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + myDB;
 		String username = "ti2cc";
-		String password = "123";
+		String password = "ti@cc";
 		boolean status = false;
 
 		try {

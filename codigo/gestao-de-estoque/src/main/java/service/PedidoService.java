@@ -26,28 +26,21 @@ public class PedidoService implements Service{
 		Double preco = Double.parseDouble(request.queryParams("pedidoPreco"));
 		int quantidade = Integer.parseInt(request.queryParams("pedidoQuantidade"));
 		
-		//Pegar as bebidas
 
 		// Pesquisar id válido
 		Pedido[] pedidos = pedidoDAO.getAll();
+		Pedido pedido = new Pedido();
 
 		// Evitar id Duplicado
-		int maiorId = 0;
-		if (pedidos != null) {
-			for (Pedido c : pedidos) {
-				if (c.getId() > maiorId)
-					maiorId = c.getId();
-			}
-		}
-		maiorId++;
+		int maxCod = pedidos[pedido.getQNT_PEDIDOS()-1].getCodigo() + 1;
 
-		Pedido pedido = new Pedido(maiorId, codigo, data, preco, quantidade);
+		pedido = new Pedido(maxCod, data, preco, quantidade);
 
 		pedidoDAO.add(pedido);
 
 		response.status(201); // created
 
-		return Integer.valueOf(maiorId);
+		return Integer.valueOf(maxCod);
 	}
 
 	@Override

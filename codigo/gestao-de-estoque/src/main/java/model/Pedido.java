@@ -21,14 +21,19 @@ public class Pedido implements JsonFormatter {
 	private Double preco;
 	private int quantidade;
 	//private int idLoja; // Loja que realizou esse pedido
-	Bebida[] bebidas;
+	Bebida bebidas;
 	
-	public Pedido(int codigo, LocalDateTime data, Double preco, int quantidade) { //, int idLoja) {
+	public Pedido(int codigo, LocalDateTime data, Double preco, int quantidade, Bebida bebidas) { //, int idLoja) {
 		super();
 		this.codigo = codigo;
 		this.data = data;
 		this.preco = preco;
 		this.quantidade = quantidade;
+		this.bebidas = bebidas;
+	}
+
+	public Pedido() {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -93,14 +98,14 @@ public class Pedido implements JsonFormatter {
 	/**
 	 * @return the bebidas
 	 */
-	public Bebida[] getBebidas() {
+	public Bebida getBebidas() {
 		return bebidas;
 	}
 
 	/**
 	 * @param bebidas the bebidas to set
 	 */
-	public void setBebidas(Bebida[] bebidas) {
+	public void setBebidas(Bebida bebidas) {
 		this.bebidas = bebidas;
 	}
 
