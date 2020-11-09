@@ -32,3 +32,19 @@ document.querySelector(".bebida").addEventListener("click", (e) => {
 
     localStorage.setItem("pedido", pedido);
 }); 
+
+function reqListener () {
+   let dado = JSON.parse(this.responseText);
+
+   console.log(dado);
+};
+
+let url = "http://localhost:6789/bebida";
+
+var xhr = new XMLHttpRequest();
+
+xhr.onload = reqListener;
+
+xhr.open('GET', url, true);
+xhr.send();
+

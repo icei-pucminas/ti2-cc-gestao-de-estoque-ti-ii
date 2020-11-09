@@ -10,7 +10,9 @@ public class Aplicacao {
 	public static void main(String[] args) {
 		port(6789);
 		
-		get("/bebida", (request, response) ->  bebidaService.add(request, response) );
+		post("/bebida", (request, response) ->  bebidaService.add(request, response) );
+		get("/bebida", (request, response) ->  bebidaService.getAll(request, response) );
+		
 	}
 	
 }

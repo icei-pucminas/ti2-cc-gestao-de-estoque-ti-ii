@@ -16,16 +16,15 @@ import model.*;
  */
 
 public class PedidoDAO extends Banco implements DAO<Pedido> {
-
 	@Override
-	public Pedido get(int id) {
+	public Pedido get(int codigo) {
 		Pedido pedido = null;
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("SELECT * " + "FROM pedido 	" + "WHERE pedido.id = " + id);
+			String sql = ("SELECT * " + "FROM pedido 	" + "WHERE pedido.codigo = " + codigo);
 			ResultSet rs = st.executeQuery(sql);
 
-			pedido = new Pedido(rs.getInt("id"), rs.getInt("codigo"),
+			pedido = new Pedido(rs.getInt("codigo"),
 					LocalDateTime.ofInstant(rs.getDate("data").toInstant(), ZoneId.systemDefault()),
 					rs.getDouble("preco"), rs.getInt("quantidade"));
 
@@ -42,21 +41,14 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 	public void add(Pedido pedido) {
 		try {
 			Statement st = connection.createStatement();
-			
-			// Pesquisar id vÃ¡lido
-			Pedido[] pedidos = getAll();
-			
-			// Evitar id Duplicado
-			int maiorId = 0;
-			for(Pedido c : pedidos) {
-				if(c.getId() > maiorId) maiorId = c.getId();
-			}
-			
-			maiorId++;
-			
+	
 			String sql = ("INSERT INTO pedido (id, codigo, data, preco, quantidade)"
-					    + "VALUES (" + maiorId + pedido.getCodigo() + Date.from(pedido.getData().atZone(ZoneId.systemDefault()).toInstant()) 
-					    +  pedido.getPreco() + pedido.getQuantidade() + ")");
+					    + "VALUES (" + pedido.getCodigo() 
+					    			 + pedido.getCodigo() 
+					    			 + Date.from(pedido.getData().atZone(ZoneId.systemDefault()).toInstant()) 
+					    			 +  pedido.getPreco() 
+					    			 + pedido.getQuantidade() + ")");
+			
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + pedido.toString());
 		} catch (SQLException u) {
@@ -71,7 +63,7 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 			String sql = ("UPDATE pedido SET codigo = " + pedido.getCodigo() + " , " 
 					+ "data = '" + Date.from(pedido.getData().atZone(ZoneId.systemDefault()).toInstant())
 					+ "', preco = '" + pedido.getPreco() + "'" + " quantidade = '" + pedido.getQuantidade() + "'"
-				    + "WHERE pedido.id = " + pedido.getId());
+				    + "WHERE pedido.codigo = " + pedido.getCodigo());
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + pedido.toString());
 		} catch (SQLException u) {
@@ -83,7 +75,7 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 	public void delete(Pedido pedido) {
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("DELETE FROM pedido WHERE pedido.id = " + pedido.getId());
+			String sql = ("DELETE FROM pedido WHERE pedido.codigo = " + pedido.getCodigo());
 			st.executeUpdate(sql);
 			st.close();
 			System.out.println("Sucess! --- " + pedido.toString());
@@ -106,9 +98,11 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 				rs.beforeFirst();
 				
 				for(int i = 0; rs.next(); i++) {
-					pedidos[i] = new Pedido(rs.getInt("id"),
-				 		    rs.getInt("codigo"), LocalDateTime.ofInstant(rs.getDate("data").toInstant(), ZoneId.systemDefault()), 
-				 		    rs.getDouble("preco"),rs.getInt("quantidade"));
+					pedidos[i] = new Pedido(
+				 		    				rs.getInt("codigo"), 
+				 		    				LocalDateTime.ofInstant(rs.getDate("data").toInstant(), ZoneId.systemDefault()), 
+				 		    				rs.getDouble("preco"),
+				 		    				rs.getInt("quantidade"));
 				}
 			}
 			st.close();
@@ -118,5 +112,4 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 		
 		return pedidos;
 	}
-
 }
