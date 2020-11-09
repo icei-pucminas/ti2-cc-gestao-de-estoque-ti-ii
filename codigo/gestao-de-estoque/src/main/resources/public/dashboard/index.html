@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Estoque de Bebidas</title>
+    <title>Home</title>
     <link rel="stylesheet" href="../depend/bibliotecas/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../depend/bibliotecas/font-awesome/css/">
     <link rel="stylesheet" href="../depend/bibliotecas/datatables/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="../depend/css/sb-admin.min.css">
 </head>
-
-<body class="bg-dark fixed-nav sticky-footer" id="page-top">
+<body class="bg-dark fixed-nav stick-footer" id="page-top">
 
     <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
         <a class="navbar-brand" href="index.html">Admin</a>
 
         <!-- Toggle -->
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarEstoque" aria-control="navbarEstoque" aria-expanded="false"
-            aria-label="Navegação toggle">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
+        data-target="#navbarEstoque" aria-control="navbarEstoque" aria-expanded="false" aria-label="Navegação toggle">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -34,9 +31,9 @@
                         <span class="nav-link-text">Inicio</span>
                     </a>
                 </li>
-                <li class="nav-item" data-toggle="tooltipe" data-placement="right">
-                    <a href="#linkComponente" class="nav-link nav-link-collapse collapse" data-toggle="collapse"
-                        data-parent="#linksaccordion">
+                <li class="nav-item" data-toggle="tooltipe" data-placement="right"> 
+                    <a href="#linkComponente" class="nav-link nav-link-collapse collapse"
+                    data-toggle="collapse" data-parent="#linksaccordion">
                         <!-- Ícone aqui -->
                         <i class="fas fa-boxes"></i>
                         <span class="nav-link-text">Estoque</span>
@@ -48,8 +45,8 @@
                     </ul>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right">
-                    <a href="#linkPagina" class="nav-link nav-link-collapse collapse" data-toggle="collapse"
-                        data-parent="#linksaccordion">
+                    <a href="#linkPagina" class="nav-link nav-link-collapse collapse" 
+                    data-toggle="collapse" data-parent="#linksaccordion">
                         <!-- Ícone aqui -->
                         <i class="fas fa-file"></i>
                         <span class="nav-link-text">Pedidos</span>
@@ -67,11 +64,11 @@
 
             <!-- Seta pra fechar navbar lateral -->
             <ul class="navbar-nav sidenav-toggler">
-                <li class="nav-item">
+               <li class="nav-item">
                     <a href="" id="sidenavToggler" class="nav-link text-center">
                         <i class="fas fa-angle-left"></i>
                     </a>
-                </li>
+               </li>
             </ul>
 
             <!-- Tela de pesquisar e sign out -->
@@ -79,8 +76,8 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Caixas de mensagens -->
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" data-toggle="dropdown"
-                        arie-haspopup="true" arie-expanded="false">
+                    <a href="#" class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown"
+                    data-toggle="dropdown" arie-haspopup="true" arie-expanded="false">
                         <i class="fa fa-fw fa-envelope"></i>
                         <!-- Disponível em tela < lg -->
                         <span class="d-lg-none">
@@ -92,7 +89,7 @@
                         <span class="indicator text-primary d-none d-lg-block">
                             <i class="fa fa-fw fa-circle"></i>
                         </span>
-                    </a>
+                    </a>    
 
                     <!-- Mensagens -->
                     <div class="dropdown-menu" aria-labelledby="messagesDropdown">
@@ -104,8 +101,8 @@
                             <span class="small float-right text-muted">14:30</span>
                             <!-- Mensagem -->
                             <div class="dropdown-message small">
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Ducimus nulla molestias veniam modi
+                                Lorem ipsum dolor, sit amet consectetur 
+                                adipisicing elit. Ducimus nulla molestias veniam modi 
                                 repellendus voluptates totam excepturi consectetur ab at necessitatibus laboriosam,
                                 facere nisi voluptas!
                             </div>
@@ -117,8 +114,8 @@
 
                 <!-- Alertas -->
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" data-toggle="dropdown"
-                        arie-haspopup="true" arie-expanded="false">
+                    <a href="#" class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown"
+                    data-toggle="dropdown" arie-haspopup="true" arie-expanded="false">
                         <i class="fa fa-fw fa-bell"></i>
                         <!-- Disponível em tela < lg -->
                         <span class="d-lg-none">
@@ -130,7 +127,7 @@
                         <span class="indicator text-warning d-none d-lg-block">
                             <i class="fa fa-fw fa-circle"></i>
                         </span>
-                    </a>
+                    </a>  
                     <div class="dropdown-menu" aria-labelledby="alertsDropdown">
                         <h6 class="dropdown-header">Novos Alertas</h6>
                         <div class="dropdown-divider"></div>
@@ -145,8 +142,8 @@
                             <span class="small float-right text-muted">14:30</span>
                             <!-- Mensagem de alerta -->
                             <div class="dropdown-message small">
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Ducimus nulla molestias veniam modi
+                                Lorem ipsum dolor, sit amet consectetur 
+                                adipisicing elit. Ducimus nulla molestias veniam modi 
                                 repellendus voluptates totam excepturi consectetur ab at necessitatibus laboriosam,
                                 facere nisi voluptas!
                             </div>
@@ -162,8 +159,8 @@
                             <span class="small float-right text-muted">14:30</span>
                             <!-- Mensagem de alerta-->
                             <div class="dropdown-message small">
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Ducimus nulla molestias veniam modi
+                                Lorem ipsum dolor, sit amet consectetur 
+                                adipisicing elit. Ducimus nulla molestias veniam modi 
                                 repellendus voluptates totam excepturi consectetur ab at necessitatibus laboriosam,
                                 facere nisi voluptas!
                             </div>
@@ -203,129 +200,106 @@
                     <a href="index.html">Home</a>
                 </li>
                 <li class="breadcrumb-item">
-                    Estoque de Bebidas
+                    Página de Início
                 </li>
             </ol>
+
+            <!-- Cards -->
             <div class="row">
                 <div class="col-12">
-                    <h1>Estoque de Bebidas</h1>
-                    <p>Confira os produtos com os melhores preços e melhores fornecedores!
-                        Recomponha seu estoque escolhendo a bebida que melhor te atenda.
-                    </p>
+                    <h1>Home</h1>
                 </div>
             </div>
-
-            <!-- Tables -->
-            <div class="card mb-3">
-                <div class="card-header">
-                    <i class="fa fa-table"></i>
-                    <span>Bebidas</span>
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-primary o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-comments"></i>
+                            </div>
+                            <div class="mr-5">
+                                30 Novas Mensagens!
+                            </div>
+                        </div>
+                        <a href="#" class="card-footer text-white clearfix small z-1">
+                            <span class="float-left">Ver Detalhes</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <!-- id do tema tem que ser #dataTable-->
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <!-- Encima -->
-                        <thead>
-                            <tr>
-                                <th>Ações</th>
-                                <th>Código</th>
-                                <th>Nome</th>
-                                <th>Volume (ml)</th>
-                                <th>Fornecedor</th>
-                                <th>Disponibilidade</th>
-                                <th>Quantidade (un)</th>
-                                <th>Preço (R$)</th>
-                            </tr>
-                        </thead>
-                        <!-- Embaixo -->
-                        <tfoot>
-                            <tr>
-                                <th>Ações</th>
-                                <th>Código</th>
-                                <th>Nome</th>
-                                <th>Volume (ml)</th>
-                                <th>Fornecedor</th>
-                                <th>Disponibilidade</th>
-                                <th>Quantidade (un)</th>
-                                <th>Preço (R$)</th>
-                            </tr>
-                         </tfoot>
-                        <tbody>
-                            <!-- id = codigo -->
-                            <tr class="bebida" value="100">
-                                <!-- id = codigo -->
-                                <td>
-                                    <a href="#" class="comprar"><i id="100" class="fa fa-shopping-cart"></i></a>
-                                </td>
-                                <td value="100">100</td>
-                                <td value="Coca-Cola">Coca-Cola</td>
-                                <td value="2000">2000</td>
-                                <td value="Coca-Cola Brasil" >Coca-Cola Brasil</td>
-                                <td class="text-success" value="disponível">Disponível</td>
-                                <td value="2500">2500</td>
-                                <td class="text-success" value="5.00">5.00</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a href="realizarPedido.html" class="comprar"><i class="fa fa-shopping-cart"></i></a>
-                                </td>
-                                <td class="codigo">5000</td>
-                                <td class="nome">Coca-Cola</td>
-                                <td class="volume">2000</td>
-                                <td class="fornecedor" >Coca-Cola Brasil</td>
-                                <td class="text-success disponibilidade">Disponível</td>
-                                <td class="quantidade">2500</td>
-                                <td class="text-success preco">5.00</td>
-                            </tr>
-                            <tr>
-                                <td>null</td>
-                                <td>2546</td>
-                                <td>Coca-Cola</td>
-                                <td>2 Litros</td>
-                                <td>Coca-Cola Brasil</td>
-                                <td class="text-success">Disponível</td>
-                                <td>2500un.</td>
-                                <td class="text-success">R$5.00un.</td>
-                            </tr>
-                            <tr>
-                                <td>null</td>
-                                <td>2546</td>
-                                <td>Coca-Cola</td>
-                                <td>2 Litros</td>
-                                <td>Coca-Cola Brasil</td>
-                                <td class="text-success">Disponível</td>
-                                <td>2500un.</td>
-                                <td class="text-success">R$5.00un.</td>
-                            </tr>
-                            <tr>
-                                <td>null</td>
-                                <td>2546</td>
-                                <td>Coca-Cola</td>
-                                <td>2 Litros</td>
-                                <td>Coca-Cola Brasil</td>
-                                <td class="text-success">Disponível</td>
-                                <td>2500un.</td>
-                                <td class="text-success">R$5.00un.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-warning o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-list"></i>
+                            </div>
+                            <div class="mr-5">
+                                10 novas tarefas!
+                            </div>
+                        </div>
+                        <a href="#" class="card-footer text-white clearfix small z-1">
+                            <span class="float-left">Ver Detalhes</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-        </div>
-    </div>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-success o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-shopping-cart"></i>
+                            </div>
+                            <div class="mr-5">
+                                10 novas vendas!
+                            </div>
+                        </div>
+                        <a href="#" class="card-footer text-white clearfix small z-1">
+                            <span class="float-left">Ver Detalhes</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
 
-    <!-- Footer -->
-    <footer class="sticky-footer">
-        <div class="container">
-            <div class="text-center">
-                <small>Copyright Conexus System</small>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-danger o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-support"></i>
+                            </div>
+                            <div class="mr-5">
+                                10 novos tickets!
+                            </div>
+                        </div>
+                        <a href="#" class="card-footer text-white clearfix small z-1">
+                            <span class="float-left">Ver Detalhes</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <!-- Footer -->
+        <footer class="sticky-footer">
+            <div class="container">
+                <div class="text-center">
+                    <small>Copyright Conexus System</small>
+                </div>
+            </div>
+        </footer>
     </div>
 
-    <script src="js/pedido.js"></script>
+
     <script src="../depend/bibliotecas/jquery/jquery.min.js"></script>
     <script src="../depend/bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../depend/bibliotecas/jquery-easing/jquery.easing.min.js"></script>
@@ -336,5 +310,4 @@
     <script src="https://kit.fontawesome.com/6b3ebeef12.js" crossorigin="anonymous"></script>
 
 </body>
-
 </html>
