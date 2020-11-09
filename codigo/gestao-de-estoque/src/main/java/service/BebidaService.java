@@ -1,5 +1,7 @@
 package service;
 
+import org.json.JSONArray;
+
 import dao.BebidaDAO;
 import model.Bebida;
 import spark.Request;
@@ -16,36 +18,29 @@ public class BebidaService implements Service{
 	@Override
 	public Object add(Request request, Response response) {
 		bebidaDAO.connect();
-		int codigo = Integer.parseInt(request.queryParams("bebidaCodigo"));
 		String nome = request.queryParams("bebidaNome");
 		String descricao = request.queryParams("bebidaDescricao");
 		float volume = Float.parseFloat(request.queryParams("bebidaVolume"));
-		boolean isAlcoolico = Boolean.parseBoolean(request.queryParams("bebidaAlcoolico"));
-		String categoria = request.queryParams("bebidaCategoria");
+		int quantidade = Integer.parseInt(request.queryParams("bebidaQuantidade"));
+		//int idFornecedor = Integer.parseInt(request.queryParams("idFornecedor"));
 
 		// Provisório
 		int idFornecedor = 3;
 
-		// Pesquisar id válido
+		// Pesquisar código válido
 		Bebida[] bebidas = bebidaDAO.getAll();
-
-		// Evitar id Duplicado
-		int maiorId = 0;
-		if (bebidas != null) {
-			for (Bebida c : bebidas) {
-				if (c.getId() > maiorId)
-					maiorId = c.getId();
-			}
-		}
-		maiorId++;
-
-		Bebida bebida = new Bebida(maiorId, codigo, nome, descricao, volume, isAlcoolico, categoria, idFornecedor);
+		Bebida bebida = new Bebida();
+		
+		// Pegar maior código
+		int maxCod = bebidas[bebida.getQNT_BEBIDAS()-1].getCodigo() + 1;
+		
+		bebida = new Bebida(maxCod, nome, descricao, volume, quantidade, idFornecedor);
 
 		bebidaDAO.add(bebida);
 
 		response.status(201); // created
 
-		return Integer.valueOf(maiorId);
+		return Integer.valueOf(maxCod);
 	}
 
 	@Override
@@ -84,8 +79,8 @@ public class BebidaService implements Service{
 			bebida.setNome(request.queryParams("bebidaNome"));
 			bebida.setDescricao(request.queryParams("bebidaDescricao"));
 			bebida.setVolume(Float.parseFloat(request.queryParams("bebidaVolume")));
-			bebida.setAlcoolico(Boolean.parseBoolean(request.queryParams("bebidaAlcoolico")));
-			bebida.setCategoria(request.queryParams("bebidaCategoria"));
+			//bebida.setAlcoolico(Boolean.parseBoolean(request.queryParams("bebidaAlcoolico")));
+			//bebida.setCategoria(request.queryParams("bebidaCategoria"));
 
 			bebidaDAO.update(bebida);
 
@@ -118,30 +113,22 @@ public class BebidaService implements Service{
 	}
 
 	@Override
-	public Object getAll(Request request, Response response) {
-		bebidaDAO.connect();
-		
-		System.out.println("\n"+bebidaDAO.getConnection());
-		
-		StringBuffer returnValue = new StringBuffer("bebidas: [ {");
-//		Bebida[] bs = bebidaDAO.getAll();	
-//		if(bs != null)
-//			System.out.println("N�o nulo");
-//		else
-//			System.out.println("Nulo");
-
-		
-		for (Bebida b : bebidaDAO.getAll()) {
-			Bebida bebida = (Bebida) b;
-			returnValue.append(bebida.toJson()+"}, {");
-		}
-		returnValue.append(" } ]");
+	public Object getAll(Request request, Response response) {				
 		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
 		
+		bebidaDAO.connect();
+		
+		JSONArray allProds = new JSONArray();
+		
+		for (Bebida b : bebidaDAO.getAll()) {
+			Bebida bebida = (Bebida) b;
+			allProds.put(bebida.toJson());
+		}
+
 		bebidaDAO.close();
 		
-		return returnValue.toString();
+		return allProds;
 
 	}
 

@@ -15,112 +15,114 @@ import org.json.JSONObject;
  * última alteração: 6/10/2020
  */
 public class Pedido implements JsonFormatter {
-	private int id;
-	private static int maxId = 0;
+	private static int QNT_PEDIDOS = 0;
 	private int codigo;
 	private LocalDateTime data;
 	private Double preco;
 	private int quantidade;
 	//private int idLoja; // Loja que realizou esse pedido
-	List<Bebida> bebidas = new ArrayList<Bebida>();
+	Bebida[] bebidas;
 	
-	public Pedido(int id, int codigo, LocalDateTime data, Double preco, int quantidade) { //, int idLoja) {
+	public Pedido(int codigo, LocalDateTime data, Double preco, int quantidade) { //, int idLoja) {
 		super();
-		this.id = id;
 		this.codigo = codigo;
 		this.data = data;
 		this.preco = preco;
 		this.quantidade = quantidade;
-		//this.idLoja = idLoja;
 	}
-	
-	public List<Bebida> getBebidas() {
-		return bebidas;
-	}
-
-	public void setBebidas(List<Bebida> bebidas) {
-		this.bebidas = bebidas;
-	}
-
-//	public int getIdLoja() {
-//		return idLoja;
-//	}
-//
-//	public void setIdLoja(int idLoja) {
-//		this.idLoja = idLoja;
-//	}
 
 	/**
-	 * Retorna a quantidade de Pedidos registrados
-	 * @return
+	 * @return the qNT_PEDIDOS
 	 */
-	public static int getMaxId() {
-		return maxId;
-	}
-	
-	/**
-	 * Altera a quantidade de pedidos registrados
-	 * @param maxId
-	 */
-	public static void setMaxId(int maxId) {
-		Pedido.maxId = maxId;
-	}
-	
-	@Override
-	public String toString() {
-		return "[ id=" + id + ", codigo=" + codigo + ", data=" + data + ", preco=" + preco + ", quantidade="
-				+ quantidade + " ]";
+	public static int getQNT_PEDIDOS() {
+		return QNT_PEDIDOS;
 	}
 
-	public int getId() {
-		return id;
+
+	/**
+	 * @param qNT_PEDIDOS the qNT_PEDIDOS to set
+	 */
+	public static void setQNT_PEDIDOS(int qNT_PEDIDOS) {
+		QNT_PEDIDOS = qNT_PEDIDOS;
 	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
+
+	/**
+	 * @return the codigo
+	 */
 	public int getCodigo() {
 		return codigo;
 	}
-	
+
+	/**
+	 * @param codigo the codigo to set
+	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	
+
+	/**
+	 * @return the data
+	 */
 	public LocalDateTime getData() {
 		return data;
 	}
-	
+
+	/**
+	 * @param data the data to set
+	 */
 	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
-	
+
+
+	/**
+	 * @return the preco
+	 */
 	public Double getPreco() {
 		return preco;
 	}
-	
+
+
+	/**
+	 * @param preco the preco to set
+	 */
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	
+
+	/**
+	 * @return the bebidas
+	 */
+	public Bebida[] getBebidas() {
+		return bebidas;
+	}
+
+	/**
+	 * @param bebidas the bebidas to set
+	 */
+	public void setBebidas(Bebida[] bebidas) {
+		this.bebidas = bebidas;
+	}
+
+	/**
+	 * @return the quantidade
+	 */
 	public int getQuantidade() {
 		return quantidade;
 	}
-	
+
 	public void setQuantidade(int quantidade) throws Exception{
 		// Verificação de quantidade
 		if(quantidade > 0) {
 			this.quantidade = quantidade;
 		} else {
-			throw new Exception ("Quantidade inv�lida");
+			throw new Exception ("Quantidade inválida");
 		}
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject obj = new JSONObject();
-		obj.put("id", this.getId());
 		obj.put("codigo", this.getCodigo());
 		obj.put("data", this.getData());
 		obj.put("preco", this.getPreco());

@@ -9,54 +9,37 @@ import org.json.JSONObject;
  * Última alteração 6/10/2020
  */
 public class Bebida implements JsonFormatter {
-	private int id;
-	private static int maxId = 0;
+	private static int QNT_BEBIDAS = 0;
 	private int codigo;
 	private String nome;
 	private String descricao;
 	private float volume;
-	private boolean isAlcoolico;
-	private String categoria;
+	private int quantidade;
 	private int idFornecedor;
 	
+	public Bebida() {
+		this(0, "null", "null", 0, 0, 0);
+	}
 	
-	public Bebida(int id, int codigo, String nome, String descricao, float volume, boolean isAlcoolico,
-                  String categoria, int idFornecedor) {
+	public Bebida(int codigo, String nome, String descricao, float volume, int quantidade, int idFornecedor) {
 		super();
-		this.id = id;
 		this.codigo = codigo;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.volume = volume;
-		this.isAlcoolico = isAlcoolico;
-		this.categoria = categoria;
+		this.quantidade = quantidade;
 		this.idFornecedor = idFornecedor;
-		maxId++;
+		QNT_BEBIDAS++; 
+	}
+	
+	public static int getQNT_BEBIDAS() {
+		return QNT_BEBIDAS;
 	}
 
-	@Override
-	public String toString() {
-		return "Bebida [id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", descricao=" + descricao + ", volume="
-				+ volume + ", isAlcoolico=" + isAlcoolico + ", fabricante=" + ", categoria=" + categoria
-				+ ", idFornecedor=" + idFornecedor + "]";
+	public static void setQNT_BEBIDAS(int qNT_BEBIDAS) {
+		QNT_BEBIDAS = qNT_BEBIDAS;
 	}
 
-	public int getId() {
-		return id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public static int getMaxId() {
-		return maxId;
-	}
-	
-	public static void setMaxId(int maxId) {
-		Bebida.maxId = maxId;
-	}
-	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -89,22 +72,6 @@ public class Bebida implements JsonFormatter {
 		this.volume = volume;
 	}
 	
-	public boolean isAlcoolico() {
-		return isAlcoolico;
-	}
-	
-	public void setAlcoolico(boolean isAlcoolico) {
-		this.isAlcoolico = isAlcoolico;
-	}
-	
-	public String getCategoria() {
-		return categoria;
-	}
-	
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
-	
 	public int getIdFornecedor() {
 		return idFornecedor;
 	}
@@ -113,23 +80,31 @@ public class Bebida implements JsonFormatter {
 		this.idFornecedor = idFornecedor;
 	} 
 	
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	
+	@Override
+	public String toString() {
+		return "Bebida [codigo=" + codigo + ", nome=" + nome + ", descricao=" + descricao + ", volume=" + volume
+				+ ", quantidade=" + quantidade + ", idFornecedor=" + idFornecedor + "]";
+	}
+
 	/**
 	 * Converte uma bebida para formato JSON
 	 */
 	@Override
 	public JSONObject toJson() {
 		JSONObject obj = new JSONObject();
-		obj.put("id", this.getId());
 		obj.put("codigo", this.getCodigo());
 		obj.put("nome", this.getNome());
 		obj.put("descricao", this.getDescricao());
 		obj.put("volume", this.getVolume());
-		obj.put("isAlcoolico", this.isAlcoolico());
-		obj.put("categoria", this.getCategoria());
 		obj.put("idFornecedor", this.getIdFornecedor());
 		return obj;
 	}
-	
-
-	
 }

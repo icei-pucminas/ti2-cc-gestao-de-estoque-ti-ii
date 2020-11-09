@@ -11,57 +11,8 @@ import model.Cidade;
  * @author diogo
  * Última atualização 15/10/2020
  */
-public class CidadeDAO implements DAO<Cidade> {
-	
-	private Connection connection;
-	
-	public CidadeDAO() {
-		connection = null;
-	}
-	
-	/**
-	 * Open connection in DB
-	 * @return
-	 */
-	public boolean connect() {
-		String driverName = "org.postgresql.Driver";
-		String serverName = "localhost";
-		String myDB = "estoqueti2";
-		int porta = 5432;
-		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + myDB;
-		String username = "ti2cc";
-		String password = "ti@cc";
-		boolean status = false;
-		
-		try {
-			Class.forName(driverName);
-			connection = DriverManager.getConnection(url, username, password);
-			System.out.println("Conexão efetuada com o postgres!");
-		} catch (ClassNotFoundException e) {
-			System.err.println("Conexão NÃO efetuada com o banco --- Driver não encontrado -- " + e.getMessage());
-		} catch (SQLException e) {
-			System.err.println("Conexão NÃO efetuada com o postgres -- " + e.getMessage());
-		}	
-		
-		return status;
-	}
-	
-	/**
-	 * Close connection in DB
-	 * @return
-	 */
-	public boolean close() {
-		boolean status = false;
-		
-		try {
-			connection.close();
-			status = true;
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-		}
-		
-		return status;
-	}
+
+public class CidadeDAO extends Banco implements DAO<Cidade> {
 	
     @Override
 	public Cidade get(int id) {

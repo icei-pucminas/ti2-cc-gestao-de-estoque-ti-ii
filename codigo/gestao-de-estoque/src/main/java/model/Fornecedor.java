@@ -40,14 +40,6 @@ public class Fornecedor implements JsonFormatter {
 				//+ ", bebidas=" + bebidas + "]";
 	}
 
-//	public List<Bebida> getBebidas() {
-//		return bebidas;
-//	}
-//
-//	public void setBebidas(List<Bebida> bebidas) {
-//		this.bebidas = bebidas;
-//	}
-
 	public int getId() {
 		return id;
 	}

@@ -13,77 +13,22 @@ import model.Bebida;
  * @author < \ - Joao - / > Atualizacao: 17-10-2020
  */
 
-public class BebidaDAO implements DAO<Bebida> {
-	private Connection connection;
+public class BebidaDAO extends Banco implements DAO<Bebida> {
+	
 
-	public Connection getConnection() {
-		return connection;
-	}
-
-	public void setConnection(Connection connection) {
-		this.connection = connection;
-	}
-
-	public BebidaDAO() {
-		connection = null;
-	}
-
-	/**
-	 * Realiza a conexao com o postgresql
-	 * 
-	 */
-	public boolean connect() {
-		String driverName = "org.postgresql.Driver";
-		String serverName = "localhost";
-		String myDB = "estoqueti2";
-		String porta = "5432";
-		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + myDB; // + "?ssl=false"
-		String username = "ti2cc";
-		String password = "ti@cc";
-		boolean status = false;
-
-		try {
-			Class.forName(driverName);
-			connection = DriverManager.getConnection(url, username, password);
-			status = true;
-			System.out.println("Conexão efetuada com o postgres!");
-		} catch (ClassNotFoundException e) {
-			System.err.println("Conexão NÃO efetuada com o banco --- Driver não encontrado -- " + e.getMessage());
-		} catch (SQLException e) {
-			System.err.println("Conexão NÃO efetuada com o postgres -- " + e.getMessage());
-		}
-
-		return status;
-	}
-
-	/**
-	 * Fecha conexao com banco de dados
-	 * 
-	 */
-	public boolean close() {
-		boolean status = false;
-
-		try {
-			connection.close();
-			status = true;
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-		}
-
-		return status;
-	}
-
-	@Override
-	public Bebida get(int id) {
+    @Override
+	public Bebida get(int codigo) {
 		Bebida bebida = null;
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("SELECT * " + "FROM bebida 	" + "WHERE bebida.id = " + id);
+			String sql = ("SELECT * "
+					    + "FROM bebida 	"
+					    + "WHERE bebida.codigo = " + codigo);
 			ResultSet rs = st.executeQuery(sql);
-
-			bebida = new Bebida(rs.getInt("id"), rs.getInt("codigo"), rs.getString("nome"), rs.getString("descricao"),
-					rs.getFloat("volume"), rs.getBoolean("isAlcoolico"), rs.getString("categoria"),
-					rs.getInt("idFornecedor"));
+			
+			bebida = new Bebida(rs.getInt("codigo"), rs.getString("nome"), rs.getString("descricao"),
+					 		    rs.getFloat("volume"), rs.getInt("quantidade"), rs.getInt("idFornecedor"));
+			
 			st.close();
 			System.out.println("Success! --- " + bebida.toString());
 		} catch (Exception e) {
@@ -99,9 +44,13 @@ public class BebidaDAO implements DAO<Bebida> {
 			Statement st = connection.createStatement();
 
 			String sql = ("INSERT INTO bebida (id, codigo, nome, descricao, volume, isAlcoolico,  categoria, idFornecedor)"
-					+ "VALUES (" + bebida.getId() + ", " + bebida.getCodigo() + ", '" + bebida.getNome() + "', '"
-					+ bebida.getDescricao() + "', " + bebida.getVolume() + ", " + bebida.isAlcoolico() + ", '"
-					+ bebida.getCategoria() + "', " + bebida.getIdFornecedor() + ")");
+					    + "VALUES (" 
+					    + bebida.getCodigo() + ", " 
+					    + bebida.getNome() +"', '"
+					    + bebida.getDescricao() + "', " 
+					    + bebida.getVolume() + ", "
+					    + bebida.getQuantidade() + ", "
+					    + bebida.getIdFornecedor() +");");
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + bebida.toString());
 		} catch (SQLException u) {
@@ -113,10 +62,14 @@ public class BebidaDAO implements DAO<Bebida> {
 	public void update(Bebida bebida) {
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("UPDATE bebida SET codigo = " + bebida.getCodigo() + " , " + "nome = '" + bebida.getNome()
-					+ "', descricao = '" + bebida.getDescricao() + "'" + " volume = '" + bebida.getVolume()
-					+ "' isAlcoolico = '" + bebida.isAlcoolico() + " categoria = '" + bebida.getCategoria() + "'"
-					+ " idFornecedor = " + bebida.getIdFornecedor() + "WHERE bebida.id = " + bebida.getId());
+			String sql = ("UPDATE bebida SET "
+					     + "codigo = " + bebida.getCodigo() + ", "
+					     + "nome = '"+ bebida.getNome() + "', "
+					     + "descricao = '"+ bebida.getDescricao() +"', " 
+					     + "volume = " + bebida.getVolume() + ", "
+					     + "quatidade = " + bebida.getQuantidade() + ", "
+					     + " idFornecedor = " + bebida.getIdFornecedor()
+					     + "WHERE bebida.codigo = "+ bebida.getCodigo());
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + bebida.toString());
 		} catch (SQLException u) {
@@ -128,7 +81,7 @@ public class BebidaDAO implements DAO<Bebida> {
 	public void delete(Bebida bebida) {
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("DELETE FROM bebida WHERE bebida.id = " + bebida.getId());
+			String sql = ("DELETE FROM bebida WHERE bebida.codigo = " + bebida.getCodigo());
 			st.executeUpdate(sql);
 			st.close();
 			System.out.println("Sucess! --- " + bebida.toString());
@@ -142,7 +95,7 @@ public class BebidaDAO implements DAO<Bebida> {
 		Bebida[] bebida = null;
 
 		try {
-			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			String sql = ("SELECT * FROM bebida");
 			ResultSet rs = st.executeQuery(sql);
 			if (rs.next()) {
@@ -150,10 +103,13 @@ public class BebidaDAO implements DAO<Bebida> {
 				bebida = new Bebida[rs.getRow()];
 				rs.beforeFirst();
 
-				for (int i = 0; rs.next(); i++) {
-					bebida[i] = new Bebida(rs.getInt("id"), rs.getInt("codigo"), rs.getString("nome"),
-							rs.getString("descricao"), rs.getFloat("volume"), rs.getBoolean("isAlcoolico"),
-							rs.getString("categoria"), rs.getInt("idFornecedor"));
+				for(int i = 0; rs.next(); i++) {
+					bebida[i] = new Bebida(rs.getInt("codigo"), 
+							 rs.getString("nome"), 
+							 rs.getString("descricao"),
+				 		     rs.getFloat("volume"),
+				 		     rs.getInt("quantidade"),  
+				 		     rs.getInt("idFornecedor"));
 				}
 			}
 			st.close();
