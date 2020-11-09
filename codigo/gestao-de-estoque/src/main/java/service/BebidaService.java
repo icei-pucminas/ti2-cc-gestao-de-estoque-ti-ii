@@ -37,7 +37,6 @@ public class BebidaService {
 		// Pegar maior código
 		int maxCod = bebidas[bebida.getQNT_BEBIDAS()-1].getCodigo() + 1;
 		
-		
 		bebida = new Bebida(maxCod, nome, descricao, volume, quantidade, idFornecedor);
 
 		bebidaDAO.add(bebida);
@@ -107,15 +106,21 @@ public class BebidaService {
 	}
 
 	public Object getAll(Request request, Response response) {
-		StringBuffer returnValue = new StringBuffer("bebidas: [ {");
-		for (Bebida b : bebidaDAO.getAll()) {
-			Bebida bebida = (Bebida) b;
-			returnValue.append(bebida.toJson()+"}, {");
-		}
-		returnValue.append(" } ]");
 		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
-		return returnValue.toString();
+		
+		bebidaDAO.connect();
+		
+		JSONArray allProds = new JSONArray();
+		
+		for (Bebida b : bebidaDAO.getAll()) {
+			Bebida bebida = (Bebida) b;
+			allProds.put(bebida.toJson());
+		}
+
+		bebidaDAO.close();
+		
+		return allProds;
 
 	}
 

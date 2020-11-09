@@ -91,11 +91,12 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 	@Override
 	public Bebida[] getAll() {
 		Bebida[] bebida = null;
-				
+		
 		try {
 			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			String sql = ("SELECT * FROM bebida");
 			ResultSet rs = st.executeQuery(sql);
+			System.out.println(rs.toString());
 			if(rs.next()) {
 				rs.last();
 				bebida = new Bebida[rs.getRow()];
