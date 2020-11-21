@@ -15,7 +15,7 @@
         <div class="card card-register mx-auto mt-5">
             <div class="card-header">Criar uma conta</div>
             <div class="card-body">
-                <form action="http://localhost:6789/user" method="post">
+                <form id="formRegistro">
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-6">
@@ -66,7 +66,7 @@
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Registrar-se</button>
+                    <button id="buttonRegistro" type="submit" class="btn btn-primary btn-block">Registrar-se</button>
                     <div class="text-center">
                         <a href="#" class="d-block small mt-3">Esqueceu a senha?</a>
                         <a href="#" class="d-block small">Página de Login</a>
@@ -78,6 +78,7 @@
         </div>
     </div>
 
+    <script src="/js/registro.js"></script>
     <script src="/depend/bibliotecas/jquery/jquery.min.js"></script>
     <script src="/depend/bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/depend/bibliotecas/jquery-easing/jquery.easing.min.js"></script>

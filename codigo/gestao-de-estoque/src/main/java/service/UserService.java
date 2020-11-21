@@ -43,10 +43,9 @@ public class UserService {
 		userDAO.add(user);
 		
 		response.status(201); // created
+		//response.redirect("http://127.0.0.1:5500/index.html");
 		
-		
-		
-		return user.getCpf();
+		return user.getId();
 	}
 	
 	// Efetuar login pelo email
