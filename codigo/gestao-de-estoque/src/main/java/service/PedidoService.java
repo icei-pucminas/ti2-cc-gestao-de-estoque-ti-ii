@@ -21,7 +21,7 @@ public class PedidoService {
 	
 	public Object add(Request request, Response response) {
 		pedidoDAO.connect();
-		String codigo = request.queryParams("bebidaCodigo);
+		int codigo = Integer.parseInt(request.queryParams("bebidaCodigo"));
 		String nome = request.queryParams("bebidaNome");
 		String descricao = request.queryParams("bebidaDescricao");
 		float volume = Float.parseFloat(request.queryParams("bebidaVolume"));
@@ -33,10 +33,10 @@ public class PedidoService {
 		
 		Bebida bebida = new Bebida(codigo, nome, descricao, volume, quantidade, idFornecedor);
 
-		bebidaDAO.add(bebida);
+		//bebidaDAO.add(bebida);
 
 		response.status(201); // created
 
-		return Integer.valueOf(maxCod);
+		return Integer.valueOf(codigo);
 	}
 }

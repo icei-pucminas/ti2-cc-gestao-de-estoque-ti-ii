@@ -46,6 +46,29 @@ public class Banco {
 		return status;
 	}
 	
+	public boolean connect(String database) {
+		String driverName = "org.postgresql.Driver";
+		String serverName = "localhost";
+		String myDB = database;
+		String porta = "5432";
+		String url = "jdbc:postgresql://" + serverName + ":" + porta + "/" + myDB;
+		String username = "ti2cc";
+		String password = "123";
+		boolean status = false;
+
+		try {
+			Class.forName(driverName);
+			connection = DriverManager.getConnection(url, username, password);
+			System.out.println("Conexão efetuada com o postgres!");
+		} catch (ClassNotFoundException e) {
+			System.err.println("Conexão NÃO efetuada com o banco --- Driver não encontrado -- " + e.getMessage());
+		} catch (SQLException e) {
+			System.err.println("Conexão NÃO efetuada com o postgres -- " + e.getMessage());
+		}	
+		
+		return status;
+	}
+	
 	/**
 	 * Fecha conexao com banco de dados
 	 * 
