@@ -20,9 +20,6 @@ public class Aplicacao {
 		
 		staticFiles.externalLocation("C:\\DANNIEL\\1_Escola\\PUC_Coreu\\2020_2\\TI_2_CC\\ti2cc-estoque\\codigo\\gestao-de-estoque\\src\\main\\resources\\public");
 		//staticFiles.location("/public");
-
-		
-        //get("/", (request, response) -> "H");
 		
 		//HTTP Methods: Bebida
 		post("/bebida", (request,response) ->  bebidaService.add(request, response) );
