@@ -11,6 +11,7 @@ import model.User;
 import spark.Request;
 import spark.Response;
 import java.util.Random;
+import javax.servlet.*;
 
 public class UserService {
 	private UserDAO userDAO;
@@ -43,7 +44,7 @@ public class UserService {
 		userDAO.add(user);
 		
 		response.status(201); // created
-		//response.redirect("http://127.0.0.1:5500/index.html");
+		response.redirect("http://127.0.0.1:5500/index.html");
 		
 		return user.getId();
 	}

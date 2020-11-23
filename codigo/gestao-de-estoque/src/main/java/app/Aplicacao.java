@@ -15,7 +15,7 @@ public class Aplicacao {
 		post( "/bebida",     (request, response) ->  bebidaService.add(request, response) );
 		get(  "/bebida",     (request, response) ->  bebidaService.getAll(request, response) );
 			
-		get ( "/user:email", (request, response) ->  userService.get(request, response));
+		get ( "/user/:email", (request, response) ->  userService.get(request, response));
 		post( "/user",       (request, response) ->  userService.add(request, response));
 	}
 	

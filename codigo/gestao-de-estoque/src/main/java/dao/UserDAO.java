@@ -40,20 +40,25 @@ public class UserDAO extends Banco implements DAO<User> {
 	public User get(String email) {
 		User user = null;
 		try {
-			Statement st = connection.createStatement();
+			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			String sql = ("SELECT *"
-					    + "FROM user"
-					    + "WHERE user.email = " + email);
-			ResultSet rs = st.executeQuery(sql);
+					    + "FROM \"public\".\"user\" "
+					    + "WHERE email = '" + email + "'");
 			
-			user = new User(rs.getInt("id"),
-						    rs.getString("nome"), 
-					        rs.getString("sobrenome"),
-					        rs.getString("cpf"),
-					        rs.getString("email"),
-					        rs.getString("senha"),
-					        rs.getString("tipo") );
-			System.out.println("Sucess! --- " + user.toString());
+			ResultSet rs = st.executeQuery(sql);
+			if(rs.next()) {
+				rs.beforeFirst();
+				rs.next();
+				user = new User(rs.getInt("id"),
+								rs.getString("nome"), 
+							    rs.getString("sobrenome"),
+							    rs.getString("cpf"),
+							    rs.getString("email"),
+							    rs.getString("senha"),
+							    rs.getString("tipo") );
+				
+				System.out.println("Sucess! --- " + user.toString());
+			}
 			st.close();
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
