@@ -11,6 +11,7 @@ import model.Cidade;
  * @author diogo
  * Última atualização 15/10/2020
  */
+
 public class CidadeDAO extends Banco implements DAO<Cidade> {
 	
     @Override

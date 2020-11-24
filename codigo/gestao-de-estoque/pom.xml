@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -60,4 +61,54 @@
        	
 	</build>
 
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.gestao-de-estoque</groupId>
+  <artifactId>gestao-de-estoque</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+     <dependencies>
+  	
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>42.2.16</version>
+		</dependency>
+		
+		<dependency>
+  			<groupId>com.sparkjava</groupId>
+  			<artifactId>spark-core</artifactId>
+  			<version>2.9.3</version>
+  		</dependency>
+  		
+  			<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20190722</version>
+		</dependency>
+
+		<dependency>
+	  		<groupId>org.slf4j</groupId>
+	  		<artifactId>slf4j-simple</artifactId>
+	  		<version>1.7.21</version>
+  		</dependency>
+	</dependencies>
+  	
+	  <properties>
+	    <maven.compiler.source>1.6</maven.compiler.source>
+	    <maven.compiler.target>1.6</maven.compiler.target>
+	  </properties>
+  		
+		<build>
+		       <sourceDirectory>src/main/java</sourceDirectory>
+		       <testSourceDirectory>src/test/java</testSourceDirectory>
+		        <resources>
+		             <resource>
+		                  <directory>resources</directory>
+		             </resource>
+		        </resources>           
+		</build > 		
+>>>>>>> dev/back-end
 </project>

@@ -1,18 +1,11 @@
-CREATE TABLE Cidade (
-  id INT(4) NOT NULL,
-  codigo INT(2)  NOT NULL, /* UNIQUE */
+CREATE TABLE Fornecedor (
+  id int(4) NOT NULL,
+  codigo INT(2)  NOT NULL ,
+  nome VARCHAR(45),
   cidade VARCHAR(45) NULL,
   uf CHAR(2) NULL,
-  
-  constraint pk_Cidade PRIMARY KEY (id)
-);
 
-CREATE TABLE Categoria (
-  id INT(4) NOT NULL,
-  codigo INT(2)  NOT NULL, /* UNIQUE */
-  nome VARCHAR(25) NULL,
-  
-  constraint pk_Categoria PRIMARY KEY (id)
+  constraint pK_fornecedor PRIMARY KEY (id),
 );
 
 CREATE TABLE Bebida (
@@ -22,9 +15,8 @@ CREATE TABLE Bebida (
   descricao VARCHAR(45),
   volume float(10), 
   isAlcoolico TINYINT(1),
-  idCategoria INT(4)  NOT NULL,
+  categoria VARCHAR(45)  NOT NULL,
   idFornecedor INT(4)  NOT NULL,
-  idFabricante INT(4) NOT NULL,
   
   constraint pK_Bebida PRIMARY KEY (id),
   constraint fK_BFornecedor FOREIGN KEY (idFornecedor) REFERENCES Fornecedor(id),
@@ -37,10 +29,10 @@ CREATE TABLE Loja (
   nome VARCHAR(45),
   cnpj CHAR(18) NULL,
   cep VARCHAR(8) NOT NULL, 
-  idCidade INT(4)  NOT NULL,
-  
+  cidade VARCHAR(45) NULL,
+  uf CHAR(2) NULL,
+
   constraint pK_Loja PRIMARY KEY (id),
-  constraint fK_LCidade FOREIGN KEY (idCidade) REFERENCES Cidade(id)
 );
 
 CREATE TABLE Pedido (
@@ -75,13 +67,3 @@ CREATE TABLE PedidoBebida (
   constraint fK_PBBedida FOREIGN KEY (idBebida) REFERENCES Bebida(id)
 );
 
-CREATE TABLE Fornecedor (
-  id int(4) NOT NULL,
-  codigo INT(2)  NOT NULL ,
-  nome VARCHAR(45),
-
-  idCidade INT(4)  NOT NULL,
-  
-  constraint pK_fornecedor PRIMARY KEY (id),
-  constraint fK_FCidade FOREIGN KEY (idCidade) REFERENCES Cidade(id)
-);

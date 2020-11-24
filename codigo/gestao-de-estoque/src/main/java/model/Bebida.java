@@ -15,21 +15,23 @@ public class Bebida implements JsonFormatter {
 	private String descricao;
 	private float volume;
 	private int quantidade;
+	private float preco;
 	private int idFornecedor;
 	
 	public Bebida() {
-		this(0, "null", "null", 0, 0, 0);
+		this(0, "null", "null", 0, 0, 0, 0);
 	}
 	
-	public Bebida(int codigo, String nome, String descricao, float volume, int quantidade, int idFornecedor) {
+	public Bebida(int codigo, String nome, String descricao, float volume, int quantidade, float preco,
+			int idFornecedor) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.volume = volume;
 		this.quantidade = quantidade;
+		this.preco = preco;
 		this.idFornecedor = idFornecedor;
-		QNT_BEBIDAS++; 
 	}
 	
 	public static int getQNT_BEBIDAS() {
@@ -88,10 +90,20 @@ public class Bebida implements JsonFormatter {
 		this.quantidade = quantidade;
 	}
 	
+	
+	
+	public float getPreco() {
+		return preco;
+	}
+
+	public void setPreco(float preco) {
+		this.preco = preco;
+	}
+
 	@Override
 	public String toString() {
 		return "Bebida [codigo=" + codigo + ", nome=" + nome + ", descricao=" + descricao + ", volume=" + volume
-				+ ", quantidade=" + quantidade + ", idFornecedor=" + idFornecedor + "]";
+				+ ", quantidade=" + quantidade + ", preco=" + preco + ", idFornecedor=" + idFornecedor + "]";
 	}
 
 	/**
@@ -104,6 +116,8 @@ public class Bebida implements JsonFormatter {
 		obj.put("nome", this.getNome());
 		obj.put("descricao", this.getDescricao());
 		obj.put("volume", this.getVolume());
+		obj.put("preco", this.getPreco());
+		obj.put("quantidade", this.getQuantidade());
 		obj.put("idFornecedor", this.getIdFornecedor());
 		return obj;
 	}

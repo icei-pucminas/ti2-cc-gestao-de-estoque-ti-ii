@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 /**
  * Classe que descreve uma Cidade dentro do DER
  * 
@@ -11,7 +13,7 @@ package model;
  * @author diogo
  *
  */
-public class Cidade {
+public class Cidade implements JsonFormatter{
 	private int id;
 	private static int maxId = 0;
 	private int codigo;
@@ -77,5 +79,18 @@ public class Cidade {
 	public String toString() {
 		return "Cidade [id=" + id + ", codigo=" + codigo + ", cidade=" + cidade + ", UF=" + UF + "]";
 	}
+
+	@Override
+	public JSONObject toJson() {
+		// TODO Auto-generated method stub
+		JSONObject obj = new JSONObject();
+		obj.put("id", this.getId());
+		obj.put("codigo", this.getCodigo());
+		obj.put("cidade", this.getCidade());
+		obj.put("uf", this.getUF());
+		return obj;
+	}
+	
+	
 	
 }

@@ -1,9 +1,5 @@
 package service;
 
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 import org.json.JSONArray;
 
 import dao.BebidaDAO;
@@ -11,7 +7,7 @@ import model.Bebida;
 import spark.Request;
 import spark.Response;
 
-public class BebidaService {
+public class BebidaService implements Service{
 	private BebidaDAO bebidaDAO;
 
 	public BebidaService() {
@@ -19,16 +15,19 @@ public class BebidaService {
 
 	}
 
+	@Override
 	public Object add(Request request, Response response) {
 		bebidaDAO.connect();
 		String nome = request.queryParams("bebidaNome");
 		String descricao = request.queryParams("bebidaDescricao");
 		float volume = Float.parseFloat(request.queryParams("bebidaVolume"));
 		int quantidade = Integer.parseInt(request.queryParams("bebidaQuantidade"));
+		float preco = Float.parseFloat(request.queryParams("bebidaPreco"));
+
 		//int idFornecedor = Integer.parseInt(request.queryParams("idFornecedor"));
 
 		// Provisório
-		int idFornecedor = 3;
+		int idFornecedor = 1;
 
 		// Pesquisar código válido
 		Bebida[] bebidas = bebidaDAO.getAll();
@@ -37,7 +36,7 @@ public class BebidaService {
 		// Pegar maior código
 		int maxCod = bebidas[bebida.getQNT_BEBIDAS()-1].getCodigo() + 1;
 		
-		bebida = new Bebida(maxCod, nome, descricao, volume, quantidade, idFornecedor);
+		bebida = new Bebida(maxCod, nome, descricao, volume, quantidade, preco, idFornecedor);
 
 		bebidaDAO.add(bebida);
 
@@ -46,14 +45,19 @@ public class BebidaService {
 		return Integer.valueOf(maxCod);
 	}
 
+	@Override
 	public Object get(Request request, Response response) {
+		bebidaDAO.connect();
+		
 		int id = Integer.parseInt(request.params(":idBebida"));
 
 		Bebida bebida = (Bebida) bebidaDAO.get(id);
 
 		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
-
+		
+		bebidaDAO.close();
+		
 		if (bebida != null) {
 			return bebida.toJson();
 		} else {
@@ -61,8 +65,12 @@ public class BebidaService {
 			response.redirect("/notfound.html");
 			return null;
 		}
+		
+		
+
 	}
 
+	@Override
 	public Object update(Request request, Response response) {
 		int id = Integer.parseInt(request.params(":idBebida"));
 
@@ -73,6 +81,9 @@ public class BebidaService {
 			bebida.setNome(request.queryParams("bebidaNome"));
 			bebida.setDescricao(request.queryParams("bebidaDescricao"));
 			bebida.setVolume(Float.parseFloat(request.queryParams("bebidaVolume")));
+			bebida.setQuantidade(Integer.parseInt(request.queryParams("bebidaQuantidade")));
+			bebida.setPreco(Float.parseFloat(request.queryParams("bebidaPreco")));
+
 			//bebida.setAlcoolico(Boolean.parseBoolean(request.queryParams("bebidaAlcoolico")));
 			//bebida.setCategoria(request.queryParams("bebidaCategoria"));
 
@@ -87,6 +98,7 @@ public class BebidaService {
 
 	}
 
+	@Override
 	public Object remove(Request request, Response response) {
 		int id = Integer.parseInt(request.params(":idBebida"));
 
@@ -105,7 +117,8 @@ public class BebidaService {
 		}
 	}
 
-	public Object getAll(Request request, Response response) {
+	@Override
+	public Object getAll(Request request, Response response) {				
 		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
 		
@@ -119,7 +132,7 @@ public class BebidaService {
 		}
 
 		bebidaDAO.close();
-		
+				
 		return allProds;
 
 	}

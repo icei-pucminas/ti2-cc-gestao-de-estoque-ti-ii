@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
+
 /**
  * Descreve a estrutura de um pedido seguindo
  * a documentação dos dados.
@@ -12,21 +14,26 @@ import java.util.List;
  *
  * última alteração: 6/10/2020
  */
-public class Pedido {
+public class Pedido implements JsonFormatter {
 	private static int QNT_PEDIDOS = 0;
 	private int codigo;
 	private LocalDateTime data;
 	private Double preco;
 	private int quantidade;
 	//private int idLoja; // Loja que realizou esse pedido
-	Bebida[] bebidas;
+	Bebida bebidas;
 	
-	public Pedido(int codigo, LocalDateTime data, Double preco, int quantidade) { //, int idLoja) {
+	public Pedido(int codigo, LocalDateTime data, Double preco, int quantidade, Bebida bebidas) { //, int idLoja) {
 		super();
 		this.codigo = codigo;
 		this.data = data;
 		this.preco = preco;
 		this.quantidade = quantidade;
+		this.bebidas = bebidas;
+	}
+
+	public Pedido() {
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -91,14 +98,14 @@ public class Pedido {
 	/**
 	 * @return the bebidas
 	 */
-	public Bebida[] getBebidas() {
+	public Bebida getBebidas() {
 		return bebidas;
 	}
 
 	/**
 	 * @param bebidas the bebidas to set
 	 */
-	public void setBebidas(Bebida[] bebidas) {
+	public void setBebidas(Bebida bebidas) {
 		this.bebidas = bebidas;
 	}
 
@@ -116,6 +123,17 @@ public class Pedido {
 		} else {
 			throw new Exception ("Quantidade inválida");
 		}
+	}
+
+	@Override
+	public JSONObject toJson() {
+		JSONObject obj = new JSONObject();
+		obj.put("codigo", this.getCodigo());
+		obj.put("data", this.getData());
+		obj.put("preco", this.getPreco());
+		obj.put("quantidade", this.getQuantidade());
+		obj.put("bebidas", this.getBebidas());
+		return obj;
 	}
 	
 }
