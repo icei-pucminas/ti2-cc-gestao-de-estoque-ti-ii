@@ -13,23 +13,30 @@ public class User implements JsonFormatter {
 	private String nome;
 	private String sobrenome;
 	private String cpf; 
+	private String cnpj;
 	private String email;
 	private String senha;
-	private String tipo; // Se é fornecedor, ou comprador...
 	private static int MAIOR_ID = 0;
 	
-	public User(int id, String nome, String sobrenome, String cpf, String email, String senha, String tipo) {
+	public User(int id, String nome, String sobrenome, String cpf, String cnpj, String email, String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.cpf = cpf;
+		this.cnpj = cnpj;
 		this.email = email;
 		this.senha = senha;
-		this.tipo = tipo;
+		this.cnpj = cnpj;
 		MAIOR_ID++;
 	}
 	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", cnpj=" + cnpj
+				+ ", email=" + email + ", senha=" + senha + "]";
+	}
+
 	/**
 	 * @return the mAIOR_ID
 	 */
@@ -56,12 +63,6 @@ public class User implements JsonFormatter {
 	 */
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	@Override
-	public String toString() {
-		return "User [nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + ", email=" + email + ", senha="
-				+ senha + ", tipo=" + tipo + "]";
 	}
 
 	/**
@@ -134,19 +135,19 @@ public class User implements JsonFormatter {
 	}
 	
 	/**
-	 * @return the tipo
+	 * @return the cnpj
 	 */
-	public String getTipo() {
-		return tipo;
+	public String getCnpj() {
+		return cnpj;
 	}
-	
+
 	/**
-	 * @param tipo the tipo to set
+	 * @param cnpj the cnpj to set
 	 */
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
-	
+
 	/**
 	 * Converte uma bebida para formato JSON
 	 */
@@ -156,9 +157,11 @@ public class User implements JsonFormatter {
 		obj.put("id", this.getId());
 		obj.put("nome", this.getNome());
 		obj.put("sobrenome", this.getSobrenome());
+		obj.put("cpf", this.getCpf());
+		obj.put("cnpj", this.getCnpj());
 		obj.put("email", this.getEmail());
 		obj.put("senha", this.getSenha());
-		obj.put("tipo", this.getTipo());
+		
 		return obj;
 	}
 	

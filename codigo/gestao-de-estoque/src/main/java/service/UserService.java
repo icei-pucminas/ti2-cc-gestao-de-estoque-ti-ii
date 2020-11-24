@@ -27,19 +27,19 @@ public class UserService {
 	}
 	
 	public Object add(Request request, Response response) {
-		userDAO.connect("user");
+		userDAO.connect();
 		
 		String nome       = request.queryParams("primeiroNome");
 		String sobrenome  = request.queryParams("segundoNome"); 
 		String cpf        = request.queryParams("cpf");
+		String cnpj 	  = request.queryParams("cnpj");
 		String email      = request.queryParams("email");
 		String senha      = request.queryParams("senha");
-		String tipo       = request.queryParams("tipo");
 		
 		// Gerar Id;
 		int id = gerarId();
 		
-		User user = new User(id, nome, sobrenome, cpf, email, senha, tipo);
+		User user = new User(id, nome, sobrenome, cpf, cnpj, email, senha);
 		
 		userDAO.add(user);
 		
@@ -51,7 +51,7 @@ public class UserService {
 	
 	// Efetuar login pelo email
 	public Object get(Request request, Response response) {
-		userDAO.connect("user");
+		userDAO.connect();
 		
 		String email = request.params(":email");
 		

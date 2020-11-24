@@ -1,6 +1,7 @@
 package service;
 
 import java.time.LocalDateTime;
+import java.util.Random;
 
 import org.json.JSONObject;
 
@@ -17,30 +18,31 @@ public class PedidoService implements Service{
 
 	}
 
+	public static int gerarId() {
+		Random gerador = new Random();
+		
+		return gerador.nextInt(225) + Pedido.getMAIOR_ID();
+	}
+	
 	@Override
 	public Object add(Request request, Response response) {
 		pedidoDAO.connect();
 		
-		int codigo = Integer.parseInt(request.queryParams("pedidoCodigo"));
-		LocalDateTime data = LocalDateTime.parse(request.queryParams("pedidoData"));
-		Double preco = Double.parseDouble(request.queryParams("pedidoPreco"));
-		int quantidade = Integer.parseInt(request.queryParams("pedidoQuantidade"));
+		int idBebida 			= Integer.parseInt(request.queryParams("idBebida"));
+		int idComprador 		= Integer.parseInt(request.queryParams("idComprador"));
+		LocalDateTime data 		= LocalDateTime.parse(request.queryParams("data"));
+		Double precoUnitario 	= Double.parseDouble(request.queryParams("precoUnitario"));
+		int quantidade 			= Integer.parseInt(request.queryParams("quantidade"));
+
+		int idPedido = gerarId();
 		
-
-		// Pesquisar id válido
-		Pedido[] pedidos = pedidoDAO.getAll();
-		Pedido pedido = new Pedido();
-
-		// Evitar id Duplicado
-		int maxCod = pedidos[pedido.getQNT_PEDIDOS()-1].getCodigo() + 1;
-
-		pedido = new Pedido(maxCod, data, preco, quantidade);
+		Pedido pedido = new Pedido(idPedido, data, precoUnitario, quantidade, idBebida, idComprador);
 
 		pedidoDAO.add(pedido);
 
 		response.status(201); // created
 
-		return Integer.valueOf(maxCod);
+		return Integer.valueOf(idPedido);
 	}
 
 	@Override
@@ -79,10 +81,11 @@ public class PedidoService implements Service{
 		Pedido pedido = (Pedido) pedidoDAO.get(id);
 
 		if (pedido != null) {
-			pedido.setCodigo(Integer.parseInt(request.queryParams("pedidoCodigo")));
-			pedido.setData(LocalDateTime.parse(request.queryParams("pedidoData")));
-			pedido.setPreco(Double.parseDouble(request.queryParams("pedidoIdCidade")));
-			pedido.setQuantidade(Integer.parseInt(request.queryParams("pedidoCodigo")));
+			int idBebida 			= Integer.parseInt(request.queryParams("idBebida"));
+			int idComprador 		= Integer.parseInt(request.queryParams("idComprador"));
+			LocalDateTime data 		= LocalDateTime.parse(request.queryParams("data"));
+			Double precoUnitario 	= Double.parseDouble(request.queryParams("precoUnitario"));
+			int quantidade 			= Integer.parseInt(request.queryParams("quantidade"));
 
 			pedidoDAO.update(pedido);
 		} else {
