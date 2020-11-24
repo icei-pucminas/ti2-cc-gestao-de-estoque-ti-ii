@@ -3,15 +3,13 @@ package app;
 import static spark.Spark.*;
 
 import model.Pedido;
-import service.BebidaService;
-import service.CidadeService;
-import service.FornecedorService;
-import service.PedidoService;
+import service.*;
 
 public class Aplicacao {
 	
 	private static BebidaService bebidaService = new BebidaService();
 	private static CidadeService cidadeService = new CidadeService();
+	private static UserService userService = new UserService();
 	private static FornecedorService fornecedorService = new FornecedorService();
 	private static PedidoService pedidoService = new PedidoService();
 	
@@ -28,12 +26,9 @@ public class Aplicacao {
 		put("/bebida/:id", (request, response) -> bebidaService.update(request, response));
 		delete("/bebida/:id", (request, response) -> bebidaService.remove(request,response));
 		
-		//HTTP Methods: Cidade
-		post("/cidade", (request,response) ->  cidadeService.add(request, response) );
-		get("/cidade", (request, response) -> cidadeService.get(request, response)); 
-		put("/cidade/:id", (request, response) -> cidadeService.update(request, response));
-		delete("/cidade/:id", (request, response) -> cidadeService.remove(request,response));
-		get("/cidade", (request, response) -> cidadeService.getAll(request, response)); 
+		//HTTP Methods: Usuario
+		post("/usuario",       (request,response) ->  userService.add(request, response) );
+		get("/usuario/:email", (request,response) ->  userService.get(request, response) );
 		
 		//HTTP Methods: Fornecedor
 		post("/fornecedor", (request,response) ->  fornecedorService.add(request, response) );

@@ -17,16 +17,20 @@ import model.*;
 
 public class PedidoDAO extends Banco implements DAO<Pedido> {
 	@Override
-	public Pedido get(int codigo) {
+	public Pedido get(int id) {
 		Pedido pedido = null;
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("SELECT * " + "FROM pedido 	" + "WHERE pedido.codigo = " + codigo);
+			String sql = ("SELECT * " + "FROM pedido 	" + "WHERE pedido.id = " + id);
 			ResultSet rs = st.executeQuery(sql);
 
-			pedido = new Pedido(rs.getInt("codigo"),
+			pedido = new Pedido(
+					rs.getInt("id"),
 					LocalDateTime.ofInstant(rs.getDate("data").toInstant(), ZoneId.systemDefault()),
-					rs.getDouble("preco"), rs.getInt("quantidade"));
+					rs.getDouble("precoTotal"), 
+					rs.getInt("quantidade"),
+					rs.getInt("idComprador"),
+					rs.getInt("idBebida"));
 
 			st.close();
 			System.out.println("Success! --- " + pedido.toString());
@@ -42,12 +46,14 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 		try {
 			Statement st = connection.createStatement();
 	
-			String sql = ("INSERT INTO pedido (id, codigo, data, preco, quantidade)"
-					    + "VALUES (" + pedido.getCodigo() 
-					    			 + pedido.getCodigo() 
-					    			 + Date.from(pedido.getData().atZone(ZoneId.systemDefault()).toInstant()) 
-					    			 +  pedido.getPreco() 
-					    			 + pedido.getQuantidade() + ")");
+			String sql = ("INSERT INTO pedido (id, data, precoTotal, quantidade, idComprador, idBebida)"
+					    + "VALUES (" + pedido.getId() + ", "
+					    			 + Date.from(pedido.getData().atZone(ZoneId.systemDefault()).toInstant())  + ", "
+					    			 + pedido.getPrecoTotal()  + ", "
+					    			 + pedido.getQuantidade()  + ", "
+					    			 + pedido.getIdComprador() + ", "
+					    			 + pedido.getIdBebida()    + "); "
+					     );
 			
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + pedido.toString());
@@ -60,10 +66,17 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 	public void update(Pedido pedido) {
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("UPDATE pedido SET codigo = " + pedido.getCodigo() + " , " 
-					+ "data = '" + Date.from(pedido.getData().atZone(ZoneId.systemDefault()).toInstant())
-					+ "', preco = '" + pedido.getPreco() + "'" + " quantidade = '" + pedido.getQuantidade() + "'"
-				    + "WHERE pedido.codigo = " + pedido.getCodigo());
+			String sql = ("UPDATE pedido SET "
+					+ "id = "          + pedido.getId() + " , " 
+	    			+ "data = "        + Date.from(pedido.getData().atZone(ZoneId.systemDefault()).toInstant())  + ", "
+	    			+ "precoTotal = "  + pedido.getPrecoTotal()  + ", "
+	    			+ "quantidade = "  + pedido.getQuantidade()  + ", "
+	    			+ "idComprador = " + pedido.getIdComprador() + ", "
+	    			+ "idBebida = "    + pedido.getIdBebida()    + "); "
+				    + "WHERE pedido.id = " + pedido.getId());
+			
+			
+			
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + pedido.toString());
 		} catch (SQLException u) {
@@ -75,7 +88,7 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 	public void delete(Pedido pedido) {
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("DELETE FROM pedido WHERE pedido.codigo = " + pedido.getCodigo());
+			String sql = ("DELETE FROM pedido WHERE pedido.id = " + pedido.getId());
 			st.executeUpdate(sql);
 			st.close();
 			System.out.println("Sucess! --- " + pedido.toString());
@@ -99,10 +112,13 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 				
 				for(int i = 0; rs.next(); i++) {
 					pedidos[i] = new Pedido(
-				 		    				rs.getInt("codigo"), 
-				 		    				LocalDateTime.ofInstant(rs.getDate("data").toInstant(), ZoneId.systemDefault()), 
-				 		    				rs.getDouble("preco"),
-				 		    				rs.getInt("quantidade"));
+											rs.getInt("id"),
+											LocalDateTime.ofInstant(rs.getDate("data").toInstant(), ZoneId.systemDefault()),
+											rs.getDouble("precoTotal"), 
+											rs.getInt("quantidade"),
+											rs.getInt("idComprador"),
+											rs.getInt("idBebida")
+											);
 				}
 			}
 			st.close();

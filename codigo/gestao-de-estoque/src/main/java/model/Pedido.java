@@ -15,56 +15,77 @@ import org.json.JSONObject;
  * última alteração: 6/10/2020
  */
 public class Pedido implements JsonFormatter {
-	private static int QNT_PEDIDOS = 0;
-	private int codigo;
+	private static int MAIOR_ID = 0;
+	private int id;
 	private LocalDateTime data;
-	private Double preco;
+	private Double precoUnitario;
+	private Double precoTotal;
 	private int quantidade;
-	//private int idLoja; // Loja que realizou esse pedido
-	Bebida bebidas;
+	private int idBebida;
+	private int idComprador;
 	
-	public Pedido(int codigo, LocalDateTime data, Double preco, int quantidade, Bebida bebidas) { //, int idLoja) {
+	public Pedido(int id, LocalDateTime data, Double precoUnitario, int quantidade, int idBebida, int idComprador) { 
 		super();
-		this.codigo = codigo;
+		this.id = id;
 		this.data = data;
-		this.preco = preco;
+		this.precoUnitario = precoUnitario;
 		this.quantidade = quantidade;
-		this.bebidas = bebidas;
+		this.idBebida = idBebida;
+		this.idComprador = idComprador;
+		setPrecoTotal();
+		this.MAIOR_ID++;
 	}
 
-	public Pedido() {
-		// TODO Auto-generated constructor stub
+	private void setPrecoTotal() {
+		this.precoTotal = this.quantidade * this.precoUnitario;
+	}
+	
+	public Double getPrecoTotal() {
+		return this.precoTotal;
+	}
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
 	}
 
 	/**
-	 * @return the qNT_PEDIDOS
+	 * @param id the id to set
 	 */
-	public static int getQNT_PEDIDOS() {
-		return QNT_PEDIDOS;
-	}
-
-
-	/**
-	 * @param qNT_PEDIDOS the qNT_PEDIDOS to set
-	 */
-	public static void setQNT_PEDIDOS(int qNT_PEDIDOS) {
-		QNT_PEDIDOS = qNT_PEDIDOS;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	/**
-	 * @return the codigo
+	 * @return the precoUnitario
 	 */
-	public int getCodigo() {
-		return codigo;
+	public Double getPrecoUnitario() {
+		return precoUnitario;
 	}
 
 	/**
-	 * @param codigo the codigo to set
+	 * @param precoUnitario the precoUnitario to set
 	 */
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setPrecoUnitario(Double precoUnitario) {
+		this.precoUnitario = precoUnitario;
 	}
 
+	/**
+	 * @return the mAIOR_ID
+	 */
+	public static int getMAIOR_ID() {
+		return MAIOR_ID;
+	}
+
+	/**
+	 * @param mAIOR_ID the mAIOR_ID to set
+	 */
+	public static void setMAIOR_ID(int mAIOR_ID) {
+		MAIOR_ID = mAIOR_ID;
+	}
+	
 	/**
 	 * @return the data
 	 */
@@ -78,35 +99,34 @@ public class Pedido implements JsonFormatter {
 	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
-
-
-	/**
-	 * @return the preco
-	 */
-	public Double getPreco() {
-		return preco;
-	}
-
+	
 
 	/**
-	 * @param preco the preco to set
+	 * @return the idComprador
 	 */
-	public void setPreco(Double preco) {
-		this.preco = preco;
+	public int getIdComprador() {
+		return idComprador;
 	}
 
 	/**
-	 * @return the bebidas
+	 * @param idComprador the idComprador to set
 	 */
-	public Bebida getBebidas() {
-		return bebidas;
+	public void setIdComprador(int idComprador) {
+		this.idComprador = idComprador;
 	}
 
 	/**
-	 * @param bebidas the bebidas to set
+	 * @return the idBebida
 	 */
-	public void setBebidas(Bebida bebidas) {
-		this.bebidas = bebidas;
+	public int getIdBebida() {
+		return idBebida;
+	}
+
+	/**
+	 * @param idBebida the idBebida to set
+	 */
+	public void setIdBebida(int idBebida) {
+		this.idBebida = idBebida;
 	}
 
 	/**
@@ -128,11 +148,13 @@ public class Pedido implements JsonFormatter {
 	@Override
 	public JSONObject toJson() {
 		JSONObject obj = new JSONObject();
-		obj.put("codigo", this.getCodigo());
+		obj.put("codigo", this.getId());
 		obj.put("data", this.getData());
-		obj.put("preco", this.getPreco());
+		obj.put("precoTotal", this.getPrecoTotal());
+		obj.put("precoUnitario", this.getPrecoUnitario());
 		obj.put("quantidade", this.getQuantidade());
-		obj.put("bebidas", this.getBebidas());
+		obj.put("idComprador", this.getIdComprador());
+		obj.put("idBebida", this.getIdBebida());
 		return obj;
 	}
 	
