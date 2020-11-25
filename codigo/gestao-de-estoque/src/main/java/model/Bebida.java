@@ -22,8 +22,7 @@ public class Bebida implements JsonFormatter {
 		this(0, "null", "null", 0, 0, 0, 0);
 	}
 	
-	public Bebida(int codigo, String nome, String descricao, float volume, int quantidade, float preco,
-			int idFornecedor) {
+	public Bebida(int codigo, String nome, String descricao, float volume, float preco, int quantidade, int idFornecedor) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;

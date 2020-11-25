@@ -36,7 +36,7 @@ public class BebidaService implements Service{
 		// Pegar maior código
 		int maxCod = bebidas[bebida.getQNT_BEBIDAS()-1].getCodigo() + 1;
 		
-		bebida = new Bebida(maxCod, nome, descricao, volume, quantidade, preco, idFornecedor);
+		//bebida = new Bebida(maxCod, nome, descricao, volume, quantidade, preco, idFornecedor);
 
 		bebidaDAO.add(bebida);
 
@@ -50,7 +50,7 @@ public class BebidaService implements Service{
 		bebidaDAO.connect();
 		
 		int id = Integer.parseInt(request.params(":idBebida"));
-
+		
 		Bebida bebida = (Bebida) bebidaDAO.get(id);
 
 		response.header("Content-Type", "application/json");
@@ -65,9 +65,6 @@ public class BebidaService implements Service{
 			response.redirect("/notfound.html");
 			return null;
 		}
-		
-		
-
 	}
 
 	@Override

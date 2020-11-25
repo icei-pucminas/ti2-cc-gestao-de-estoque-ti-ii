@@ -22,9 +22,9 @@ public class Aplicacao {
 		//HTTP Methods: Bebida
 		post("/bebida", (request,response) ->  bebidaService.add(request, response) );
 		get("/bebida", (request, response) -> bebidaService.getAll(request, response)); 
-		get("/bebida", (request, response) -> bebidaService.get(request, response)); 
+		get("/bebida/:idBebida", (request, response) -> bebidaService.get(request, response)); 
 		put("/bebida/:id", (request, response) -> bebidaService.update(request, response));
-		delete("/bebida/:id", (request, response) -> bebidaService.remove(request,response));
+		delete("/bebida/:idBebida", (request, response) -> bebidaService.remove(request,response));
 		
 		//HTTP Methods: Usuario
 		post("/usuario",       (request,response) ->  userService.add(request, response) );
