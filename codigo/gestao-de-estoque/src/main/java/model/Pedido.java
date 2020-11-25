@@ -17,23 +17,44 @@ import org.json.JSONObject;
 public class Pedido implements JsonFormatter {
 	private static int MAIOR_ID = 0;
 	private int id;
-	private LocalDateTime data;
 	private Double precoUnitario;
 	private Double precoTotal;
 	private int quantidade;
+	private String status;
 	private int idBebida;
 	private int idComprador;
 	
-	public Pedido(int id, LocalDateTime data, Double precoUnitario, int quantidade, int idBebida, int idComprador) { 
+	public Pedido(int id, Double precoUnitario, int quantidade, int idBebida, int idComprador) { 
 		super();
 		this.id = id;
-		this.data = data;
 		this.precoUnitario = precoUnitario;
 		this.quantidade = quantidade;
 		this.idBebida = idBebida;
 		this.idComprador = idComprador;
 		setPrecoTotal();
+		this.status = "aberto";
 		this.MAIOR_ID++;
+	}
+	
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	/**
+	 * @param precoTotal the precoTotal to set
+	 */
+	public void setPrecoTotal(Double precoTotal) {
+		this.precoTotal = precoTotal;
 	}
 
 	private void setPrecoTotal() {
@@ -87,21 +108,6 @@ public class Pedido implements JsonFormatter {
 	}
 	
 	/**
-	 * @return the data
-	 */
-	public LocalDateTime getData() {
-		return data;
-	}
-
-	/**
-	 * @param data the data to set
-	 */
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
-	
-
-	/**
 	 * @return the idComprador
 	 */
 	public int getIdComprador() {
@@ -149,10 +155,10 @@ public class Pedido implements JsonFormatter {
 	public JSONObject toJson() {
 		JSONObject obj = new JSONObject();
 		obj.put("codigo", this.getId());
-		obj.put("data", this.getData());
 		obj.put("precoTotal", this.getPrecoTotal());
 		obj.put("precoUnitario", this.getPrecoUnitario());
 		obj.put("quantidade", this.getQuantidade());
+		obj.put("status", this.getStatus());
 		obj.put("idComprador", this.getIdComprador());
 		obj.put("idBebida", this.getIdBebida());
 		return obj;
