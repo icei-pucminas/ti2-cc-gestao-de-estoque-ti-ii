@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/depend/bibliotecas/font-awesome/css/">
     <link rel="stylesheet" href="/depend/bibliotecas/datatables/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="/depend/css/sb-admin.min.css">
+    <script src="/depend/bibliotecas/jquery/jquery.min.js"></script>
+    <script src="js/menuLateral.js"></script>
 </head>
 
 <body class="bg-dark fixed-nav sticky-footer" id="page-top">
@@ -26,172 +28,6 @@
 
         <!-- Navbar Lateral -->
         <div id="navbarEstoque" class="collapse navbar-collapse">
-            <ul class="navbar-nav navbar-sidenav" id="linksaccordion">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">
-                        <!-- Ã�cone aqui -->
-                        <i class="fas fa-home"></i>
-                        <span class="nav-link-text">Inicio</span>
-                    </a>
-                </li>
-                <li class="nav-item" data-toggle="tooltipe" data-placement="right">
-                    <a href="#linkComponente" class="nav-link nav-link-collapse collapse" data-toggle="collapse"
-                        data-parent="#linksaccordion">
-                        <!-- Ã�cone aqui -->
-                        <i class="fas fa-boxes"></i>
-                        <span class="nav-link-text">Estoque</span>
-                    </a>
-                    <ul class="sidenav-second-level collapse" id="linkComponente">
-                        <li>
-                            <a href="estoqueBebidas.html">Bebidas</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right">
-                    <a href="#linkPagina" class="nav-link nav-link-collapse collapse" data-toggle="collapse"
-                        data-parent="#linksaccordion">
-                        <!-- Ã�cone aqui -->
-                        <i class="fas fa-file"></i>
-                        <span class="nav-link-text">Pedidos</span>
-                    </a>
-                    <ul class="sidenav-second-level collapse" id="linkPagina">
-                        <li>
-                            <a href="pedidos.html">Em aberto</a>
-                        </li>
-                        <li>
-                            <a href="pedidosFinalizados.html">Finalizados</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <!-- Seta pra fechar navbar lateral -->
-            <ul class="navbar-nav sidenav-toggler">
-                <li class="nav-item">
-                    <a href="" id="sidenavToggler" class="nav-link text-center">
-                        <i class="fas fa-angle-left"></i>
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Tela de pesquisar e sign out -->
-            <!-- Topo -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Caixas de mensagens -->
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" data-toggle="dropdown"
-                        arie-haspopup="true" arie-expanded="false">
-                        <i class="fa fa-fw fa-envelope"></i>
-                        <!-- DisponÃ­vel em tela < lg -->
-                        <span class="d-lg-none">
-                            Mensagens
-                            <!-- Quantidade de mensagens -->
-                            <span class="badge badge-pill badge-primary">12 novos</span>
-                        </span>
-                        <!-- Pills de mensagens -->
-                        <span class="indicator text-primary d-none d-lg-block">
-                            <i class="fa fa-fw fa-circle"></i>
-                        </span>
-                    </a>
-
-                    <!-- Mensagens -->
-                    <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-                        <h6 class="dropdown-header">Novas Mensagens</h6>
-                        <div class="dropdown-divider"></div>
-                        <!-- Novas Mensagens em si -->
-                        <a href="#" class="dropdown-item">
-                            <strong>Diogo Araujo</strong>
-                            <span class="small float-right text-muted">14:30</span>
-                            <!-- Mensagem -->
-                            <div class="dropdown-message small">
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Ducimus nulla molestias veniam modi
-                                repellendus voluptates totam excepturi consectetur ab at necessitatibus laboriosam,
-                                facere nisi voluptas!
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item small">Ver todas mensagens</a>
-                    </div>
-                </li>
-
-                <!-- Alertas -->
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" data-toggle="dropdown"
-                        arie-haspopup="true" arie-expanded="false">
-                        <i class="fa fa-fw fa-bell"></i>
-                        <!-- DisponÃ­vel em tela < lg -->
-                        <span class="d-lg-none">
-                            Alertas
-                            <!-- Quantidade de alertas -->
-                            <span class="badge badge-pill badge-warning">5 novos</span>
-                        </span>
-                        <!-- Pills de alertas -->
-                        <span class="indicator text-warning d-none d-lg-block">
-                            <i class="fa fa-fw fa-circle"></i>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-                        <h6 class="dropdown-header">Novos Alertas</h6>
-                        <div class="dropdown-divider"></div>
-                        <!-- Alerta de Sucesso -->
-                        <a href="#" class="dropdown-item">
-                            <span class="text-success">
-                                <strong>
-                                    <i class="fa fa-fw fa-long-arrow-up"></i>
-                                    AtualizaÃ§Ã£o de estado
-                                </strong>
-                            </span>
-                            <span class="small float-right text-muted">14:30</span>
-                            <!-- Mensagem de alerta -->
-                            <div class="dropdown-message small">
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Ducimus nulla molestias veniam modi
-                                repellendus voluptates totam excepturi consectetur ab at necessitatibus laboriosam,
-                                facere nisi voluptas!
-                            </div>
-                        </a>
-                        <!-- Alerta ruim -->
-                        <a href="#" class="dropdown-item">
-                            <span class="text-danger">
-                                <strong>
-                                    <i class="fa fa-fw fa-long-arrow-down"></i>
-                                    AtualizaÃ§Ã£o de estado
-                                </strong>
-                            </span>
-                            <span class="small float-right text-muted">14:30</span>
-                            <!-- Mensagem de alerta-->
-                            <div class="dropdown-message small">
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Ducimus nulla molestias veniam modi
-                                repellendus voluptates totam excepturi consectetur ab at necessitatibus laboriosam,
-                                facere nisi voluptas!
-                            </div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item small">Ver todos alertas</a>
-                    </div>
-
-                </li>
-
-                <li class="nav-item">
-                    <form action="" class="form-inline my-2 my-lg-0 mr-lg-2">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Pesquisar por...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fa fa-sign-out"></i>
-                    </a>
-                </li>
-            </ul>
         </div>
     </nav>
 
@@ -266,7 +102,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
     <script src="js/estoqueBebidas.js"></script>
-    <script src="/depend/bibliotecas/jquery/jquery.min.js"></script>
+    <script src="js/pedido.js"></script>
     <script src="/depend/bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/depend/bibliotecas/jquery-easing/jquery.easing.min.js"></script>
     <script src="/depend/bibliotecas/datatables/jquery.dataTables.js"></script>
