@@ -5,7 +5,7 @@ window.addEventListener( "load", function (event) {
 
     function loadDashboard ( email ) {
         let xhr = new XMLHttpRequest();
-
+        
         xhr.addEventListener( 'load', function ( event ) {
             loadUser(event.target.responseText);
         } );
@@ -15,7 +15,7 @@ window.addEventListener( "load", function (event) {
             alert ( 'Oops! ' );
         } );
 
-        xhr.open( "GET", `http://localhost:6789/user/${email}`);
+        xhr.open( "GET", `http://localhost:6789/usuario/${email}`);
 
         xhr.send();
     }   

@@ -20,15 +20,24 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 	public Bebida get(int codigo) {
 		Bebida bebida = null;
 		try {
-			Statement st = connection.createStatement();
+			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			String sql = ("SELECT * "
 					    + "FROM bebida 	"
-					    + "WHERE bebida.codigo = " + codigo);
+					    + "WHERE bebida.id = " + codigo);
 			ResultSet rs = st.executeQuery(sql);
-			
-			bebida = new Bebida(rs.getInt("codigo"), rs.getString("nome"), rs.getString("descricao"),
-					 		    rs.getFloat("volume"), rs.getInt("quantidade"), rs.getFloat("preco"), rs.getInt("idFornecedor"));
-			
+			if(rs.next()) {
+				rs.beforeFirst();
+				rs.next();
+				bebida = new Bebida(
+								 rs.getInt("id"), 
+								 rs.getString("nome"), 
+								 rs.getString("descricao"),
+					 		     rs.getFloat("volume"),
+					 		     rs.getFloat("preco"),  
+					 		     rs.getInt("quantidade"),
+					 		     rs.getInt("idFornecedor")
+					 		     );
+			}
 			st.close();
 			System.out.println("Success! --- " + bebida.toString());
 		} catch (Exception e) {
@@ -106,12 +115,13 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 				rs.beforeFirst();
 
 				for(int i = 0; rs.next(); i++) {
-					bebida[i] = new Bebida(rs.getInt("codigo"), 
+					bebida[i] = new Bebida(
+							 rs.getInt("id"), 
 							 rs.getString("nome"), 
 							 rs.getString("descricao"),
 				 		     rs.getFloat("volume"),
-				 		     rs.getInt("quantidade"),  
-				 		     rs.getFloat("preco"),
+				 		     rs.getFloat("preco"),  
+				 		     rs.getInt("quantidade"),
 				 		     rs.getInt("idFornecedor"));
 				}
 			}

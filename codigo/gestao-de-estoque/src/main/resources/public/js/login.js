@@ -4,7 +4,7 @@ const form = document.getElementById("formLogin");
 function getUser() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("senha").value;
-    let actionSrc = `http://localhost:6789/user/${email}`;
+    let actionSrc = `http://localhost:6789/usuario/${email}`;
     
     let xhr = new XMLHttpRequest();
 
