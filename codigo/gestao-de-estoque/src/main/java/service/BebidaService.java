@@ -19,29 +19,26 @@ public class BebidaService implements Service{
 	public Object add(Request request, Response response) {
 		bebidaDAO.connect();
 		String nome = request.queryParams("bebidaNome");
-		String descricao = request.queryParams("bebidaDescricao");
+		String descricao = request.queryParams("bebidaDescricao").trim();
 		float volume = Float.parseFloat(request.queryParams("bebidaVolume"));
 		int quantidade = Integer.parseInt(request.queryParams("bebidaQuantidade"));
 		float preco = Float.parseFloat(request.queryParams("bebidaPreco"));
-
-		//int idFornecedor = Integer.parseInt(request.queryParams("idFornecedor"));
-
-		// Provisório
-		int idFornecedor = 1;
+		int idFornecedor = Integer.parseInt(request.queryParams("bebidaIdFornecedor"));
 
 		// Pesquisar código válido
 		Bebida[] bebidas = bebidaDAO.getAll();
 		Bebida bebida = new Bebida();
 		
 		// Pegar maior código
-		int maxCod = bebidas[bebida.getQNT_BEBIDAS()-1].getCodigo() + 1;
+		int maxCod = bebidas[bebidas.length-1].getCodigo() + 1;
 		
-		//bebida = new Bebida(maxCod, nome, descricao, volume, quantidade, preco, idFornecedor);
+		bebida = new Bebida(maxCod, nome, descricao, volume, preco, quantidade, idFornecedor);
 
 		bebidaDAO.add(bebida);
 
 		response.status(201); // created
-
+		response.redirect("/estoqueBebidas.html");
+		
 		return Integer.valueOf(maxCod);
 	}
 

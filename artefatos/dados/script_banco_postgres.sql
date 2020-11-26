@@ -11,7 +11,7 @@ CREATE TABLE Usuario (
 );
 
 CREATE TABLE Bebida (
-  id         INT PRIMARY KEY NOT NULL,
+  id         SERIAL INT PRIMARY KEY NOT NULL,
   nome       TEXT NOT NULL,
   descricao  TEXT,
   volume     REAL CHECK(volume > 0), 

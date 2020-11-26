@@ -31,6 +31,7 @@ public class Bebida implements JsonFormatter {
 		this.quantidade = quantidade;
 		this.preco = preco;
 		this.idFornecedor = idFornecedor;
+		QNT_BEBIDAS++;
 	}
 	
 	public static int getQNT_BEBIDAS() {

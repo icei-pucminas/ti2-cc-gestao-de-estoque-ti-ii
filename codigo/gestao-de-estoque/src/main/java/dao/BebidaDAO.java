@@ -52,9 +52,8 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 		try {
 			Statement st = connection.createStatement();
 
-			String sql = ("INSERT INTO bebida (codigo, nome, descricao, volume, quantidade, preco, idFornecedor)"
-					    + "VALUES (" 
-					    + bebida.getCodigo() + ", " 
+			String sql = ("INSERT INTO bebida (nome, descricao, volume, quantidade, preco, idFornecedor)"
+					    + "VALUES ('"
 					    + bebida.getNome() +"', '"
 					    + bebida.getDescricao() + "', " 
 					    + bebida.getVolume() + ", "
@@ -73,14 +72,13 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 		try {
 			Statement st = connection.createStatement();
 			String sql = ("UPDATE bebida SET "
-					     + "codigo = " + bebida.getCodigo() + ", "
 					     + "nome = '"+ bebida.getNome() + "', "
 					     + "descricao = '"+ bebida.getDescricao() +"', " 
 					     + "volume = " + bebida.getVolume() + ", "
 					     + "quantidade = " + bebida.getQuantidade() + ", "
 						 + "preco = " + bebida.getPreco() + ", "
 					     + " idFornecedor = " + bebida.getIdFornecedor()
-					     + "WHERE bebida.codigo = "+ bebida.getCodigo());
+					     + "WHERE bebida.id = "+ bebida.getCodigo());
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + bebida.toString());
 		} catch (SQLException u) {
