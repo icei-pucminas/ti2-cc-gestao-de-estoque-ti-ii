@@ -30,13 +30,13 @@ public class PedidoService implements Service{
 		
 		int idBebida 			= Integer.parseInt(request.queryParams("idBebida"));
 		int idComprador 		= Integer.parseInt(request.queryParams("idComprador"));
-		LocalDateTime data 		= LocalDateTime.parse(request.queryParams("data"));
-		Double precoUnitario 	= Double.parseDouble(request.queryParams("precoUnitario"));
-		int quantidade 			= Integer.parseInt(request.queryParams("quantidade"));
-
+		//LocalDateTime data 		= LocalDateTime.parse(request.queryParams("data"));
+		Double precoUnitario 	= Double.parseDouble(request.queryParams("bebidaPreco"));
+		int quantidade 			= Integer.parseInt(request.queryParams("pedidoQuantidade"));
+		
 		int idPedido = gerarId();
 		
-		Pedido pedido = new Pedido(idPedido, data, precoUnitario, quantidade, idBebida, idComprador);
+		Pedido pedido = new Pedido(idPedido, precoUnitario, quantidade, idBebida, idComprador);
 
 		pedidoDAO.add(pedido);
 
