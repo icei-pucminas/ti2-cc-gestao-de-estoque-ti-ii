@@ -14,4 +14,5 @@ public interface DAO<T> {
 	public void update(T p);
 	public void delete(T p);
 	public T[] getAll();
+	public int getIdMax();
 }

@@ -12,8 +12,8 @@ public class UserDAO extends Banco implements DAO<User> {
 		try {
 			Statement st = connection.createStatement();
 			String sql = ("SELECT *"
-					    + "FROM  \"public\".\"usuario\""
-					    + "WHERE Usuario.id = " + id);
+					    + "FROM  usuario"
+					    + "WHERE usuario.id = " + id);
 			ResultSet rs = st.executeQuery(sql);
 			
 			user = new User(
@@ -45,7 +45,7 @@ public class UserDAO extends Banco implements DAO<User> {
 			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			String sql = (
 							"SELECT *"
-						    + "FROM \"public\".\"usuario\" "
+						    + "FROM usuario"
 						    + "WHERE usuario.email = '" + email + "';"
 					     );
 			ResultSet rs = st.executeQuery(sql);
@@ -75,8 +75,7 @@ public class UserDAO extends Banco implements DAO<User> {
 	
 	@Override
 	public void add(User user) {
-		String sql = ("INSERT into usuario (id, nome, sobrenome, cpf, cnpj, email, senha) values ("
-					    + "  " + user.getId()        + ",  "
+		String sql = ("INSERT into usuario (nome, sobrenome, cpf, cnpj, email, senha) values ("
 					    + " '" + user.getNome()      + "', "
 					    + " '" + user.getSobrenome() + "', "
 					    + " '" + user.getCpf()       + "', "
@@ -99,8 +98,7 @@ public class UserDAO extends Banco implements DAO<User> {
 	public void update(User user) {
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("UPDATE Usuario SET (id, nome, sobrenome, cpf, cnpj, email, senha, tipo) values ("
-						    + " id = "         + user.getId()        + ",  "
+			String sql = ("UPDATE Usuario SET (nome, sobrenome, cpf, cnpj, email, senha, tipo) values ("
 						    + " nome = '"      + user.getNome()      + "', "
 						    + " sobrenome = '" + user.getSobrenome() + "', "
 						    + " cpf = '"       + user.getCpf()       + "',  "
@@ -123,8 +121,8 @@ public class UserDAO extends Banco implements DAO<User> {
 		try {
 			Statement st = connection.createStatement();
 			String sql = ("DELETE "
-					    + "FROM Usuario "
-					    + "WHERE Usuario.id =" + user.getId());
+					    + "FROM usuario "
+					    + "WHERE usuario.id =" + user.getId());
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + user.toString());
 			st.close();
@@ -141,7 +139,7 @@ public class UserDAO extends Banco implements DAO<User> {
 		try {
 			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			String sql = ("SELECT *"
-					    + "FROM Usuario");
+					    + "FROM usuario");
 			ResultSet rs = st.executeQuery(sql);
 			
 			if(rs.next()) {
@@ -155,9 +153,10 @@ public class UserDAO extends Banco implements DAO<User> {
 							rs.getString("nome"), 
 					        rs.getString("sobrenome"),
 					        rs.getString("cpf"),
+					        rs.getString("cnpj"),
 					        rs.getString("email"),
-					        rs.getString("senha"),
-					        rs.getString("tipo") );
+					        rs.getString("senha")
+					        );
 				}
 			}
 			st.close();
@@ -165,6 +164,27 @@ public class UserDAO extends Banco implements DAO<User> {
 			System.err.println(e.getMessage());
 		}
 		return users;
+	}
+
+	@Override
+	public int getIdMax() {
+		// TODO Auto-generated method stub
+		int id = 0;
+		
+		try {
+			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			String sql = ("SELECT MAX(id) FROM usuario");
+			ResultSet rs = st.executeQuery(sql);
+			if (rs.next()) {
+				id = rs.getInt("max");
+			}
+			st.close();
+
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		
+		return id;
 	}
 		
 }

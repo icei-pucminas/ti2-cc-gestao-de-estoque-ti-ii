@@ -9,7 +9,6 @@ import org.json.JSONObject;
  * Última alteração 6/10/2020
  */
 public class Bebida implements JsonFormatter {
-	private static int QNT_BEBIDAS = 0;
 	private int codigo;
 	private String nome;
 	private String descricao;
@@ -22,6 +21,17 @@ public class Bebida implements JsonFormatter {
 		this(0, "null", "null", 0, 0, 0, 0);
 	}
 	
+	public Bebida(String nome, String descricao, float volume, float preco, int quantidade, int idFornecedor) {
+		super();
+		this.codigo = -1;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.volume = volume;
+		this.quantidade = quantidade;
+		this.preco = preco;
+		this.idFornecedor = idFornecedor;
+	}
+	
 	public Bebida(int codigo, String nome, String descricao, float volume, float preco, int quantidade, int idFornecedor) {
 		super();
 		this.codigo = codigo;
@@ -31,17 +41,8 @@ public class Bebida implements JsonFormatter {
 		this.quantidade = quantidade;
 		this.preco = preco;
 		this.idFornecedor = idFornecedor;
-		QNT_BEBIDAS++;
 	}
 	
-	public static int getQNT_BEBIDAS() {
-		return QNT_BEBIDAS;
-	}
-
-	public static void setQNT_BEBIDAS(int qNT_BEBIDAS) {
-		QNT_BEBIDAS = qNT_BEBIDAS;
-	}
-
 	public int getCodigo() {
 		return codigo;
 	}

@@ -10,7 +10,7 @@ import model.Bebida;
 /**
  * Class BebidaDAO - DAO classe
  * 
- * @author < \ - Joao - / > Atualizacao: 17-10-2020
+ * @author Joao Atualizacao: 26-11-2020
  */
 
 public class BebidaDAO extends Banco implements DAO<Bebida> {
@@ -90,7 +90,7 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 	public void delete(Bebida bebida) {
 		try {
 			Statement st = connection.createStatement();
-			String sql = ("DELETE FROM bebida WHERE bebida.codigo = " + bebida.getCodigo());
+			String sql = ("DELETE FROM bebida WHERE bebida.id = " + bebida.getCodigo());
 			st.executeUpdate(sql);
 			st.close();
 			System.out.println("Sucess! --- " + bebida.toString());
@@ -130,6 +130,26 @@ public class BebidaDAO extends Banco implements DAO<Bebida> {
 		}
 				
 		return bebida;
+	}
+
+	@Override
+	public int getIdMax() {
+		// TODO Auto-generated method stub
+		int id = 0;
+		try {
+			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			String sql = ("SELECT MAX(id) FROM bebida");
+			ResultSet rs = st.executeQuery(sql);
+			if (rs.next()) {
+				id = rs.getInt("max");
+			}
+			st.close();
+
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		
+		return id;
 	}
 
 }

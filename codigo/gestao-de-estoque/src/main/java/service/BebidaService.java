@@ -29,17 +29,14 @@ public class BebidaService implements Service{
 		Bebida[] bebidas = bebidaDAO.getAll();
 		Bebida bebida = new Bebida();
 		
-		// Pegar maior código
-		int maxCod = bebidas[bebidas.length-1].getCodigo() + 1;
-		
-		bebida = new Bebida(maxCod, nome, descricao, volume, preco, quantidade, idFornecedor);
+		bebida = new Bebida(nome, descricao, volume, preco, quantidade, idFornecedor);
 
 		bebidaDAO.add(bebida);
 
 		response.status(201); // created
 		response.redirect("/estoqueBebidas.html");
 		
-		return Integer.valueOf(maxCod);
+		return bebidaDAO.getIdMax();
 	}
 
 	@Override
@@ -83,7 +80,7 @@ public class BebidaService implements Service{
 
 			bebidaDAO.update(bebida);
 
-			return bebida;
+			return bebida.getCodigo();
 		} else {
 			response.status(404); // 404 Not found
 			response.redirect("/notfound.html");
@@ -103,7 +100,7 @@ public class BebidaService implements Service{
 			bebidaDAO.delete(bebida);
 
 			response.status(200); // success
-			return bebida;
+			return bebida.getCodigo();
 		} else {
 			response.status(404); // 404 Not found
 			response.redirect("/notfound.html");

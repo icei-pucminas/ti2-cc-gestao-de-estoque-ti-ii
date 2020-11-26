@@ -15,7 +15,6 @@ import org.json.JSONObject;
  * última alteração: 6/10/2020
  */
 public class Pedido implements JsonFormatter {
-	private static int MAIOR_ID = 0;
 	private int id;
 	private Double precoUnitario;
 	private Double precoTotal;
@@ -23,6 +22,21 @@ public class Pedido implements JsonFormatter {
 	private String status;
 	private int idBebida;
 	private int idComprador;
+	
+	public Pedido() { 
+		this(0,0.0,0,0,0);
+	}
+	
+	public Pedido(Double precoUnitario, int quantidade, int idBebida, int idComprador) { 
+		super();
+		this.id = -1;
+		this.precoUnitario = precoUnitario;
+		this.quantidade = quantidade;
+		this.idBebida = idBebida;
+		this.idComprador = idComprador;
+		setPrecoTotal();
+		this.status = "aberto";
+	}
 	
 	public Pedido(int id, Double precoUnitario, int quantidade, int idBebida, int idComprador) { 
 		super();
@@ -33,7 +47,28 @@ public class Pedido implements JsonFormatter {
 		this.idComprador = idComprador;
 		setPrecoTotal();
 		this.status = "aberto";
-		this.MAIOR_ID++;
+	}
+	
+	public Pedido(Double precoUnitario, int quantidade, int idBebida, int idComprador, String status) { 
+		super();
+		this.id = -1;
+		this.precoUnitario = precoUnitario;
+		this.quantidade = quantidade;
+		this.idBebida = idBebida;
+		this.idComprador = idComprador;
+		setPrecoTotal();
+		this.status = status;
+	}
+	
+	public Pedido(int id, Double precoUnitario, int quantidade, int idBebida, int idComprador, String status) { 
+		super();
+		this.id = id;
+		this.precoUnitario = precoUnitario;
+		this.quantidade = quantidade;
+		this.idBebida = idBebida;
+		this.idComprador = idComprador;
+		setPrecoTotal();
+		this.status = status;
 	}
 	
 	/**
@@ -91,20 +126,6 @@ public class Pedido implements JsonFormatter {
 	 */
 	public void setPrecoUnitario(Double precoUnitario) {
 		this.precoUnitario = precoUnitario;
-	}
-
-	/**
-	 * @return the mAIOR_ID
-	 */
-	public static int getMAIOR_ID() {
-		return MAIOR_ID;
-	}
-
-	/**
-	 * @param mAIOR_ID the mAIOR_ID to set
-	 */
-	public static void setMAIOR_ID(int mAIOR_ID) {
-		MAIOR_ID = mAIOR_ID;
 	}
 	
 	/**

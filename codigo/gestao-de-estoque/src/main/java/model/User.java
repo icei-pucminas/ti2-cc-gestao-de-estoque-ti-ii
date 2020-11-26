@@ -16,7 +16,22 @@ public class User implements JsonFormatter {
 	private String cnpj;
 	private String email;
 	private String senha;
-	private static int MAIOR_ID = 0;
+	
+	public User() {
+		this(0,"null","null","null","null","null","null");
+	}
+	
+	public User(String nome, String sobrenome, String cpf, String cnpj, String email, String senha) {
+		super();
+		this.id = -1;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+		this.cnpj = cnpj;
+		this.email = email;
+		this.senha = senha;
+		this.cnpj = cnpj;
+	}
 	
 	public User(int id, String nome, String sobrenome, String cpf, String cnpj, String email, String senha) {
 		super();
@@ -28,7 +43,6 @@ public class User implements JsonFormatter {
 		this.email = email;
 		this.senha = senha;
 		this.cnpj = cnpj;
-		MAIOR_ID++;
 	}
 	
 	@Override
@@ -37,19 +51,6 @@ public class User implements JsonFormatter {
 				+ ", email=" + email + ", senha=" + senha + "]";
 	}
 
-	/**
-	 * @return the mAIOR_ID
-	 */
-	public static int getMAIOR_ID() {
-		return MAIOR_ID;
-	}
-
-	/**
-	 * @param mAIOR_ID the mAIOR_ID to set
-	 */
-	public static void setMAIOR_ID(int mAIOR_ID) {
-		MAIOR_ID = mAIOR_ID;
-	}
 
 	/**
 	 * @return the id

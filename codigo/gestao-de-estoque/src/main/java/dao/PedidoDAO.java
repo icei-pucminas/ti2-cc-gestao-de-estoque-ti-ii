@@ -12,7 +12,7 @@ import model.*;
 /**
  * Class PedidoaDAO - DAO classe
  * 
- * @author < \ - Joao - / > Atualizacao: 17-10-2020
+ * @author Joao Atualizacao: 26-11-2020
  */
 
 public class PedidoDAO extends Banco implements DAO<Pedido> {
@@ -29,7 +29,8 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 					rs.getDouble("precoTotal"), 
 					rs.getInt("quantidade"),
 					rs.getInt("idComprador"),
-					rs.getInt("idBebida"));
+					rs.getInt("idBebida"),
+					rs.getString("status"));
 
 			st.close();
 			System.out.println("Success! --- " + pedido.toString());
@@ -45,13 +46,12 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 		try {
 			Statement st = connection.createStatement();
 	
-			String sql = ("INSERT INTO pedido (id, precoTotal, quantidade, status, idComprador, idBebida)"
-					    + "VALUES (" + pedido.getId() + ", "
-					    			 + pedido.getPrecoTotal()  + ", "
-					    			 + pedido.getQuantidade()  + ", '"
-					    			 + pedido.getStatus()      + "', "
-					    			 + pedido.getIdComprador() + ", "
-					    			 + pedido.getIdBebida()    + "); "
+			String sql = ("INSERT INTO pedido (precoTotal, quantidade, status, idComprador, idBebida) VALUES (" + 
+		    			 + pedido.getPrecoTotal()  + ", "
+		    			 + pedido.getQuantidade()  + ","
+		    	  + " '" + pedido.getStatus()      + "', "
+		    			 + pedido.getIdComprador() + ", " 
+		    			 + pedido.getIdBebida()    + "); "
 					     );
 			
 			System.out.println("sql = " + sql);
@@ -68,9 +68,9 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 		try {
 			Statement st = connection.createStatement();
 			String sql = ("UPDATE pedido SET "
-					+ "id = "          + pedido.getId() + " , " 
 	    			+ "precoTotal = "  + pedido.getPrecoTotal()  + ", "
 	    			+ "quantidade = "  + pedido.getQuantidade()  + ", "
+	    			+ "status = '"     + pedido.getStatus() 	 + "', "
 	    			+ "idComprador = " + pedido.getIdComprador() + ", "
 	    			+ "idBebida = "    + pedido.getIdBebida()    + "); "
 				    + "WHERE pedido.id = " + pedido.getId());
@@ -116,7 +116,8 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 											rs.getDouble("precoTotal"), 
 											rs.getInt("quantidade"),
 											rs.getInt("idComprador"),
-											rs.getInt("idBebida")
+											rs.getInt("idBebida"),
+											rs.getString("status")
 											);
 				}
 			}
@@ -126,5 +127,26 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 		}
 		
 		return pedidos;
+	}
+
+	@Override
+	public int getIdMax() {
+		// TODO Auto-generated method stub
+		int id = 0;
+		
+		try {
+			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			String sql = ("SELECT MAX(id) FROM pedido");
+			ResultSet rs = st.executeQuery(sql);
+			if (rs.next()) {
+				id = rs.getInt("max");
+			}
+			st.close();
+
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		
+		return id;
 	}
 }

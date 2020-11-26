@@ -3,9 +3,11 @@ package service;
 import java.time.LocalDateTime;
 import java.util.Random;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import dao.PedidoDAO;
+import model.Bebida;
 import model.Pedido;
 import spark.Request;
 import spark.Response;
@@ -18,12 +20,6 @@ public class PedidoService implements Service{
 
 	}
 
-	public static int gerarId() {
-		Random gerador = new Random();
-		
-		return gerador.nextInt(225) + Pedido.getMAIOR_ID();
-	}
-	
 	@Override
 	public Object add(Request request, Response response) {
 		pedidoDAO.connect();
@@ -33,16 +29,14 @@ public class PedidoService implements Service{
 		//LocalDateTime data 		= LocalDateTime.parse(request.queryParams("data"));
 		Double precoUnitario 	= Double.parseDouble(request.queryParams("bebidaPreco"));
 		int quantidade 			= Integer.parseInt(request.queryParams("pedidoQuantidade"));
-		
-		int idPedido = gerarId();
-		
-		Pedido pedido = new Pedido(idPedido, precoUnitario, quantidade, idBebida, idComprador);
+				
+		Pedido pedido = new Pedido(precoUnitario, quantidade, idBebida, idComprador);
 
 		pedidoDAO.add(pedido);
 
 		response.status(201); // created
 
-		return Integer.valueOf(idPedido);
+		return pedidoDAO.getIdMax();
 	}
 
 	@Override
@@ -81,11 +75,13 @@ public class PedidoService implements Service{
 		Pedido pedido = (Pedido) pedidoDAO.get(id);
 
 		if (pedido != null) {
-			int idBebida 			= Integer.parseInt(request.queryParams("idBebida"));
-			int idComprador 		= Integer.parseInt(request.queryParams("idComprador"));
-			LocalDateTime data 		= LocalDateTime.parse(request.queryParams("data"));
-			Double precoUnitario 	= Double.parseDouble(request.queryParams("precoUnitario"));
-			int quantidade 			= Integer.parseInt(request.queryParams("quantidade"));
+			pedido.setId(Integer.parseInt(request.queryParams("pedidoId")));
+			pedido.setIdBebida(Integer.parseInt(request.queryParams("pedidoIdBebida")));
+			pedido.setIdComprador(Integer.parseInt(request.queryParams("pedidoIdComprador")));
+			pedido.setPrecoUnitario(Double.parseDouble(request.queryParams("pedidoPrecoUnitario")));
+			pedido.setQuantidade(Integer.parseInt(request.queryParams("pedidoQuantidade")));
+			pedido.setPrecoTotal(pedido.getQuantidade()*pedido.getPrecoUnitario());
+			pedido.setStatus(request.queryParams("pedidoStatus"));
 
 			pedidoDAO.update(pedido);
 		} else {
@@ -96,7 +92,7 @@ public class PedidoService implements Service{
 		
 		pedidoDAO.close();
 		
-		return pedido;
+		return pedido.getId();
 	}
 
 	@Override
@@ -119,26 +115,26 @@ public class PedidoService implements Service{
 		
 		pedidoDAO.close();
 		
-		return pedido;
+		return pedido.getId();
 	}
 
 	@Override
 	public Object getAll(Request request, Response response) {
-		pedidoDAO.connect();
-				
-		StringBuffer returnValue = new StringBuffer("pedidos: [ {");
-		
-		for (Pedido b : pedidoDAO.getAll()) {
-			Pedido pedido = (Pedido) b;
-			returnValue.append(pedido.toJson()+"}, {");
-		}
-		returnValue.append(" } ]");
 		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
 		
-		pedidoDAO.close();
+		pedidoDAO.connect();
 		
-		return returnValue.toString();
+		JSONArray allProds = new JSONArray();
+		
+		for (Pedido p : pedidoDAO.getAll()) {
+			Pedido pedido= (Pedido) p;
+			allProds.put(pedido.toJson());
+		}
+
+		pedidoDAO.close();
+				
+		return allProds;
 
 	}
 	
