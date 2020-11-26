@@ -1,5 +1,5 @@
 $(function () {
-    $("#navbarEstoque").load("../html/menuLateral.html");
+    $("#navbarEstoque").load("../../html/nav/menuLateral.html");
 });
 
 
