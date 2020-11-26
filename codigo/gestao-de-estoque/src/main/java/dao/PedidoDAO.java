@@ -26,7 +26,6 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 
 			pedido = new Pedido(
 					rs.getInt("id"),
-					LocalDateTime.ofInstant(rs.getDate("data").toInstant(), ZoneId.systemDefault()),
 					rs.getDouble("precoTotal"), 
 					rs.getInt("quantidade"),
 					rs.getInt("idComprador"),
@@ -46,14 +45,16 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 		try {
 			Statement st = connection.createStatement();
 	
-			String sql = ("INSERT INTO pedido (id, data, precoTotal, quantidade, idComprador, idBebida)"
+			String sql = ("INSERT INTO pedido (id, precoTotal, quantidade, status, idComprador, idBebida)"
 					    + "VALUES (" + pedido.getId() + ", "
-					    			 + Date.from(pedido.getData().atZone(ZoneId.systemDefault()).toInstant())  + ", "
 					    			 + pedido.getPrecoTotal()  + ", "
-					    			 + pedido.getQuantidade()  + ", "
+					    			 + pedido.getQuantidade()  + ", '"
+					    			 + pedido.getStatus()      + "', "
 					    			 + pedido.getIdComprador() + ", "
 					    			 + pedido.getIdBebida()    + "); "
 					     );
+			
+			System.out.println("sql = " + sql);
 			
 			st.executeUpdate(sql);
 			System.out.println("Sucess! --- " + pedido.toString());
@@ -68,7 +69,6 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 			Statement st = connection.createStatement();
 			String sql = ("UPDATE pedido SET "
 					+ "id = "          + pedido.getId() + " , " 
-	    			+ "data = "        + Date.from(pedido.getData().atZone(ZoneId.systemDefault()).toInstant())  + ", "
 	    			+ "precoTotal = "  + pedido.getPrecoTotal()  + ", "
 	    			+ "quantidade = "  + pedido.getQuantidade()  + ", "
 	    			+ "idComprador = " + pedido.getIdComprador() + ", "
@@ -113,7 +113,6 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 				for(int i = 0; rs.next(); i++) {
 					pedidos[i] = new Pedido(
 											rs.getInt("id"),
-											LocalDateTime.ofInstant(rs.getDate("data").toInstant(), ZoneId.systemDefault()),
 											rs.getDouble("precoTotal"), 
 											rs.getInt("quantidade"),
 											rs.getInt("idComprador"),

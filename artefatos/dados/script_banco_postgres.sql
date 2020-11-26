@@ -22,9 +22,10 @@ CREATE TABLE Bebida (
 
 CREATE TABLE Pedido (
   id              INT PRIMARY KEY NOT NULL,
-  data            DATE,
+  data            TIMESTAMP,
   precoTotal      REAL CHECK(precoTotal >= 0),
   quantidade      INT NOT NULL CHECK(quantidade >= 0),
+  status          TEXT,
   idComprador     INT REFERENCES Usuario(id) NOT NULL,
   idBebida        INT REFERENCES Bebida(id) NOT NULL
 );
