@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cadastro de Bebidas</title>
+    <link rel="stylesheet" href="/depend/bibliotecas/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/depend/bibliotecas/font-awesome/css/">
+    <link rel="stylesheet" href="/depend/bibliotecas/datatables/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="/depend/css/sb-admin.min.css">
+    <script src="/depend/bibliotecas/jquery/jquery.min.js"></script>
+    <script src="js/menuLateral.js"></script>
+</head>
+
+<body class="bg-dark fixed-nav sticky-footer" id="page-top">
+
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <a class="navbar-brand" href="index.html">Admin</a>
+
+        <!-- Toggle -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarEstoque" aria-control="navbarEstoque" aria-expanded="false"
+            aria-label="NavegaÃ§Ã£o toggle">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Lateral -->
+        <div id="navbarEstoque" class="collapse navbar-collapse">
+        </div>
+    </nav>
+
+    <!-- ConteÃºdo da pÃ¡gina -->
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    Cadastro de Produtos
+                </li>
+            </ol>
+            <div class="row">
+                <div class="col-12">
+                    <h1>Cadastro de Produtos</h1>
+                    <p>
+                        Cadastro de suas bebidas para serem colocadas á venda.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Tables -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <form action="estoqueBebidas.html" id="cadastroBebida">
+                        <div class="form-group mb-0">
+                            <div class="form-row my-2">
+                                <div class="col-md-12">
+
+                                    <label for="bebidaNome">Nome</label>
+                                    <span class="text-danger  ">
+                                        *
+                                    </span>
+                                    <input type="text" class="form-control " id="bebidaNome" name="bebidaNome"
+                                        placeholder="..." required>
+
+                                </div>
+                            </div>
+                            <div class="form-row my-2">
+                                <div class="col-md-12">
+                                    <label for="bebidaDescricao">Descrição</label>
+                                    <textarea name="bebidaDescricao" id="bebidaDescricao" class="form-control" cols="30"
+                                        rows="10">
+
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="form-row my-2">
+                                <div class="col-md-4">
+                                    <label for="bebidaVolume">Volume</label>
+                                    <span class="text-danger  ">
+                                        *
+                                    </span>
+                                    <input type="number" class="form-control" id="bebidaVolume" name="bebidaVolume"
+                                        placeholder="..." required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="bebidaPreco">Preço</label>
+                                    <span class="text-danger  ">
+                                        *
+                                    </span>
+                                    <input type="number" class="form-control" id="bebidaPreco" name="bebidaPreco"
+                                        placeholder="..." required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="bebidaQuantidade">Quantidade</label>
+                                    <span class="text-danger  ">
+                                        *
+                                    </span>
+                                    <input type="number" class="form-control" id="bebidaQuantidade"
+                                        name="bebidaQuantidade" placeholder="..." required>
+                                </div>
+                            </div>
+
+                            <div class="form-row  mt-3 justify-content-center">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary btn-block">Comprar</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                <small>Copyright Conexus System</small>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+    <script src="js/estoqueBebidas.js"></script>
+    <script src="js/pedido.js"></script>
+    <script src="/depend/bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/depend/bibliotecas/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/depend/bibliotecas/datatables/jquery.dataTables.js"></script>
+    <script src="/depend/bibliotecas/datatables/dataTables.bootstrap4.js"></script>
+    <script src="/depend/js/sb-admin.min.js" type="text/javascript"></script>
+    <script src="/depend/js/sb-admin-datatables.min.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/6b3ebeef12.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
