@@ -44,9 +44,9 @@ public class UserDAO extends Banco implements DAO<User> {
 		try {
 			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			String sql = (
-							"SELECT *"
-						    + "FROM usuario"
-						    + "WHERE usuario.email = '" + email + "';"
+							"SELECT * "
+						    + "FROM usuario "
+						    + "WHERE email = '" + email + "';"
 					     );
 			ResultSet rs = st.executeQuery(sql);
 			

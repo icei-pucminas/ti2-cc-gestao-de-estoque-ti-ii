@@ -36,7 +36,11 @@ public class UserService {
 		response.status(201); // created
 		response.redirect("http://127.0.0.1:5500/index.html");
 		
-		return userDAO.getIdMax();
+		int idMax = userDAO.getIdMax();
+		
+		userDAO.close();
+		
+		return idMax;
 	}
 	
 	// Efetuar login pelo email
@@ -46,6 +50,8 @@ public class UserService {
 		String email = request.params(":email");
 		
 		User user = (User) userDAO.get(email);
+		
+		userDAO.close();
 		
 		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");

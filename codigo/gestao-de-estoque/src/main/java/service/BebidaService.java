@@ -25,8 +25,6 @@ public class BebidaService implements Service{
 		float preco = Float.parseFloat(request.queryParams("bebidaPreco"));
 		int idFornecedor = Integer.parseInt(request.queryParams("bebidaIdFornecedor"));
 
-		// Pesquisar código válido
-		Bebida[] bebidas = bebidaDAO.getAll();
 		Bebida bebida = new Bebida();
 		
 		bebida = new Bebida(nome, descricao, volume, preco, quantidade, idFornecedor);
@@ -34,7 +32,7 @@ public class BebidaService implements Service{
 		bebidaDAO.add(bebida);
 
 		response.status(201); // created
-		response.redirect("/estoqueBebidas.html");
+		response.redirect("/html/bebidas/estoqueBebidas.html");
 		
 		return bebidaDAO.getIdMax();
 	}
