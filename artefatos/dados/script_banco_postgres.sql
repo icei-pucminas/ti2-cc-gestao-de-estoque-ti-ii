@@ -1,7 +1,7 @@
 CREATE DATABASE estoqueti2;
 
 CREATE TABLE Usuario (
-  id        INT PRIMARY KEY NOT NULL,
+  id        SERIAL PRIMARY KEY NOT NULL,
   nome      TEXT,
   sobrenome TEXT,
   cpf       TEXT,
@@ -11,7 +11,7 @@ CREATE TABLE Usuario (
 );
 
 CREATE TABLE Bebida (
-  id         SERIAL INT PRIMARY KEY NOT NULL,
+  id         SERIAL PRIMARY KEY NOT NULL,
   nome       TEXT NOT NULL,
   descricao  TEXT,
   volume     REAL CHECK(volume > 0), 
@@ -21,7 +21,7 @@ CREATE TABLE Bebida (
 );
 
 CREATE TABLE Pedido (
-  id              INT PRIMARY KEY NOT NULL,
+  id              SERIAL PRIMARY KEY NOT NULL,
   data            TIMESTAMP,
   precoTotal      REAL CHECK(precoTotal >= 0),
   quantidade      INT NOT NULL CHECK(quantidade >= 0),
