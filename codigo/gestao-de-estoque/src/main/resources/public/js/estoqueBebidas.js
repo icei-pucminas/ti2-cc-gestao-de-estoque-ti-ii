@@ -22,7 +22,7 @@ function redirectPedido( codigo ){
 function requestBebidas() {
     // Variável de requisição
     let xhr = new XMLHttpRequest();
-    let actionSrc = `http://localhost:6789/bebida`;
+    let actionSrc = `http://localhost:6789/all/bebida`;
     let method = 'GET';
 
     xhr.addEventListener( 'load', function ( event ) {

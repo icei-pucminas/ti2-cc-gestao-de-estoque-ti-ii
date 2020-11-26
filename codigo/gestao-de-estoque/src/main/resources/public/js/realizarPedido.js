@@ -7,7 +7,7 @@ $(window).on("load", function () {
 function requestBebida( idBebida ) {
     let xhr = new XMLHttpRequest();
 
-    let actionSrc = `http://localhost:6789/bebida/${idBebida}`;
+    let actionSrc = `http://localhost:6789/get/bebida/${idBebida}`;
     let method = 'GET';
 
     xhr.addEventListener( 'load', function ( event ) {

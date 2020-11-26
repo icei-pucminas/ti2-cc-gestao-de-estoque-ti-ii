@@ -15,7 +15,7 @@ window.addEventListener( "load", function (event) {
             alert ( 'Oops! ' );
         } );
 
-        xhr.open( "GET", `http://localhost:6789/usuario/${email}`);
+        xhr.open( "GET", `http://localhost:6789/get/usuario/${email}`);
 
         xhr.send();
     }   

@@ -14,8 +14,8 @@ public class Aplicacao {
 	public static void main(String[] args) {
 		port(6789);
 		
-		staticFiles.externalLocation("C:\\DANNIEL\\1_Escola\\PUC_Coreu\\2020_2\\TI_2_CC\\ti2cc-estoque\\codigo\\gestao-de-estoque\\src\\main\\resources\\public");
-		//staticFiles.location("/public");
+		//staticFiles.externalLocation("C:\\DANNIEL\\1_Escola\\PUC_Coreu\\2020_2\\TI_2_CC\\ti2cc-estoque\\codigo\\gestao-de-estoque\\src\\main\\resources\\public");
+		staticFiles.location("/public");
 		
 		//HTTP Methods: Bebida
 		post("/create/bebida", (request,response) ->  bebidaService.add(request, response) );
