@@ -112,6 +112,20 @@
     <script src="../../depend/js/sb-admin.min.js" type="text/javascript"></script>
     <script src="../../depend/js/sb-admin-datatables.min.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/6b3ebeef12.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
+    </script>
+    <script>
+        (function () {
+            window.onload = function () {
+                new BlipChat()
+                .withAppKey('Ym94eTE6ODkxMDE0NzctMjdmNC00MDk5LWE2MjYtYzQ4ZWM0OThhYjQ1')
+                .withButton({"color":"#2CC3D5","icon":""})
+                .withCustomCommonUrl('https://chat.blip.ai/')
+                .build();
+            }
+        })();
+    </script>
+                                    
 
 </body>
 
