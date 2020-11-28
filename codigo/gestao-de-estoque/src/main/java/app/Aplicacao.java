@@ -42,10 +42,9 @@ public class Aplicacao {
 			}
 			return resp;
 		});
-		delete("/delete/pedido/:id", (request, response) -> pedidoService.remove(request,response));
+		get("/delete/pedido/:idPedido", (request, response) -> pedidoService.remove(request,response));
 		get("/all/pedido", (request, response) -> pedidoService.getAll(request, response));
-		
-		
+		get("/all/pedido/:idComprador", (request, response) -> pedidoService.getAllComprador(request, response));
 	}
 	
 }
