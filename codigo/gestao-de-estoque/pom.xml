@@ -60,6 +60,11 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>3.0.1</version>
+					<configuration>
+						<processTypes>
+							<web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.app.Aplicacao</web>
+						</processTypes>
+					</configuration>
 					<executions>
 						<execution>
 							<id>copy-dependencies</id>
