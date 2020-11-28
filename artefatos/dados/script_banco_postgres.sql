@@ -22,7 +22,6 @@ CREATE TABLE Bebida (
 
 CREATE TABLE Pedido (
   id              SERIAL PRIMARY KEY NOT NULL,
-  data            TIMESTAMP,
   precoTotal      REAL CHECK(precoTotal >= 0),
   quantidade      INT NOT NULL CHECK(quantidade >= 0),
   status          TEXT,
