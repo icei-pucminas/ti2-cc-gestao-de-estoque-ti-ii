@@ -20,17 +20,21 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 	public Pedido get(int id) {
 		Pedido pedido = null;
 		try {
-			Statement st = connection.createStatement();
+			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			String sql = ("SELECT * " + "FROM pedido 	" + "WHERE pedido.id = " + id);
 			ResultSet rs = st.executeQuery(sql);
-
-			pedido = new Pedido(
-					rs.getInt("id"),
-					rs.getDouble("precoTotal"), 
-					rs.getInt("quantidade"),
-					rs.getInt("idComprador"),
-					rs.getInt("idBebida"),
-					rs.getString("status"));
+			
+			if(rs.next()) {
+				rs.beforeFirst();
+				rs.next();
+				pedido = new Pedido(
+						rs.getInt("id"),
+						rs.getDouble("precoTotal"), 
+						rs.getInt("quantidade"),
+						rs.getInt("idComprador"),
+						rs.getInt("idBebida"),
+						rs.getString("status"));
+			}
 
 			st.close();
 			System.out.println("Success! --- " + pedido.toString());
@@ -105,6 +109,39 @@ public class PedidoDAO extends Banco implements DAO<Pedido> {
 			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			String sql = ("SELECT * FROM pedido");
 			ResultSet rs = st.executeQuery(sql);
+			System.out.println("sql = " + sql);
+			if(rs.next()) {
+				rs.last();
+				pedidos = new Pedido[rs.getRow()];
+				rs.beforeFirst();
+				
+				for(int i = 0; rs.next(); i++) {
+					pedidos[i] = new Pedido(
+											rs.getInt("id"),
+											rs.getDouble("precoTotal"), 
+											rs.getInt("quantidade"),
+											rs.getInt("idComprador"),
+											rs.getInt("idBebida"),
+											rs.getString("status")
+											);
+				}
+			}
+			st.close();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		
+		return pedidos;
+	}
+	
+	public Pedido[] getAllComprador(int id) {
+		Pedido[] pedidos = null;
+					
+		try {
+			Statement st = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			String sql = ("SELECT * FROM pedido WHERE pedido.idComprador = " + id);
+			ResultSet rs = st.executeQuery(sql);
+			System.out.println("sql = " + sql);
 			if(rs.next()) {
 				rs.last();
 				pedidos = new Pedido[rs.getRow()];

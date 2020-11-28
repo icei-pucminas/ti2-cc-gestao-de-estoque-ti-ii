@@ -22,6 +22,7 @@ public class Pedido implements JsonFormatter {
 	private String status;
 	private int idBebida;
 	private int idComprador;
+	private String nomeBebida;
 	
 	public Pedido() { 
 		this(0,0.0,0,0,0);
@@ -38,6 +39,20 @@ public class Pedido implements JsonFormatter {
 		this.status = "aberto";
 	}
 	
+	/**
+	 * @return the nomeBebida
+	 */
+	public String getNomeBebida() {
+		return nomeBebida;
+	}
+
+	/**
+	 * @param nomeBebida the nomeBebida to set
+	 */
+	public void setNomeBebida(String nomeBebida) {
+		this.nomeBebida = nomeBebida;
+	}
+
 	public Pedido(int id, Double precoUnitario, int quantidade, int idBebida, int idComprador) { 
 		super();
 		this.id = id;
@@ -182,6 +197,7 @@ public class Pedido implements JsonFormatter {
 		obj.put("status", this.getStatus());
 		obj.put("idComprador", this.getIdComprador());
 		obj.put("idBebida", this.getIdBebida());
+		obj.put("nomeBebida", this.getNomeBebida());
 		return obj;
 	}
 	

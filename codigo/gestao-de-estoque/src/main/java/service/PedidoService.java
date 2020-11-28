@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import dao.PedidoDAO;
+import dao.BebidaDAO;
 import model.Bebida;
 import model.Pedido;
 import spark.Request;
@@ -14,10 +15,11 @@ import spark.Response;
 
 public class PedidoService implements Service{
 	private PedidoDAO pedidoDAO;
+	private BebidaDAO bebidaDAO;
 
 	public PedidoService() {
 		pedidoDAO = new PedidoDAO();
-
+		bebidaDAO = new BebidaDAO();
 	}
 
 	@Override
@@ -98,8 +100,9 @@ public class PedidoService implements Service{
 	@Override
 	public Object remove(Request request, Response response) {
 		pedidoDAO.connect();
-		
+	
 		int id = Integer.parseInt(request.params(":idPedido"));
+		System.out.println("id = " + id);
 
 		Pedido pedido = (Pedido) pedidoDAO.get(id);
 
@@ -133,7 +136,35 @@ public class PedidoService implements Service{
 		}
 
 		pedidoDAO.close();
-				
+		
+		return allProds;
+
+	}
+	
+	public Object getAllComprador(Request request, Response response) {
+		response.header("Content-Type", "application/json");
+		response.header("Content-Encoding", "UTF-8");
+		
+		int id = Integer.parseInt(request.params(":idComprador"));
+		
+		pedidoDAO.connect();
+		bebidaDAO.connect();
+		
+		JSONArray allProds = new JSONArray();
+		
+		for (Pedido p : pedidoDAO.getAllComprador(id)) {
+			Pedido pedido= (Pedido) p;
+	
+			// Pegar informaçõe sobre a bebida
+			Bebida bebida = bebidaDAO.get(pedido.getIdBebida());
+			pedido.setNomeBebida(bebida.getNome());
+			
+			allProds.put(pedido.toJson());
+		}
+
+		pedidoDAO.close();
+		bebidaDAO.close();
+		
 		return allProds;
 
 	}
