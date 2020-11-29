@@ -1,5 +1,6 @@
 package service;
 
+import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 import java.util.Random;
 
@@ -23,7 +24,7 @@ public class PedidoService implements Service{
 	}
 
 	@Override
-	public Object add(Request request, Response response) {
+	public Object add(Request request, Response response) throws URISyntaxException {
 		pedidoDAO.connect();
 		
 		int idBebida 			= Integer.parseInt(request.queryParams("idBebida"));
@@ -42,7 +43,7 @@ public class PedidoService implements Service{
 	}
 
 	@Override
-	public Object get(Request request, Response response) {
+	public Object get(Request request, Response response) throws URISyntaxException {
 		pedidoDAO.connect();
 		
 		int id = Integer.parseInt(request.params(":idPedido"));
@@ -98,7 +99,7 @@ public class PedidoService implements Service{
 	}
 
 	@Override
-	public Object remove(Request request, Response response) {
+	public Object remove(Request request, Response response) throws URISyntaxException {
 		pedidoDAO.connect();
 	
 		int id = Integer.parseInt(request.params(":idPedido"));
@@ -122,7 +123,7 @@ public class PedidoService implements Service{
 	}
 
 	@Override
-	public Object getAll(Request request, Response response) {
+	public Object getAll(Request request, Response response) throws URISyntaxException {
 		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
 		
@@ -141,7 +142,7 @@ public class PedidoService implements Service{
 
 	}
 	
-	public Object getAllComprador(Request request, Response response) {
+	public Object getAllComprador(Request request, Response response) throws URISyntaxException {
 		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
 		

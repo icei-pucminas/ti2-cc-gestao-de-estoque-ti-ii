@@ -16,7 +16,7 @@ function requestPedidos() {
     let user = JSON.parse(localStorage.getItem("user"));
 
     // Fazer requisição dos pedidos do usuário
-    let url = `http://localhost:6789/all/pedido/${user.id}`;
+    let url = `/all/pedido/${user.id}`;
     let method = `GET`;
 
     xhr.open(method, url);
@@ -75,7 +75,7 @@ function addTable( pedidos ) {
 function removerPedido( id ){
     let xhr = new XMLHttpRequest();
 
-    let url = `http://localhost:6789/delete/pedido/${id}`;
+    let url = `/delete/pedido/${id}`;
     let method = `GET`;
 
     xhr.open(method, url);

@@ -15,14 +15,14 @@ $(window).on("load" , function () {
 // Redirecionar para página de pedidos
 function redirectPedido( codigo ){
     localStorage.setItem("idBebida", JSON.stringify(codigo));
-    window.location.replace("http://127.0.0.1:5500/realizarPedido.html");
+    window.location.replace("/html/pedidos/realizarPedido.html");
 }
 
 // Fazer requisição das bebidas no servidor
 function requestBebidas() {
     // Variável de requisição
     let xhr = new XMLHttpRequest();
-    let actionSrc = `http://localhost:6789/all/bebida`;
+    let actionSrc = `/all/bebida`;
     let method = 'GET';
 
     xhr.addEventListener( 'load', function ( event ) {

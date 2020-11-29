@@ -1,5 +1,7 @@
 package service;
 
+import java.net.URISyntaxException;
+
 import org.json.JSONArray;
 
 import dao.BebidaDAO;
@@ -16,7 +18,7 @@ public class BebidaService implements Service{
 	}
 
 	@Override
-	public Object add(Request request, Response response) {
+	public Object add(Request request, Response response) throws URISyntaxException {
 		bebidaDAO.connect();
 		String nome = request.queryParams("bebidaNome");
 		String descricao = request.queryParams("bebidaDescricao").trim();
@@ -38,7 +40,7 @@ public class BebidaService implements Service{
 	}
 
 	@Override
-	public Object get(Request request, Response response) {
+	public Object get(Request request, Response response) throws URISyntaxException {
 		bebidaDAO.connect();
 		
 		int id = Integer.parseInt(request.params(":idBebida"));
@@ -60,7 +62,9 @@ public class BebidaService implements Service{
 	}
 
 	@Override
-	public Object update(Request request, Response response) {
+	public Object update(Request request, Response response) throws URISyntaxException {
+		bebidaDAO.connect();
+
 		int id = Integer.parseInt(request.params(":idBebida"));
 
 		Bebida bebida = (Bebida) bebidaDAO.get(id);
@@ -88,7 +92,9 @@ public class BebidaService implements Service{
 	}
 
 	@Override
-	public Object remove(Request request, Response response) {
+	public Object remove(Request request, Response response) throws URISyntaxException {
+		bebidaDAO.connect();
+
 		int id = Integer.parseInt(request.params(":idBebida"));
 
 		Bebida bebida = (Bebida) bebidaDAO.get(id);
@@ -107,7 +113,7 @@ public class BebidaService implements Service{
 	}
 
 	@Override
-	public Object getAll(Request request, Response response) {				
+	public Object getAll(Request request, Response response) throws URISyntaxException {				
 		response.header("Content-Type", "application/json");
 		response.header("Content-Encoding", "UTF-8");
 		

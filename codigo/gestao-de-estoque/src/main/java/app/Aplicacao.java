@@ -29,7 +29,6 @@ public class Aplicacao {
 	    });
 		
 		get("/", (req,res) -> Aplicacao.index(req, res)); 
-		get("/hello", "text/html",(req,res) -> render.renderContent("html/login_cadastro/login.html"));
 		
 		//HTTP Methods: Bebida
 		post("/create/bebida", (request,response) ->  bebidaService.add(request, response) );

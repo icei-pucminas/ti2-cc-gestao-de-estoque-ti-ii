@@ -1,6 +1,7 @@
 package service;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -20,7 +21,7 @@ public class UserService {
 		this.userDAO = new UserDAO();
 	}
 	
-	public Object add(Request request, Response response) {
+	public Object add(Request request, Response response) throws URISyntaxException {
 		userDAO.connect();
 		String nome       = request.queryParams("primeiroNome");
 		String sobrenome  = request.queryParams("segundoNome"); 
@@ -34,7 +35,7 @@ public class UserService {
 		userDAO.add(user);
 		
 		response.status(201); // created
-		response.redirect("http://127.0.0.1:5500/index.html");
+		response.redirect("../index.html");
 		
 		int idMax = userDAO.getIdMax();
 		
@@ -44,7 +45,7 @@ public class UserService {
 	}
 	
 	// Efetuar login pelo email
-	public Object get(Request request, Response response) {
+	public Object get(Request request, Response response) throws URISyntaxException {
 		userDAO.connect();
 		
 		String email = request.params(":email");

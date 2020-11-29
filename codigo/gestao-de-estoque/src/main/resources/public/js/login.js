@@ -4,7 +4,7 @@ const form = document.getElementById("formLogin");
 function getUser() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("senha").value;
-    let actionSrc = `http://localhost:6789/get/usuario/${email}`;
+    let actionSrc = `/get/usuario/${email}`;
     
     let xhr = new XMLHttpRequest();
 
@@ -26,11 +26,11 @@ function verifyUser( user, password) {
     let objUser = JSON.parse(user);
     // Verificação de senha
     if(objUser.senha == password) {
-        window.location.replace("http://127.0.0.1:5500/index.html");
+        window.location.replace("/index.html");
         localStorage.setItem('email', JSON.stringify(objUser.email));
     } else {
         alert("Senha incorreta!");
-        window.location.replace("http://127.0.0.1:5500/login.html");
+        window.location.replace("html/login_cadastro/login.html");
     }
 }
 
