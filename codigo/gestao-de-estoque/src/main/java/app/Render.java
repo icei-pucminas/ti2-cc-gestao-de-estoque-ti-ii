@@ -18,7 +18,6 @@ public class Render {
             // getResource() gets that folder
             // and any files you specify.
             URL url = getClass().getResource(htmlFile);
-            System.out.println("URL "+url);
             // Return a String which has all
             // the contents of the file.
             Path path = Paths.get(url.toURI());

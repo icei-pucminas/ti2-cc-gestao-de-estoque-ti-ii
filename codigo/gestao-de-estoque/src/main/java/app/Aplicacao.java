@@ -3,7 +3,11 @@ package app;
 import static spark.Spark.*;
 import app.Render;
 import model.Pedido;
-import service.*;
+import service.BebidaService;
+import service.PedidoService;
+import service.UserService;
+import spark.Request;
+import spark.Response;
 
 public class Aplicacao {
 	
@@ -24,7 +28,8 @@ public class Aplicacao {
 		        res.redirect(path.substring(0, path.length() - 1));
 	    });
 		
-		get("/","text/html",(req,res) -> render.renderContent("index.html")); 
+		get("/", (req,res) -> Aplicacao.index(req, res)); 
+		get("/hello", "text/html",(req,res) -> render.renderContent("html/login_cadastro/login.html"));
 		
 		//HTTP Methods: Bebida
 		post("/create/bebida", (request,response) ->  bebidaService.add(request, response) );
@@ -63,5 +68,15 @@ public class Aplicacao {
         }
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
+	
+	public static String index(Request req, Response res) {
+		res.type("text/html");
+		try{
+			return render.renderContent("index.html");
+		}
+		catch(Exception e) {
+			return e.getMessage();
+		}
+	}
 	
 }
