@@ -24,7 +24,8 @@ public class Aplicacao {
 		        res.redirect(path.substring(0, path.length() - 1));
 	    });
 		
-		get("/","text/html",(req,res) -> render.renderContent("index.html")); //
+		get("/","text/html",(req,res) -> render.renderContent("index.html")); 
+		get("/hello","text/html",(req,res) -> "Hello World"); 
 		get("/html/bebidas/estoqueBebidas.html","text/html", (req,res) -> render.renderContent("estoqueBebidas.html"));
 		
 		//HTTP Methods: Bebida
