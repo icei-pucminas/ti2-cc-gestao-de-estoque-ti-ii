@@ -1,6 +1,7 @@
 package app;
 
 import java.io.IOException;
+import app.Aplicacao;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.Charset;

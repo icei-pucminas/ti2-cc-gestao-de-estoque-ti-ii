@@ -25,8 +25,6 @@ public class Aplicacao {
 	    });
 		
 		get("/","text/html",(req,res) -> render.renderContent("index.html")); 
-		get("/hello","text/html",(req,res) -> "Hello World"); 
-		get("/html/bebidas/estoqueBebidas.html","text/html", (req,res) -> render.renderContent("estoqueBebidas.html"));
 		
 		//HTTP Methods: Bebida
 		post("/create/bebida", (request,response) ->  bebidaService.add(request, response) );
