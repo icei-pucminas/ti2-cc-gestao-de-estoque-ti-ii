@@ -1,7 +1,7 @@
 package app;
 
 import static spark.Spark.*;
-
+import app.Render;
 import model.Pedido;
 import service.*;
 
@@ -10,12 +10,21 @@ public class Aplicacao {
 	private static BebidaService bebidaService = new BebidaService();
 	private static UserService userService = new UserService();
 	private static PedidoService pedidoService = new PedidoService();
+	private static Render render = new Render();
 	
 	public static void main(String[] args) {
-		port(6789);
+		port(getHerokuAssignedPort());
 		
-		staticFiles.externalLocation("C:\\DANNIEL\\1_Escola\\PUC_Coreu\\2020_2\\TI_2_CC\\ti2cc-estoque\\codigo\\gestao-de-estoque\\src\\main\\resources\\public");
-		//staticFiles.location("/public");
+		//staticFiles.externalLocation("C:\\DANNIEL\\1_Escola\\PUC_Coreu\\2020_2\\TI_2_CC\\ti2cc-estoque\\codigo\\gestao-de-estoque\\src\\main\\resources\\public");
+		staticFiles.location("/public");
+		
+		before((req, res) -> {
+		      String path = req.pathInfo();
+		      if (path.endsWith("/"))
+		        res.redirect(path.substring(0, path.length() - 1));
+	    });
+		
+		get("/","text/html",(req,res) -> render.renderContent("index.html")); 
 		
 		//HTTP Methods: Bebida
 		post("/create/bebida", (request,response) ->  bebidaService.add(request, response) );
@@ -46,5 +55,13 @@ public class Aplicacao {
 		get("/all/pedido", (request, response) -> pedidoService.getAll(request, response));
 		get("/all/pedido/:idComprador", (request, response) -> pedidoService.getAllComprador(request, response));
 	}
+	
+	private static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
 	
 }
