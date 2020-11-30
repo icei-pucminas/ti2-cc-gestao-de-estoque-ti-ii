@@ -70,6 +70,7 @@ de trabalho foi utilizado a IDE Eclipse.
 - (MODEL) O modelo da aplicação é feita no banco de dados relacional PostgreSQL
 
     2.3. Serviços inteligentes
+    
 A proposta da integração de um sistema inteligente no software é inovadora e de alto potêncial. De maneira simples, as tecnologias que futuramente serão implementadas no projeto CONEXUS SYSTEM, tem como objetivo realizar pesquisas dentro do proprio banco de dados de fornecedores & produtos para transformar a demanda do usuário em uma simples tarefa. Dessa maneira, apartir da utilização da tecnologia de inteligência artificial programada para atuar a partir da interação e conhecimento do desejo do usuário, será possível gerar resultados imediatos apartir de necessidades evidênciadas durante uma simples conversa ou exigência direta. Por fim, a equipe também se interessa por captar e filtrar informações de outras plataformas de venda para inclusão no banco de dados por meio de serviços inteligentes.
 
 ![Fluxo do serviço inteligênte](imagens/servicoInteligente.png "Diagrama de tencologias")
@@ -139,8 +140,11 @@ O software é intuitivo. A interação com o menu lateral torna possível visual
 
 **7. Conclusão**
 
-Nesse momento, as expectivas são altas. Com o novo método adotado pelo time de, não se preocupar, nesse momento, com a interface externa, o projeto promete uma estrutura robusta de back-end. 
+Com o uso das tecnologias utilizadas, a última versão do projeto foi divulgada em http://conexussystem.herokuapp.com/, em que cumpriu os requisitos do sistema. Esta versão do projeto possui uma estrutura de banco de dados simplificada disponível nas atas, mas que segue a estrutura do DER diponível nesse conteúdo. O acesso ao site é possível a partir de um cadastro de um usuário - que será tanto fornecedor quanto comprador - e realização de pedidos encima do estoque disponível. Por fim, o assistente virtual auxilia com a navegação pelo site e com as funcionalidades disponíveis.
 
+**8. Percspectivas Futuras**
+
+As perspectivas futuras consistem em uma sofitsticação do script de banco usado nessa versão do projeto atual, colocando a questão de seperação de fornecedores de compradores - restringindo as views - juntamente com a implementação de uma sessão de usuários separadas para cada um. Também o implementação de fornecedores por cidade escolhida, como previsto no modelo de dados. Também a implementação do sistema inteligente para analisar os melhores produtos dos melhores fornecedores disponíveis na internet, previsto nesse documento.
 
 **REFERÊNCIAS**
 
