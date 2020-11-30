@@ -131,8 +131,7 @@ o diagrama de entidade-relacionamento do sistema, que explica a relação entre 
 
 **5. Sistema desenvolvido**
 
-O sistema se encontra em estado de teste, sendo trabalhado no momento, o aperfeiçoamento de interações CRUD. Com objetivo de obter 100% do funcionamento das ferramentas utilizadas, foi adotado pela equipe uma interface estatica para facilitar as interacoes e consultas efetivadas. Na pagina, 162.214.151.86/~ti2/ , o sistema se divide, no momento em 3 fases, contendo um header, um painel lateral esquerdo e uma tela de reproducao dos elementos, centralizada no meio/canto direito.
-As seguintes opcoes estao disponiveis, "Registrar" & "Fornecedor", porem ainda nao estao sincronizadas com o atual banco de dados.
+O sistema desenvolvido basea-se em uma versão resumida dos dados disponíveis nesse documento, sendo possível encontra-la nas atas desse respositório. Basicamente cumpre os requisitos de realização de pedidos a partir de um site, em que um usuário é capaz de realizar pedidos e também cadastrar bebidas para ficarem disponíveis ao sistema de estoque.
 
 **6. Avaliação**
 
