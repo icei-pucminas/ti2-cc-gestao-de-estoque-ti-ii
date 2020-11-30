@@ -71,9 +71,17 @@ de trabalho foi utilizado a IDE Eclipse.
 
     2.3. Serviços inteligentes
     
-A proposta da integração de um sistema inteligente no software é inovadora e de alto potêncial. De maneira simples, as tecnologias que futuramente serão implementadas no projeto CONEXUS SYSTEM, tem como objetivo realizar pesquisas dentro do proprio banco de dados de fornecedores & produtos para transformar a demanda do usuário em uma simples tarefa. Dessa maneira, apartir da utilização da tecnologia de inteligência artificial programada para atuar a partir da interação e conhecimento do desejo do usuário, será possível gerar resultados imediatos apartir de necessidades evidênciadas durante uma simples conversa ou exigência direta. Por fim, a equipe também se interessa por captar e filtrar informações de outras plataformas de venda para inclusão no banco de dados por meio de serviços inteligentes.
+A proposta da integração de um sistema inteligente no software é inovadora e de alto potêncial, por meio da plataforma Blip. De maneira simples, as tecnologias implementadas no projeto CONEXUS SYSTEM, tem como objetivo realizar pesquisas dentro do proprio banco de dados de fornecedores & produtos para transformar a demanda do usuário em uma simples tarefa. Dessa maneira, apartir da utilização da tecnologia de inteligência artificial programada para atuar a partir da interação e conhecimento do desejo do usuário, é possível gerar resultados imediatos apartir de necessidades evidênciadas durante uma simples conversa ou exigência direta. Por fim, a equipe também se interessa por captar e filtrar informações de outras plataformas de venda para inclusão no banco de dados por meio de serviços inteligentes.
 
 ![Fluxo do serviço inteligênte](imagens/servicoInteligente.png "Diagrama de tencologias")
+### is canvas ###
+![Is canvas](imagens/is_canvas.png)
+
+### Fluxo do usuário ###
+![grafo de dialogo](imagens/grafo_dialogo.png)
+
+ - Link para testes e experimentações do chatbot: https://chat.blip.ai/?appKey=Ym94eTE6ODkxMDE0NzctMjdmNC00MDk5LWE2MjYtYzQ4ZWM0OThhYjQ1 
+
 
 **3. Metodologia**
 
