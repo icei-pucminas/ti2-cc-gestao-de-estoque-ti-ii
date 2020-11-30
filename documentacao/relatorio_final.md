@@ -142,7 +142,7 @@ O software é intuitivo. A interação com o menu lateral torna possível visual
 
 Com o uso das tecnologias utilizadas, a última versão do projeto foi divulgada em http://conexussystem.herokuapp.com/, em que cumpriu os requisitos do sistema. Esta versão do projeto possui uma estrutura de banco de dados simplificada disponível nas atas, mas que segue a estrutura do DER diponível nesse conteúdo. O acesso ao site é possível a partir de um cadastro de um usuário - que será tanto fornecedor quanto comprador - e realização de pedidos encima do estoque disponível. Por fim, o assistente virtual auxilia com a navegação pelo site e com as funcionalidades disponíveis.
 
-**8. Percspectivas Futuras**
+**8. Perspectivas Futuras**
 
 As perspectivas futuras consistem em uma sofitsticação do script de banco usado nessa versão do projeto atual, colocando a questão de seperação de fornecedores de compradores - restringindo as views - juntamente com a implementação de uma sessão de usuários separadas para cada um. Também o implementação de fornecedores por cidade escolhida, como previsto no modelo de dados. Também a implementação do sistema inteligente para analisar os melhores produtos dos melhores fornecedores disponíveis na internet, previsto nesse documento.
 
